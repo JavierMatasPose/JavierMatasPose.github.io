@@ -26,4 +26,4 @@ During my last Master´s year I worked and studied part time. In SDG I provided 
 ### Artificial Intelligence in financial markets. Master’s thesis
 I have developed and implemented an artificial intelligence in a financial market simulation environment, which buys and sells shares automatically through a real broker. It is Based on Deep Reinforcement Learning, taking inspiration from AlphaZero and AlphaTensor. It has traded automatically on the Nasdaq, and has been awarded 3rd place in an international competition for quantitative trading algorithms, named Robotrader.
 Additionally, I had the honour to present it at the Madrid Stock Exchange, in a talk I gave on AI for trading (in Spanish). Starting at 1:32:45, at this link:
-- [[AI for trading](https://img.youtube.com/vi/5EibcbIFkjs&t=7829s/0.jpg)](https://www.youtube.com/watch?v=5EibcbIFkjs&t=7829s)
+- [AI for trading](https://www.youtube.com/watch?v=5EibcbIFkjs&t=7829s)

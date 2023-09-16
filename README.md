@@ -1,5 +1,3 @@
-# JavierMatasPose.github.io
-
 # AI Engineer and PhD candidate
 
 ### Education

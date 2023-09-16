@@ -19,8 +19,9 @@ I´m currently developing and implementing AI solutions such as:
 - AI chatbot
 
 ### Data Analist intern @ SDG Group
-– I worked providing technical assistance in the development of Business Analytics applications
-– I performed Data Extraction, Transformation and Loading tasks
+During my last Master´s year I worked and studied part time
+- I provided technical assistance in the development of Business Analytics applications
+- I performed Data Extraction, Transformation and Loading tasks
 
 ## Personal Projects
 ### Artificial Intelligence in financial markets @ Master’s thesis

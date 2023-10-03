@@ -15,9 +15,9 @@ Specialised in Machine Learning, Deep Learning and Multimedia Data Science. Outs
 
 ## Work Experience
 **Artificial Intelligence Engineer @ DXC Technology (_august 2023 - Present_)**
-I'm currently developing and implementing AI solutions such as: 
-- Internal GPT, to deal with data privacy, to sumarize documents and to answer cuestions about those documents.
-- AI chatbot to help supermarket clients do the shopping list or creating custom recipes using those products.
+I am currently collaborating as a team member involved in the development and implementation of AI solutions.
+- Carrying out tasks such as software developing or prompt engineering.
+- Alongside my team, I am helping to develop internal and external AI tools and solutions , among others.
 
 **Data Analist intern @ SDG Group (_july 2022 - may 2023_)**
 During my last Master's year I worked and studied part time. In SDG I provided technical assistance in the development of Business Analytics applications as well as I performed Data Extraction, Transformation and Loading tasks.

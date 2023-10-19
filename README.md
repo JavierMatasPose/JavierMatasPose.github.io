@@ -1,6 +1,10 @@
 # AI Engineer and PhD candidate
 
-I'm a Telecommunications Engineer working as an AI Engineer, who loves continuous learning and is eager to create impactful innovations for the future. I enjoy engineering, deep learning and solving new challenges. Furthermore, I'm experienced in transforming ideas into practical solutions through theoretical analysis and real-world problem-solving. I have a strong background in Machine Learning, Deep Learning, Deep Reinforcement Learning, signal processing and computer vision, and I am ready to make contributions in these fields. Currently, I'm pursuing a PhD to further explore the possibilities and applications of AI and contribute to cutting-edge research. 
+I am a Telecommunications Engineer, with deep passion for lifelong learning and a strong drive to craft innovative solutions for the future. I find joy in the fields of engineering, deep learning, and tackling new challenges. Furthermore, I possess valuable experience in translating abstract concepts into practical solutions through theoretical analysis and real-world problem-solving.
+
+Additionally, I bring a robust background in Machine Learning, Deep Learning, Deep Reinforcement Learning, signal processing, and computer vision to the table. I'm fully prepared to make significant contributions in these areas.
+
+At present, I am actively working full time while pursuing a PhD to further explore the boundless possibilities and practical applications of AI in financial markets.
 
 #### Technical Skills: Python, SQL, Java or Qlik among others
 

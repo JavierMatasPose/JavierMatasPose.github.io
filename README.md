@@ -1,4 +1,4 @@
-# AI Engineer and PhD candidate
+# AI and Telecommunications Engineer
 
 I am a Telecommunications Engineer, with deep passion for lifelong learning and a strong drive to craft innovative solutions for the future. I find joy in the fields of engineering, deep learning, and tackling new challenges. Furthermore, I possess valuable experience in translating abstract concepts into practical solutions through theoretical analysis and real-world problem-solving.
 

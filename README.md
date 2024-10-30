@@ -2,16 +2,11 @@
 
 I am a Telecommunications Engineer, with deep passion for lifelong learning and a strong drive to craft innovative solutions for the future. I find joy in the fields of engineering, deep learning, and tackling new challenges. Furthermore, I possess valuable experience in translating abstract concepts into practical solutions through theoretical analysis and real-world problem-solving.
 
-Additionally, I bring a robust background in Machine Learning, Deep Learning, Deep Reinforcement Learning, signal processing, and computer vision to the table. I'm fully prepared to make significant contributions in these areas.
+Additionally, I have a strong entrepreneurial and product vocation, with an interest in creating ML or DL projects that are a business success.
 
-At present, I am actively working full time while pursuing a PhD to further explore the boundless possibilities and practical applications of AI in financial markets.
-
-#### Technical Skills: Python, SQL, Java or Qlik among others
+#### Technical Skills: Python, SQL, LangChain, Azure DevOps, FastAPI, Pytorch, NumPy and Pandas
 
 ## Education
-### Ph.D. candidate in Telecommunications Engineering | Universidad Politécnica de Madrid
-I'm currently investigating on the application of DRL to financial markets.
-  
 ### Master's Degree in Telecommunication Engineering | Universidad Politécnica de Madrid
 Specialised in Machine Learning, Deep Learning and Multimedia Data Science. Outside Spain it is called Electrical Engineering.
   
@@ -19,9 +14,19 @@ Specialised in Machine Learning, Deep Learning and Multimedia Data Science. Outs
 
 ## Work Experience
 **Artificial Intelligence Engineer @ DXC Technology (_august 2023 - Present_)**
-I am currently collaborating as a team member involved in the development and implementation of AI solutions.
-- Carrying out tasks such as software developing or prompt engineering.
-- Alongside my team, I am helping to develop internal and external AI tools and solutions , among others.
+
+I am currently collaborating as a team member involved in the development and implementation of Generative AI solutions.
+- Development, implementation and performance tracking of a text processing tool, based on Azure Form Recognizer,
+that improves document table extraction and recognition by 15% in RAG solutions
+-  Collaboration in the development of a platform to accelerate generative AI solutions partnering with Ferrovial.
+Involved in the design and programming of libraries, the API using FastAPI, the Postgres SQL database, and the
+execution of MLOps tasks
+- deation, creation and implementation of an interactive tool for the generation of executive summaries from internal
+documentation, using foundational LLMs and RAG. Used internally, it has reduced the time to create executive
+summaries by 50% to 70%
+- Design and production of a tool that allows generating a battery of suggested questions from documents in a
+database. Improves the user experience with chatbots since it offers a variety of questions that can always be
+answered (by the chatbot) when they arise from the document database
 
 **Data Analist intern @ SDG Group (_july 2022 - may 2023_)**
 During my last Master's year I worked and studied part time. In SDG I provided technical assistance in the development of Business Analytics applications as well as I performed Data Extraction, Transformation and Loading tasks.

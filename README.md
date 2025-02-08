@@ -36,3 +36,21 @@ During my last Master's year I worked and studied part time. In SDG I provided t
 I have developed and implemented an artificial intelligence in a financial market simulation environment, which buys and sells shares automatically through a real broker. It is Based on Deep Reinforcement Learning, taking inspiration from AlphaZero and AlphaTensor. It has traded automatically on the Nasdaq, and has been awarded 3rd place in an international competition for quantitative trading algorithms, named Robotrader.
 Additionally, I had the honour to present it at the Madrid Stock Exchange, in a talk I gave on AI for trading (in Spanish). Starting at 1:32:45, at this link:
 - [AI for trading](https://www.youtube.com/watch?v=5EibcbIFkjs&t=7829s)
+
+
+### DQNTicTacToe
+
+DQNTicTacToe is a full-stack web application where you can challenge a self-taught Deep Q-Network agent in a game of Tic Tac Toe. This project blends reinforcement learning with a user-friendly web interface, showcasing the potential of self-learning AI through interactive gameplay.
+
+The DQN agent has learned the basics of Tic Tac Toe via self-play, but it continues to evolve with every game played against real users. By combining my reinforcement learning expertise with full application deployment, this project highlights both technical depth and practical implementation.
+
+Tech Stack: Python, Flask (for the web interface), Gymnasium (for game mechanics), and PyTorch (for deep learning).
+
+Live Demo: Play against the AI here
+
+- [Play the agent](https://dqntictactoe.onrender.com/)
+
+Open Source: Explore the GitHub repository
+- [GH DQNTicTacToe](https://github.com/JavierMatasPose/DQNTicTacToe.git)
+
+I welcome feedback, contributions, and, of course, your best moves again

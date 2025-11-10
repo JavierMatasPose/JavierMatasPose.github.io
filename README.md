@@ -1,56 +1,79 @@
-# AI and Telecommunications Engineer
+# Javier Cayetano Matas Pose  
+Senior AI Engineer | Specialized in Data Consulting, Generative AI & LLMs  
+📞 +34 663 298 897 · ✉️ javiermatasjr@gmail.com · [LinkedIn](https://www.linkedin.com/in/javier-matas) · [GitHub](https://github.com/JavierMatasPose)  
 
-I am a Telecommunications Engineer, with deep passion for lifelong learning and a strong drive to craft innovative solutions for the future. I find joy in the fields of engineering, deep learning, and tackling new challenges. Furthermore, I possess valuable experience in translating abstract concepts into practical solutions through theoretical analysis and real-world problem-solving.
+---
 
-Additionally, I have a strong entrepreneurial and product vocation, with an interest in creating ML or DL projects that are a business success.
+## About Me  
+I’m an AI Engineer with 3+ years of experience designing, deploying and scaling Gen AI, LLM and Agentic solutions. 
+My work is all about solving real world problems with fast, reliable and profitable technology.
+Today, I focus on generative AI solutions that scale and deliver measurable business value.
 
-#### Technical Skills: Python, SQL, LangChain, Azure DevOps, FastAPI, Pytorch, NumPy and Pandas
+Today I focus on:  
+- Architecting and deploying systems that **turn complex problems into operational advantages**.  
+- Building Gen AI platforms integrating vision, language, realtime data streams and agentic frameworks.  
+- Designing agentic systems and MCPs that act autonomously yet safely.  
+- Progressing toward a role as Solutions Architect in Generative AI.
 
-## Education
-### Master's Degree in Telecommunication Engineering | Universidad Politécnica de Madrid
-Specialised in Machine Learning, Deep Learning and Multimedia Data Science. Outside Spain it is called Electrical Engineering.
-  
-### Bachelor's Degree in Telecommunication Engineering | Universidad Politécnica de Madrid
+---
 
-## Work Experience
-**Artificial Intelligence Engineer @ DXC Technology (_august 2023 - Present_)**
+## Technical Skills  
+**Languages & Tools:** Python (3+ yrs) · SQL (4+ yrs) · Bash/Shell scripting  
+**AI / ML & LLMs:** PyTorch · TensorFlow · scikit-learn · Hugging Face · LangChain · LangGraph · Pydantic AI · A2A · MCPs
+**Data & Analytics:** NumPy · Pandas · PostgreSQL  
+**Cloud & DevOps:** Azure · AWS · Docker · Kubernetes · Git · GitHub  
 
-I am currently collaborating as a team member involved in the development and implementation of Generative AI solutions.
-- Development, implementation and performance tracking of a text processing tool, based on Azure Form Recognizer,
-that improves document table extraction and recognition by 15% in RAG solutions
--  Collaboration in the development of a platform to accelerate generative AI solutions partnering with Ferrovial.
-Involved in the design and programming of libraries, the API using FastAPI, the Postgres SQL database, and the
-execution of MLOps tasks
-- deation, creation and implementation of an interactive tool for the generation of executive summaries from internal
-documentation, using foundational LLMs and RAG. Used internally, it has reduced the time to create executive
-summaries by 50% to 70%
-- Design and production of a tool that allows generating a battery of suggested questions from documents in a
-database. Improves the user experience with chatbots since it offers a variety of questions that can always be
-answered (by the chatbot) when they arise from the document database
+**Languages (spoken):** Spanish (native) · English (C1+) · German (A2)  
 
-**Data Analist intern @ SDG Group (_july 2022 - may 2023_)**
-During my last Master's year I worked and studied part time. In SDG I provided technical assistance in the development of Business Analytics applications as well as I performed Data Extraction, Transformation and Loading tasks.
+---
 
-## Personal Projects
-### Artificial Intelligence in financial markets. Master's thesis
-I have developed and implemented an artificial intelligence in a financial market simulation environment, which buys and sells shares automatically through a real broker. It is Based on Deep Reinforcement Learning, taking inspiration from AlphaZero and AlphaTensor. It has traded automatically on the Nasdaq, and has been awarded 3rd place in an international competition for quantitative trading algorithms, named Robotrader.
-Additionally, I had the honour to present it at the Madrid Stock Exchange, in a talk I gave on AI for trading (in Spanish). Starting at 1:32:45, at this link:
-- [AI for trading](https://www.youtube.com/watch?v=5EibcbIFkjs&t=7829s)
+## Experience  
+### Senior Artificial Intelligence Engineer · **Capgemini**, Madrid, Spain · June 2025 – Present  
+- Developing Agents & MCPs for Banco Santander, enabling advanced autonomous workflows. 
 
+### Artificial Intelligence Engineer · **DXC Technology**, Madrid, Spain · 2023 – May 2025  
+- Delivered an executive-summarization tool in collaboration with stakeholders, reducing report preparation time by **50–70%**.  
+- Built a scalable Gen AI platform (“Quercus”) using FastAPI, PostgreSQL and vector-stores, improving operational efficiency.  
+- Deployed and managed AI applications on Azure with Docker & Kubernetes, ensuring robust and compliant production environments.  
 
-### DQNTicTacToe
+### Data Analyst · **SDG Group**, Madrid, Spain · 2022 – 2023  
+- Developed business-analytics applications using QlikView, QlikSense & PowerBI, enabling data-driven decisions.  
+- Executed ETL processes using SQL to streamline data manipulation, supporting architecture & governance initiatives.  
 
-DQNTicTacToe is a full-stack web application where you can challenge a self-taught Deep Q-Network agent in a game of Tic Tac Toe. This project blends reinforcement learning with a user-friendly web interface, showcasing the potential of self-learning AI through interactive gameplay.
+---
 
-The DQN agent has learned the basics of Tic Tac Toe via self-play, but it continues to evolve with every game played against real users. By combining my reinforcement learning expertise with full application deployment, this project highlights both technical depth and practical implementation.
+## Projects & Research  
+### AI in Financial Markets (Master’s Thesis)  
+- Developed a deep‐reinforcement-learning trading system, inspired by AlphaZero & AlphaTensor, interfacing with a real brokerage and achieving returns up to **47.3%**.  
+- Ranked **Top 3** in the international algorithmic-trading competition Robotrader (2022-2023).  
+- Delivered a keynote at the Madrid Stock Exchange (in Spanish).  
+  [Watch here](https://www.youtube.com/watch?v=5EibcbIFkjs&t=7829s) (starts at 1:32:45)  
 
-Tech Stack: Python, Flask (for the web interface), Gymnasium (for game mechanics), and PyTorch (for deep learning).
+### DQNTicTacToe  
+- A full-stack web application where you can challenge a self-taught Deep Q-Network agent in Tic-Tac-Toe. Built with Python, Flask, Gymnasium & PyTorch.  
+- The DQN agent learns via self-play and evolves with user-interaction.  
+- Live demo: [Play the agent](https://dqntictactoe.onrender.com/)  
+- Open-source: [GitHub repo](https://github.com/JavierMatasPose/DQNTicTacToe)  
 
-Live Demo: Play against the AI here
+---
 
-- [Play the agent](https://dqntictactoe.onrender.com/)
+## Education  
+**M.Sc. & B.Sc. Telecommunications (Electrical) Engineering**  
+Universidad Politécnica de Madrid (UPM), ETSIT – Madrid, Spain  
+Specialization: Machine Learning · Deep Learning · Multimedia Data Science  
 
-Open Source: Explore the GitHub repository
-- [GH DQNTicTacToe](https://github.com/JavierMatasPose/DQNTicTacToe.git)
+---
 
-I welcome feedback, contributions, and, of course, your best moves again
+## Achievements  
+- Top 3 in the Robotrader international quantitative trading algorithms competition (2022-2023)  
+- Keynote presentation at the Madrid Stock Exchange on AI in financial markets (2023)  
+- Member of Mensa International – the world’s largest high-IQ society (2023-now)  
+
+---
+
+## Let’s Connect  
+Feel free to reach out via email at javiermatasjr@gmail.com or connect on LinkedIn.  
+I’m always open to new opportunities, collaborations and discussions around generative-AI solutions, scalable platforms and data-driven innovation.
+
+---
+

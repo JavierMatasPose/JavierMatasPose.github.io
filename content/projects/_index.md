@@ -7,7 +7,7 @@ layout: "simple"
 <div class="vintage-container">
 <header class="poster-header">
 <div class="header-left">
-<h2 class="retro-headline">BUILDING<br>THE FUT<span class="ai-highlight">URE</span></h2>
+<h2 class="retro-headline">THE FUTURE<br>IS <span class="glue-word">TOD<span class="highlight-ai">AI!</span></span></h2>
 </div>
 <div class="header-right">
 <h1 class="main-title-projects">PROJECTS</h1>
@@ -34,7 +34,7 @@ layout: "simple"
 <h3 class="project-title">AI IN FINANCIAL MARKETS</h3>
 <p class="project-subtitle">Master's Thesis & Robotrader</p>
 <p class="project-description">
-Deep Reinforcement Learning (DRL) trading system inspired by AlphaZero. Traded live on Nasdaq, demonstrating autonomous decision-making in complex financial environments.
+Witness the power of an AlphaZero-inspired brain conquering the Nasdaq. This isn't just a trading system; it's an autonomous force making split-second decisions in the world’s most complex financial arenas. High-stakes intelligence at its peak.
 </p>
 <div class="tech-stack">
 <span class="tech-stack-tag">Python</span>
@@ -44,6 +44,7 @@ Deep Reinforcement Learning (DRL) trading system inspired by AlphaZero. Traded l
 </div>
 <div class="click-hint">(Click for Details)</div>
 <div class="project-reveal">
+<p>Developed an autonomous agent capable of buying and selling shares through a real broker simulation.</p>
 <ul class="clean-list">
 <li>📈 <strong>Returns:</strong> Up to 47.3% in simulations.</li>
 <li>🏆 <strong>Award:</strong> Top 3 at Robotrader International Competition.</li>
@@ -73,7 +74,7 @@ Deep Reinforcement Learning (DRL) trading system inspired by AlphaZero. Traded l
 <h3 class="project-title">DQNTICTACTOE</h3>
 <p class="project-subtitle">Full Stack + RL</p>
 <p class="project-description">
-A web application challenging users against a self-taught Deep Q-Network (DQN) agent. Showcases the integration of reinforcement learning models into a full-stack environment.
+Step into the ring against a self-taught digital mind. This project bridges the gap between raw reinforcement learning and seamless user experience—a true showcase of world-class intelligence integrated into every pixel. Dare to play?
 </p>
 <div class="tech-stack">
 <span class="tech-stack-tag">Python</span>

@@ -7,7 +7,7 @@ layout: "simple"
 <div class="vintage-container">
 <header class="poster-header">
 <div class="header-left">
-<h2 class="retro-headline">THE FUTURE<br>IS TOD<span class="ai-highlight">AI</span></h2>
+<h2 class="retro-headline">THE FUTURE<br>IS <span class="glue-word">TOD<span class="highlight-ai">AI!</span></span></h2>
 </div>
 <div class="header-right">
 <h1 class="main-title-about">ABOUT ME</h1>
@@ -20,10 +20,10 @@ layout: "simple"
 <img src="/JMLinkedin.jpeg" alt="Javier Matas Poster" onerror="this.style.display='none'">
 </div>
 <div class="bio-card">
-<p>I am a Senior AI Engineer with over 3 years of experience designing and deploying Generative AI applications in production. I have strong hands-on expertise in FastAPI microservices, vector stores, RAG pipelines, and AI workflow orchestration.</p>
+<p>Battle-tested expertise in the high-stakes world of production AI. For over three years, I’ve been architecting the systems that define tomorrow—transforming raw code into living intelligence. I don't just build applications; I deploy the future.</p>
 </div>
 <div class="bio-card">
-<p>Beyond technology, I am a member of Mensa International and deeply passionate about Brazilian Jiu-Jitsu (BJJ) and Quantitative Finance.</p>
+<p>When the machines rest, the pursuit of excellence continues. I thrive on the world’s toughest cognitive challenges, while the discipline of Brazilian Jiu-Jitsu and the precision of Quantitative Finance keep my focus razor-sharp.</p>
 </div>
 </aside>
 <main class="main-col">

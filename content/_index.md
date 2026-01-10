@@ -5,7 +5,8 @@ layout: "simple"
 ---
 <div class="hero-container">
 <h1 class="poster-text home-title">
-THE FUTURE <br> IS TOD<span class="highlight-ai">AI</span>
+THE FUTURE <br> IS 
+<span class="glue-word">TOD<span class="highlight-ai">AI!</span></span>
 </h1>
 </div>
 <div class="ad-box">

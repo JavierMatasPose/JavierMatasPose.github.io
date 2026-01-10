@@ -17,9 +17,11 @@ layout: "simple"
 </header>
 <div class="projects-grid">
 <!-- Project 1 -->
-<div class="project-card">
+<div class="expandable-wrapper">
+<input type="checkbox" id="proj-finance" class="toggle-input">
+<label for="proj-finance" class="project-card">
 <div class="project-image-placeholder">
-<pre style="font-size: 0.7rem; line-height: 1;">
+<pre class="ascii-art-small">
       /\
      /  \
     /    \    /\
@@ -41,13 +43,32 @@ Deep Reinforcement Learning (DRL) trading system inspired by AlphaZero. Traded l
 <span>DRL</span>
 <span>Quant Finance</span>
 </div>
-<a href="https://www.youtube.com/watch?v=5EibcbIFkjs&t=7829s" target="_blank" class="project-button">WATCH TALK</a>
+<div class="click-hint">(Click for Details)</div>
+<div class="project-reveal">
+<p>Developed an autonomous agent capable of buying and selling shares through a real broker simulation.</p>
+<ul class="clean-list">
+<li>📈 <strong>Returns:</strong> Up to 47.3% in simulations.</li>
+<li>🏆 <strong>Award:</strong> Top 3 at Robotrader International Competition.</li>
+<li>🧠 <strong>Tech:</strong> PyTorch, OpenAI Gym, Python.</li>
+</ul>
+<div class="project-links-container">
+<a href="https://www.youtube.com/watch?v=5EibcbIFkjs&t=7829s" target="_blank" class="retro-link-btn">Watch Talk</a>
 </div>
+<div class="project-tags-container">
+<span class="tech-stack-tag">Python</span>
+<span class="tech-stack-tag">RL</span>
+<span class="tech-stack-tag">Finance</span>
+</div>
+</div>
+</div>
+</label>
 </div>
 <!-- Project 2 -->
-<div class="project-card">
+<div class="expandable-wrapper">
+<input type="checkbox" id="proj-tictac" class="toggle-input">
+<label for="proj-tictac" class="project-card">
 <div class="project-image-placeholder">
-<pre style="font-size: 1rem; line-height: 1;">
+<pre class="ascii-art">
  X | O | X 
 ---+---+---
  O | X |   
@@ -67,8 +88,25 @@ A web application challenging users against a self-taught Deep Q-Network (DQN) a
 <span>Flask</span>
 <span>RL</span>
 </div>
-<a href="https://dqntictactoe.onrender.com/" target="_blank" class="project-button">PLAY NOW</a>
+<div class="click-hint">(Click for Details)</div>
+<div class="project-reveal">
+<p>A full-stack implementation where RL meets Web Development. The agent learns from self-play and evolves.</p>
+<ul class="clean-list">
+<li>🎮 <strong>Interactive:</strong> Play against the AI in real-time.</li>
+<li>🛠️ <strong>Stack:</strong> Flask (Backend), PyTorch (AI), Gymnasium.</li>
+</ul>
+<div class="project-links-container">
+<a href="https://dqntictactoe.onrender.com/" target="_blank" class="retro-link-btn">Play Now</a>
+<a href="https://github.com/JavierMatasPose/DQNTicTacToe.git" target="_blank" class="retro-link-btn">GitHub</a>
 </div>
+<div class="project-tags-container">
+<span class="tech-stack-tag">Flask</span>
+<span class="tech-stack-tag">PyTorch</span>
+<span class="tech-stack-tag">Web</span>
+</div>
+</div>
+</div>
+</label>
 </div>
 </div>
 </div>

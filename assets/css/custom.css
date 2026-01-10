@@ -20,11 +20,8 @@ body, html {
 }
 
 /* =========================================
-   BLOWFISH OVERRIDES (SOLUCIÓN DEFINITIVA)
+   BLOWFISH OVERRIDES
    ========================================= */
-
-/* 1. OCULTAR TODO H1 POR DEFECTO EN CABECERAS */
-/* Esto mata los títulos negros automáticos */
 header h1, 
 article > header h1,
 main > header h1,
@@ -32,8 +29,6 @@ main > header h1,
     display: none !important;
 }
 
-/* 2. EXCEPCIÓN: MOSTRAR NUESTROS TÍTULOS */
-/* Si el h1 está dentro de nuestros contenedores, se muestra */
 .hero-container h1,
 .vintage-container h1,
 .poster-header h1 {
@@ -41,7 +36,6 @@ main > header h1,
     visibility: visible !important;
 }
 
-/* Resetear fondos y espacios */
 .article-content, main, header, footer {
     background: transparent !important;
     padding: 0 !important;
@@ -66,7 +60,6 @@ main > header h1,
     margin: 40px auto 0 auto !important;
 }
 
-/* --- CABECERA COMÚN --- */
 .poster-header {
     display: flex;
     justify-content: space-between;
@@ -78,8 +71,44 @@ main > header h1,
     gap: 20px;
 }
 
+.main-title-about, .main-title-projects {
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    color: var(--paper-yellow);
+    text-shadow: 5px 5px 0px var(--shadow-blue), 10px 10px 0px var(--accent-mauve);
+    margin: 0;
+    line-height: 0.9;
+    font-family: 'Bungee', cursive;
+}
+
+.retro-headline {
+    color: var(--paper-yellow);
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    line-height: 1;
+    text-shadow: 3px 3px 0px var(--shadow-blue);
+    font-family: 'Bungee', cursive;
+    margin: 0;
+}
+
+.ai-highlight {
+    color: #fff;
+    text-decoration: underline white 6px;
+    text-underline-offset: 8px;
+    display: inline-block;
+}
+
+.subtitle-tag {
+    background: var(--paper-yellow);
+    color: var(--ink-black);
+    padding: 0.5rem 1.5rem;
+    font-weight: bold;
+    border: 2px solid var(--ink-black);
+    display: inline-block;
+    transform: rotate(-1deg);
+    margin-top: 10px;
+}
+
 /* =========================================
-   HERO SECTION (PORTADA)
+   HERO SECTION
    ========================================= */
 .hero-container {
   display: flex;
@@ -117,45 +146,38 @@ main > header h1,
   transform: rotate(-2deg);
 }
 
-.ai-highlight {
-    color: #fff;
-    text-decoration: underline white 6px;
-    text-underline-offset: 8px;
-    display: inline-block;
+/* New Extracted Utility Classes */
+.why-settle-tag {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--bg-red);
+    font-size: 1.3rem;
+    text-align: center;
+    border: 2px solid var(--bg-red);
+    padding: 5px;
+    transform: rotate(-1deg);
+    margin-bottom: 1rem;
+}
+
+.specs-box {
+    background: rgba(122, 130, 248, 0.2);
+    border: 2px dashed var(--ink-black);
+    padding: 15px;
+    margin: 25px 0;
+}
+
+.footer-slogan {
+    text-align: center;
+    font-size: 0.75rem;
+    margin-top: 25px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 /* =========================================
-   ABOUT ME & PROJECTS COMMON
+   ABOUT ME SECTION
    ========================================= */
-.main-title-about, .main-title-projects {
-    font-size: clamp(3rem, 6vw, 5.5rem);
-    color: var(--paper-yellow);
-    text-shadow: 5px 5px 0px var(--shadow-blue), 10px 10px 0px var(--accent-mauve);
-    margin: 0;
-    line-height: 0.9;
-    font-family: 'Bungee', cursive;
-}
-
-.retro-headline {
-    color: var(--paper-yellow);
-    font-size: clamp(1.5rem, 3vw, 2.2rem);
-    line-height: 1;
-    text-shadow: 3px 3px 0px var(--shadow-blue);
-    font-family: 'Bungee', cursive;
-    margin: 0;
-}
-
-.subtitle-tag {
-    background: var(--paper-yellow);
-    color: var(--ink-black);
-    padding: 0.5rem 1.5rem;
-    font-weight: bold;
-    border: 2px solid var(--ink-black);
-    display: inline-block;
-    transform: rotate(-1deg);
-    margin-top: 10px;
-}
-
 .poster-layout {
     display: grid;
     grid-template-columns: 320px 1fr;
@@ -187,13 +209,21 @@ main > header h1,
     font-weight: 600;
 }
 
-/* Experiencia Grid */
 .experience-grid-retro {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr) !important;
     gap: 20px !important;
     width: 100% !important;
     margin-bottom: 3rem;
+}
+
+.label-heading {
+    font-family: 'Bungee', cursive;
+    color: var(--paper-yellow);
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    text-shadow: 3px 3px 0px var(--ink-black);
+    margin-bottom: 1.5rem;
 }
 
 .expandable-wrapper {
@@ -227,7 +257,6 @@ main > header h1,
     font-family: 'Bungee', cursive;
 }
 
-/* Colores laterales */
 .exp-card-purple { border-top: 15px solid var(--accent-mauve); }
 .exp-card-blue { border-top: 15px solid var(--accent-blue-light); }
 .exp-card-orange { border-top: 15px solid var(--accent-orange); }
@@ -268,16 +297,9 @@ main > header h1,
 .clean-list { list-style: none; padding: 0; }
 .clean-list li { margin-bottom: 0.5rem; }
 
-.label-heading {
-    font-family: 'Bungee', cursive;
-    color: var(--paper-yellow);
-    text-transform: uppercase;
-    font-size: 1.8rem;
-    text-shadow: 3px 3px 0px var(--ink-black);
-    margin-bottom: 1.5rem;
-}
-
-/* Projects Grid */
+/* =========================================
+   PROJECTS SECTION
+   ========================================= */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -309,9 +331,21 @@ main > header h1,
     justify-content: center;
     border-bottom: 3px solid var(--ink-black);
     font-family: monospace;
-    font-size: 1.2rem;
     text-align: center;
     padding: 10px;
+}
+
+/* ASCII Art Classes */
+.ascii-art, .ascii-art-small {
+    line-height: 1;
+    margin: 0;
+    font-family: monospace; /* Ensure monospace if not inherited */
+}
+.ascii-art {
+    font-size: 1rem;
+}
+.ascii-art-small {
+    font-size: 0.7rem;
 }
 
 .project-content {
@@ -380,6 +414,24 @@ main > header h1,
     color: var(--bg-red);
     box-shadow: 2px 2px 0px var(--ink-black);
     transform: translate(2px, 2px);
+}
+
+.click-hint {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: #555;
+}
+
+.project-links-container {
+    margin-top: 15px; 
+    display: flex; 
+    gap: 10px; 
+    justify-content: center;
+}
+
+.project-tags-container {
+    margin-top: 10px;
 }
 
 .download-btn {

@@ -5,12 +5,8 @@
     --paper-yellow: #fff59e;
     --accent-mauve: #b08699;
     --ink-black: #1a1a1a;
-    
-    /* Shadow Colors */
     --shadow-blue: #7a82f8;
-    --shadow-deep: #5a5be2; /* Deep purple-blue for second shadow layer */
-    
-    /* Accent Colors */
+    --shadow-deep: #5a5be2;
     --accent-blue-light: #AEEEEE;
     --accent-orange: #ffcc80;
 }
@@ -25,7 +21,7 @@ body, html {
 }
 
 /* =========================================
-   BLOWFISH OVERRIDES (SOLUCIÓN DEFINITIVA)
+   BLOWFISH OVERRIDES
    ========================================= */
 header h1, 
 article > header h1,
@@ -101,7 +97,7 @@ main > header h1,
 /* --- EL PEGAMENTO (GLUE WORD) --- */
 .glue-word {
     white-space: nowrap !important;
-    display: inline-block; /* Bloque indivisible */
+    display: inline-block;
 }
 
 /* --- EL RESALTADO (AI!) --- */
@@ -109,17 +105,11 @@ main > header h1,
     color: #ffffff !important;
     font-size: 1.15em;
     display: inline-block;
-    vertical-align: -2%; /* Alineación fina */
+    vertical-align: -2%;
     text-decoration: underline white 6px;
     text-underline-offset: 8px;
     margin: 0;
     padding: 0;
-}
-
-/* Ajuste específico para cuando está en la Portada (Hero) */
-.home-title .highlight-ai {
-    font-size: 1.25em; 
-    text-shadow: 7px 7px 0px var(--shadow-blue), 14px 14px 0px var(--shadow-deep);
 }
 
 .subtitle-tag {
@@ -134,7 +124,7 @@ main > header h1,
 }
 
 /* =========================================
-   HERO SECTION
+   HERO SECTION (PORTADA NUEVA)
    ========================================= */
 .hero-container {
   display: flex;
@@ -147,42 +137,79 @@ main > header h1,
   margin-top: 2rem;
 }
 
+.profile-circle-wrapper {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 20px auto;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid var(--paper-yellow);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 .home-title {
   font-family: 'Bungee', cursive;
   font-size: clamp(4rem, 15vw, 8rem);
   font-weight: 900;
   line-height: 0.85;
   text-transform: uppercase;
-  color: var(--accent-blue-light); 
+  color: var(--paper-yellow); 
   text-shadow: 6px 6px 0px var(--shadow-blue), 12px 12px 0px var(--shadow-deep);
   letter-spacing: -2px;
   transform: rotate(-2deg);
 }
 
-.poster-text {
-  font-family: 'Anton', sans-serif;
-  font-size: clamp(4rem, 15vw, 8rem);
-  font-weight: 900;
-  line-height: 0.85;
-  text-transform: uppercase;
-  color: var(--paper-yellow);
-  text-shadow: 6px 6px 0px var(--shadow-blue), 12px 12px 0px var(--accent-mauve);
-  margin: 0;
-  letter-spacing: -2px;
-  transform: rotate(-2deg);
+.home-title .highlight-ai {
+    font-size: 1.25em; 
+    text-shadow: 7px 7px 0px var(--shadow-blue), 14px 14px 0px var(--shadow-deep);
 }
 
-/* Utility Classes */
-.why-settle-tag {
-    text-transform: uppercase;
-    font-weight: 700;
-    color: var(--bg-red);
-    font-size: 1.3rem;
-    text-align: center;
-    border: 2px solid var(--bg-red);
-    padding: 5px;
-    transform: rotate(-1deg);
-    margin-bottom: 1rem;
+/* --- CAJA DE ANUNCIO / INTRO --- */
+.ad-box {
+    margin-top: 20px;
+}
+
+.ad-name {
+    color: var(--paper-yellow) !important;
+    font-family: 'Bungee', cursive;
+    font-size: 2rem;
+    margin-bottom: 5px;
+    text-shadow: 3px 3px 0 var(--ink-black);
+}
+
+.ad-role {
+    color: #ffffff !important;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+}
+
+.social-links-home {
+    margin-top: 10px;
+}
+.social-links-home a {
+    color: var(--paper-yellow);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin: 0 10px;
+}
+
+.intro-box {
+    margin-top: 40px;
+    background-color: var(--paper-yellow);
+    color: var(--ink-black);
+    border: 3px solid var(--ink-black);
+    box-shadow: 10px 10px 0 var(--ink-black);
+    padding: 30px;
+    text-align: left;
 }
 
 .specs-box {
@@ -190,6 +217,15 @@ main > header h1,
     border: 2px dashed var(--ink-black);
     padding: 15px;
     margin: 25px 0;
+}
+
+.specs-title {
+    text-decoration: underline;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 1px;
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 10px;
 }
 
 .footer-slogan {
@@ -499,6 +535,33 @@ main > header h1,
   border: 4px solid var(--ink-black);
   box-shadow: 6px 6px 0px var(--ink-black);
   text-transform: uppercase;
+}
+
+/* CENTRADO GLOBAL */
+main, article, .prose {
+    width: 100% !important;
+    max-width: 100vw !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+}
+
+.hero-container, 
+.vintage-container {
+    width: 100% !important;
+    max-width: 1400px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+
+.hero-container {
+    align-items: center !important;
+    text-align: center !important;
 }
 
 /* RESPONSIVE */

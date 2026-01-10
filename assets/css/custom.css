@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Bungee&family=Roboto+Slab:wght@400;700&display=swap');
+
+:root {
+    --bg-red: #c9303e;
+    --paper-yellow: #fff59e;
+    --accent-mauve: #b08699;
+    --ink-black: #1a1a1a;
+    --shadow-blue: #7a82f8;
+    --accent-blue-light: #AEEEEE;
+    --accent-orange: #ffcc80;
+}
+
+body, html {
+    background-color: var(--bg-red) !important;
+    background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+    color: var(--ink-black);
+    font-family: 'Roboto Slab', serif !important;
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* Resetear fondos de blowfish */
+.article-content, main, header, footer {
+    background: transparent !important;
+    padding: 0 !important;
+}
+
+/* =========================================
+   ESTILOS BASE (CONTENEDOR GLOBAL)
+   ========================================= */
+.vintage-container {
+    background-color: var(--bg-red);
+    padding: 3rem;
+    font-family: 'Courier New', Courier, monospace;
+    min-height: 100vh;
+    box-sizing: border-box;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* --- CABECERA COMÚN --- */
+.poster-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+    border-bottom: 4px solid var(--ink-black);
+    padding-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.main-title-about, .main-title-projects {
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    color: var(--paper-yellow);
+    text-shadow: 5px 5px 0px var(--shadow-blue), 10px 10px 0px var(--accent-mauve);
+    margin: 0;
+    line-height: 0.9;
+    font-family: 'Bungee', cursive;
+}
+
+.retro-headline {
+    color: var(--paper-yellow);
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    line-height: 1;
+    text-shadow: 3px 3px 0px var(--shadow-blue);
+    font-family: 'Bungee', cursive;
+    margin: 0;
+}
+
+.ai-highlight {
+    color: #fff;
+    text-decoration: underline white 6px;
+    text-underline-offset: 8px;
+    display: inline-block;
+}
+
+.subtitle-tag {
+    background: var(--paper-yellow);
+    color: var(--ink-black);
+    padding: 0.5rem 1.5rem;
+    font-weight: bold;
+    border: 2px solid var(--ink-black);
+    display: inline-block;
+    transform: rotate(-1deg);
+    margin-top: 10px;
+}
+
+/* =========================================
+   SECCIÓN ABOUT ME (ACORDEÓN)
+   ========================================= */
+.poster-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 2.5rem;
+}
+
+/* Sidebar Foto */
+.photo-frame-retro {
+    background: var(--ink-black);
+    padding: 10px;
+    border: 5px solid var(--paper-yellow);
+    box-shadow: 10px 10px 0px var(--shadow-blue);
+    transform: rotate(-2deg);
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+.photo-frame-retro img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border: 2px solid var(--paper-yellow);
+}
+
+.bio-card {
+    background-color: var(--paper-yellow);
+    border: 4px double var(--ink-black);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 6px 6px 0px var(--ink-black);
+    font-weight: 600;
+}
+
+/* Experiencia Grid */
+.experience-grid-retro {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.label-heading {
+    font-family: 'Bungee', cursive;
+    color: var(--paper-yellow);
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    text-shadow: 3px 3px 0px var(--ink-black);
+    margin-bottom: 1.5rem;
+}
+
+/* Acordeón Checkbox Hack */
+.expandable-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.toggle-input { display: none; }
+
+.paper-card {
+    background-color: var(--paper-yellow);
+    border: 3px solid var(--ink-black);
+    padding: 1.5rem;
+    box-shadow: 8px 8px 0px var(--ink-black);
+    cursor: pointer;
+    flex-grow: 1;
+    transition: all 0.3s ease;
+    position: relative;
+    color: var(--ink-black);
+}
+
+.paper-card h4 {
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-family: 'Bungee', cursive;
+}
+
+/* Colores laterales */
+.exp-card-purple { border-top: 15px solid var(--accent-mauve); }
+.exp-card-blue { border-top: 15px solid var(--accent-blue-light); }
+.exp-card-orange { border-top: 15px solid var(--accent-orange); }
+
+.content-reveal {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.4s ease-out;
+}
+
+.toggle-input:checked + .paper-card {
+    transform: scale(1.05);
+    z-index: 10;
+    box-shadow: 12px 12px 0px var(--ink-black);
+}
+.toggle-input:checked + .paper-card .content-reveal {
+    max-height: 500px;
+    opacity: 1;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 2px dashed var(--ink-black);
+}
+
+.date-tag {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--bg-red);
+}
+
+.bottom-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+.clean-list { list-style: none; padding: 0; }
+.clean-list li { margin-bottom: 0.5rem; }
+
+/* =========================================
+   SECCIÓN PROJECTS (TARJETAS PRO)
+   ========================================= */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.project-card {
+    background-color: var(--paper-yellow);
+    border: 3px solid var(--ink-black);
+    box-shadow: 10px 10px 0px var(--ink-black);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 15px 15px 0px var(--ink-black);
+}
+
+/* Imagen Placeholder (si no hay img real) */
+.project-image-placeholder {
+    height: 200px;
+    background-color: var(--ink-black);
+    color: var(--paper-yellow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 3px solid var(--ink-black);
+    font-family: monospace;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 10px;
+}
+
+.project-content {
+    padding: 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-title {
+    font-family: 'Bungee', cursive;
+    font-size: 1.8rem;
+    margin: 0 0 0.5rem 0;
+    color: var(--ink-black);
+    text-shadow: 2px 2px 0px var(--shadow-blue);
+    text-transform: uppercase;
+}
+
+.project-subtitle {
+    font-weight: bold;
+    color: var(--bg-red);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.project-description {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tech-stack span {
+    background-color: var(--ink-black);
+    color: var(--paper-yellow);
+    padding: 0.3rem 0.8rem;
+    font-size: 0.85rem;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.project-button {
+    display: inline-block;
+    background-color: var(--bg-red);
+    color: var(--paper-yellow);
+    padding: 0.8rem 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    border: 3px solid var(--ink-black);
+    box-shadow: 4px 4px 0px var(--ink-black);
+    transition: all 0.2s ease;
+    font-family: 'Bungee', cursive;
+    align-self: flex-start;
+}
+
+.project-button:hover {
+    background-color: var(--paper-yellow);
+    color: var(--bg-red);
+    box-shadow: 2px 2px 0px var(--ink-black);
+    transform: translate(2px, 2px);
+}
+
+/* =========================================
+   HERO SECTION (Portada) - Re-apply for safety
+   ========================================= */
+.poster-text {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(4rem, 15vw, 8rem);
+  font-weight: 900;
+  line-height: 0.85;
+  text-transform: uppercase;
+  color: var(--paper-yellow);
+  text-shadow: 6px 6px 0px var(--shadow-blue), 12px 12px 0px var(--accent-mauve);
+  margin: 0;
+  letter-spacing: -2px;
+  transform: rotate(-2deg);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .poster-layout, .experience-grid-retro, .bottom-sections, .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    .poster-header { flex-direction: column; align-items: center; text-align: center; }
+    .vintage-container { padding: 1.5rem; }
+}
+
+#appearance-switcher { display: none !important; }

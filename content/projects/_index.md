@@ -21,13 +21,12 @@ layout: "simple"
 <label for="proj-finance" class="project-card">
 <div class="project-image-placeholder">
 <pre class="ascii-art-small">
-      /\
-     /  \
-    /    \    /\
-   /      \  /  \
-  /        \/    \
- /                \
---------------------
+     ^
+     |     /\
+     |    /  \    /\
+     | /\/    \  /  
+   $ |/        \/    
+     +---------------->
 </pre>
 </div>
 <div class="project-content">
@@ -63,11 +62,15 @@ Witness the power of an AlphaZero-inspired brain conquering the Nasdaq. This isn
 <label for="proj-tictac" class="project-card">
 <div class="project-image-placeholder">
 <pre class="ascii-art">
+   |   |   
  X | O | X 
----+---+---
+___|___|___
+   |   |   
  O | X |   
----+---+---
+___|___|___
+   |   |   
    |   | O 
+   |   |   
 </pre>
 </div>
 <div class="project-content">

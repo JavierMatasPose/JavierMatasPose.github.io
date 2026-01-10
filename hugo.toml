@@ -11,6 +11,10 @@ theme = "blowfish"
   enableRobotsTXT = true
   customCSS = ["css/custom.css"]
 
+  [params.homepage]
+    layout = "hero"
+    showRecent = false
+
   [params.home]
     profile = true
     title = "Senior AI Engineer"

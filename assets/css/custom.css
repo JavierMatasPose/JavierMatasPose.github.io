@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Bungee&family=Roboto+Slab:wght@400;700&display=swap');
 
+/* =========================================
+   1. CSS VARIABLES (Design Tokens)
+   ========================================= */
 :root {
     --bg-red: #c9303e;
     --paper-yellow: #fff59e;
@@ -11,6 +14,9 @@
     --accent-orange: #ffcc80;
 }
 
+/* =========================================
+   2. BASE STYLES & RESETS
+   ========================================= */
 body, html {
     background-color: var(--bg-red) !important;
     background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
@@ -20,9 +26,25 @@ body, html {
     min-height: 100vh;
 }
 
+body {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
+}
+
+/* Disable body::after scanline overlay that can block content */
+body::after {
+    display: none !important;
+    content: none !important;
+}
+
 /* =========================================
-   BLOWFISH OVERRIDES
+   3. BLOWFISH THEME OVERRIDES
    ========================================= */
+
+/* Hide default article headers but keep custom ones */
 header h1, 
 article > header h1,
 main > header h1,
@@ -37,6 +59,7 @@ main > header h1,
     visibility: visible !important;
 }
 
+/* Transparent backgrounds for theme containers */
 .article-content, main, header, footer {
     background: transparent !important;
     padding: 0 !important;
@@ -48,9 +71,95 @@ main > header h1,
     max-width: none !important;
 }
 
+/* Hide theme UI elements */
+#appearance-switcher,
+#appearance-switcher-mobile,
+#search-button,
+#search-button-mobile {
+    display: none !important;
+}
+
+/* Disable Blowfish fade-in animations */
+.prose, article, section, main, #main-content, .prose > * {
+    animation: none !important;
+}
+
 /* =========================================
-   ESTILOS BASE
+   4. HEADER NAVIGATION STYLING
    ========================================= */
+.main-menu {
+    justify-content: center !important;
+    background: transparent !important;
+    width: 100% !important;
+}
+
+.main-menu > a {
+    font-family: 'Bungee', cursive !important;
+    color: var(--paper-yellow) !important;
+    font-size: 1.5rem !important;
+    text-shadow: 2px 2px 0 var(--ink-black) !important;
+}
+
+.main-menu nav a,
+.main-menu nav a span {
+    font-family: 'Bungee', cursive !important;
+    color: var(--paper-yellow) !important;
+    text-shadow: 1px 1px 0 var(--ink-black) !important;
+    text-transform: uppercase !important;
+}
+
+.main-menu nav a:hover,
+.main-menu nav a:hover span {
+    color: #fff !important;
+}
+
+/* =========================================
+   5. GLOBAL LAYOUT & CENTERING
+   ========================================= */
+main, article, .prose {
+    width: 100% !important;
+    max-width: 100vw !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+}
+
+main#main-content {
+    justify-content: center !important;
+}
+
+body > div.relative,
+body > .main-menu {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+article.max-w-full.prose {
+    width: 100% !important;
+}
+
+article.max-w-full.prose div.flex.flex-col.items-center.justify-center.text-center {
+    width: 100% !important;
+    align-items: center !important;
+}
+
+article.max-w-full.prose section.prose {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+}
+
+/* =========================================
+   6. SHARED COMPONENTS
+   ========================================= */
+
+/* --- Vintage Container (Base for pages) --- */
 .vintage-container {
     background-color: var(--bg-red);
     padding: 3rem;
@@ -58,12 +167,15 @@ main > header h1,
     min-height: 100vh;
     box-sizing: border-box;
     max-width: 1400px;
+    width: 100% !important;
     margin: 40px auto 0 auto !important;
     display: flex;
     flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
-/* --- CABECERA COMÚN --- */
+/* --- Poster Header --- */
 .poster-header {
     display: flex;
     justify-content: space-between;
@@ -76,6 +188,7 @@ main > header h1,
     width: 100%;
 }
 
+/* --- Page Titles --- */
 .main-title-about, .main-title-projects {
     font-size: clamp(3rem, 6vw, 5.5rem);
     color: var(--paper-yellow);
@@ -94,17 +207,17 @@ main > header h1,
     margin: 0;
 }
 
-/* --- EL PEGAMENTO (GLUE WORD) --- */
+/* --- Glue Word (prevents "TODAI!" from wrapping) --- */
 .glue-word {
     white-space: nowrap !important;
     display: inline-block;
 }
 
-/* --- EL RESALTADO (AI!) --- */
+/* --- AI Highlight --- */
 .highlight-ai {
     color: #ffffff !important;
     font-size: 1.15em;
-    display: inline-block;
+    display: inline !important;
     vertical-align: -2%;
     text-decoration: underline white 6px;
     text-underline-offset: 8px;
@@ -112,6 +225,7 @@ main > header h1,
     padding: 0;
 }
 
+/* --- Subtitle Tag --- */
 .subtitle-tag {
     background: var(--paper-yellow);
     color: var(--ink-black);
@@ -123,20 +237,174 @@ main > header h1,
     margin-top: 10px;
 }
 
-/* =========================================
-   HERO SECTION (PORTADA NUEVA)
-   ========================================= */
-.hero-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  min-height: 60vh;
-  width: 100%;
-  margin-top: 2rem;
+/* --- Clean List --- */
+.clean-list { 
+    list-style: none; 
+    padding: 0; 
+}
+.clean-list li { 
+    margin-bottom: 0.5rem; 
 }
 
+/* =========================================
+   7. HOMEPAGE HERO SECTION
+   ========================================= */
+.hero-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    min-height: 60vh;
+    width: 100% !important;
+    max-width: 1400px !important;
+    margin: 2rem auto !important;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+
+.home-title, .poster-text {
+    font-family: 'Bungee', cursive;
+    font-size: clamp(4rem, 15vw, 8rem);
+    font-weight: 900;
+    line-height: 0.85;
+    text-transform: uppercase;
+    color: var(--paper-yellow); 
+    text-shadow: 6px 6px 0px var(--shadow-blue), 12px 12px 0px var(--shadow-deep);
+    letter-spacing: -2px;
+    transform: rotate(-2deg);
+    text-align: center !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.home-title .highlight-ai {
+    font-size: 1.25em; 
+    text-shadow: 7px 7px 0px var(--shadow-blue), 14px 14px 0px var(--shadow-deep);
+}
+
+/* --- Ad Box (Homepage Bio) --- */
+.ad-box {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 800px !important;
+    margin: 20px auto 0 auto !important;
+    padding: 20px !important;
+    color: var(--paper-yellow) !important;
+}
+
+.ad-box h2 {
+    color: var(--paper-yellow) !important;
+    font-family: 'Bungee', cursive !important;
+    text-shadow: 2px 2px 0 var(--ink-black) !important;
+}
+
+.ad-box p, .ad-box li {
+    color: var(--paper-yellow) !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.ad-box strong {
+    color: #ffffff !important;
+    display: inline !important;
+}
+
+.ad-box ul {
+    display: block !important;
+}
+
+.ad-box li {
+    display: list-item !important;
+}
+
+/* --- Ad Box Typography Classes --- */
+.ad-role-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-family: 'Libre Baskerville', serif;
+}
+
+.why-settle-tag {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* --- Specs Box --- */
+.specs-box {
+    background: rgba(122, 130, 248, 0.2);
+    border: 2px dashed var(--ink-black);
+    padding: 15px;
+    margin: 25px auto;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    text-align: left !important;
+    max-width: 600px !important;
+}
+
+.specs-box strong {
+    display: inline !important;
+}
+
+.specs-title {
+    text-decoration: underline;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 1px;
+    font-size: 1.2rem;
+}
+
+.specs-box ul {
+    display: block !important;
+    list-style-type: square;
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.specs-box li {
+    display: list-item !important;
+}
+
+/* --- Download Button --- */
+.download-btn {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    background-color: var(--shadow-blue);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-family: 'Anton', sans-serif;
+    text-decoration: none;
+    font-size: 1.5rem;
+    margin: 30px auto !important;
+    border: 4px solid var(--ink-black);
+    box-shadow: 6px 6px 0px var(--ink-black);
+    text-transform: uppercase;
+}
+
+/* --- Footer Slogan --- */
+.footer-slogan {
+    text-align: center;
+    font-size: 0.75rem;
+    margin-top: 25px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* --- Profile Elements (if used) --- */
 .profile-circle-wrapper {
     width: 200px;
     height: 200px;
@@ -152,28 +420,6 @@ main > header h1,
     height: 100%;
     object-fit: cover;
     display: block;
-}
-
-.home-title {
-  font-family: 'Bungee', cursive;
-  font-size: clamp(4rem, 15vw, 8rem);
-  font-weight: 900;
-  line-height: 0.85;
-  text-transform: uppercase;
-  color: var(--paper-yellow); 
-  text-shadow: 6px 6px 0px var(--shadow-blue), 12px 12px 0px var(--shadow-deep);
-  letter-spacing: -2px;
-  transform: rotate(-2deg);
-}
-
-.home-title .highlight-ai {
-    font-size: 1.25em; 
-    text-shadow: 7px 7px 0px var(--shadow-blue), 14px 14px 0px var(--shadow-deep);
-}
-
-/* --- CAJA DE ANUNCIO / INTRO --- */
-.ad-box {
-    margin-top: 20px;
 }
 
 .ad-name {
@@ -193,13 +439,19 @@ main > header h1,
 
 .social-links-home {
     margin-top: 10px;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
+
 .social-links-home a {
     color: var(--paper-yellow);
     text-decoration: none;
     font-weight: bold;
     font-size: 1.1rem;
     margin: 0 10px;
+    display: inline-block !important;
+    cursor: pointer !important;
 }
 
 .intro-box {
@@ -212,33 +464,8 @@ main > header h1,
     text-align: left;
 }
 
-.specs-box {
-    background: rgba(122, 130, 248, 0.2);
-    border: 2px dashed var(--ink-black);
-    padding: 15px;
-    margin: 25px 0;
-}
-
-.specs-title {
-    text-decoration: underline;
-    font-family: 'Anton', sans-serif;
-    letter-spacing: 1px;
-    font-size: 1.2rem;
-    display: block;
-    margin-bottom: 10px;
-}
-
-.footer-slogan {
-    text-align: center;
-    font-size: 0.75rem;
-    margin-top: 25px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
 /* =========================================
-   ABOUT ME SECTION
+   8. ABOUT ME PAGE
    ========================================= */
 .poster-layout {
     display: grid !important;
@@ -256,6 +483,7 @@ main > header h1,
     margin-bottom: 2.5rem;
     text-align: center;
 }
+
 .photo-frame-retro img {
     max-width: 100%;
     height: auto;
@@ -289,6 +517,7 @@ main > header h1,
     margin-bottom: 1.5rem;
 }
 
+/* --- Expandable Cards (Checkbox Hack) --- */
 .expandable-wrapper {
     width: 100% !important;
     min-width: 0 !important;
@@ -296,7 +525,9 @@ main > header h1,
     margin-bottom: 0 !important;
 }
 
-.toggle-input { display: none; }
+.toggle-input { 
+    display: none; 
+}
 
 .paper-card {
     background-color: var(--paper-yellow);
@@ -322,10 +553,12 @@ main > header h1,
     font-family: 'Bungee', cursive;
 }
 
+/* Experience Card Color Variants */
 .exp-card-purple { border-top: 15px solid var(--accent-mauve); }
 .exp-card-blue { border-top: 15px solid var(--accent-blue-light); }
 .exp-card-orange { border-top: 15px solid var(--accent-orange); }
 
+/* Reveal Animation */
 .content-reveal {
     max-height: 0;
     overflow: hidden;
@@ -338,6 +571,7 @@ main > header h1,
     z-index: 10;
     box-shadow: 12px 12px 0px var(--ink-black);
 }
+
 .toggle-input:checked + .paper-card .content-reveal {
     max-height: 500px;
     opacity: 1;
@@ -360,11 +594,9 @@ main > header h1,
     gap: 30px !important;
     margin-top: 50px !important;
 }
-.clean-list { list-style: none; padding: 0; }
-.clean-list li { margin-bottom: 0.5rem; }
 
 /* =========================================
-   PROJECTS SECTION
+   9. PROJECTS PAGE
    ========================================= */
 .projects-grid {
     display: grid;
@@ -404,12 +636,20 @@ main > header h1,
 }
 
 .ascii-art, .ascii-art-small {
-    line-height: 1;
+    line-height: 1.3;
     margin: 0;
-    font-family: monospace;
+    font-family: 'Courier New', Consolas, monospace;
+    color: var(--paper-yellow);
+    background-color: var(--ink-black);
+    text-shadow: none;
+    font-weight: normal;
+    letter-spacing: 0;
+    padding: 1rem;
+    border-radius: 4px;
 }
-.ascii-art { font-size: 1rem; }
-.ascii-art-small { font-size: 0.7rem; }
+
+.ascii-art { font-size: 0.9rem; }
+.ascii-art-small { font-size: 0.75rem; }
 
 .project-content {
     padding: 2rem;
@@ -500,7 +740,7 @@ main > header h1,
     flex-wrap: wrap;
 }
 
-/* Checkbox Hack para Proyectos */
+/* Project Reveal Animation */
 .project-reveal {
     max-height: 0;
     overflow: hidden;
@@ -522,56 +762,29 @@ main > header h1,
     padding-top: 1rem;
 }
 
-.download-btn {
-  display: block;
-  background-color: var(--shadow-blue);
-  color: white;
-  text-align: center;
-  padding: 15px;
-  font-family: 'Anton', sans-serif;
-  text-decoration: none;
-  font-size: 1.5rem;
-  margin-top: 30px;
-  border: 4px solid var(--ink-black);
-  box-shadow: 6px 6px 0px var(--ink-black);
-  text-transform: uppercase;
-}
-
-/* CENTRADO GLOBAL */
-main, article, .prose {
-    width: 100% !important;
-    max-width: 100vw !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    margin: 0 auto !important;
-    padding: 0 !important;
-}
-
-.hero-container, 
-.vintage-container {
-    width: 100% !important;
-    max-width: 1400px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    padding-left: 20px;
-    padding-right: 20px;
-    box-sizing: border-box;
-}
-
-.hero-container {
-    align-items: center !important;
-    text-align: center !important;
-}
-
-/* RESPONSIVE */
+/* =========================================
+   10. RESPONSIVE DESIGN
+   ========================================= */
 @media (max-width: 1024px) {
-    .poster-layout, .experience-grid-retro, .bottom-sections, .projects-grid {
+    .poster-layout, 
+    .experience-grid-retro, 
+    .bottom-sections, 
+    .projects-grid {
         grid-template-columns: 1fr !important;
     }
-    .poster-header { flex-direction: column; align-items: center; text-align: center; }
-    .vintage-container { padding: 1.5rem; }
-    .photo-frame-retro { max-width: 300px; margin: 0 auto 2rem; }
+    
+    .poster-header { 
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center; 
+    }
+    
+    .vintage-container { 
+        padding: 1.5rem; 
+    }
+    
+    .photo-frame-retro { 
+        max-width: 300px; 
+        margin: 0 auto 2rem; 
+    }
 }
-
-#appearance-switcher { display: none !important; }

@@ -1,0 +1,54 @@
+baseURL = "https://JavierMatasPose.github.io/"
+languageCode = "en"
+title = "Javier Matas Pose"
+theme = "blowfish"
+
+[params]
+  colorScheme = "light"
+  showAppearanceToggleButton = false
+  defaultTheme = "light"
+  enableSearch = true
+  enableRobotsTXT = true
+  customCSS = ["css/custom.css"]
+
+  [params.home]
+    profile = true
+    title = "Senior AI Engineer"
+    subtitle = "GenAI | LLMs | Data Consulting"
+    
+  [params.author]
+    name = "Javier Matas Pose"
+    image = "JMLinkedin.jpeg"
+    headline = "Senior AI Engineer @ Capgemini"
+    bio = "Passionate about Quantitative Finance, AI Engineering, and BJJ. Building scalable solutions with LLMs and Agents."
+    links = [
+      { email = "javiermatasjr@gmail.com" },
+      { github = "JavierMatasPose" },
+      { linkedin = "javiermatas" }
+    ]
+
+  [params.footer]
+    showCopyright = true
+
+[menu]
+  [[menu.main]]
+    identifier = "about"
+    name = "About Me"
+    url = "/about/"
+    weight = 10
+  [[menu.main]]
+    identifier = "projects"
+    name = "Projects"
+    url = "/projects/"
+    weight = 20
+  [[menu.main]]
+    identifier = "resume"
+    name = "Resume"
+    url = "/ResumeJavierMatas.pdf"
+    weight = 40
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.highlight]
+    style = "dracula"

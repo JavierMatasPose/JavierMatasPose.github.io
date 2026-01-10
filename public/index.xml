@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Javier Matas - AI Revolution on Javier Matas Pose</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content in Javier Matas - AI Revolution on Javier Matas Pose</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2026 Javier Matas Pose</copyright>
+    <lastBuildDate>Sat, 20 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>DQNTicTacToe</title>
+      <link>http://localhost:1313/projects/tictactoe/</link>
+      <pubDate>Sat, 20 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/projects/tictactoe/</guid>
+      <description>Full-Stack application to play against a Deep Q-Network agent.</description>
+      
+    </item>
+    
+    <item>
+      <title>AI in Financial Markets</title>
+      <link>http://localhost:1313/projects/financial-markets/</link>
+      <pubDate>Fri, 15 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/projects/financial-markets/</guid>
+      <description>Deep Reinforcement Learning system for real-time trading (AlphaZero/AlphaTensor).</description>
+      
+    </item>
+    
+    <item>
+      <title>About Me</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/about/</guid>
+      <description>&lt;div class=&#34;vintage-container&#34;&gt;&#xA;&lt;header class=&#34;poster-header&#34;&gt;&#xA;&lt;div class=&#34;header-left&#34;&gt;&#xA;&lt;h2 class=&#34;retro-headline&#34;&gt;THE FUTURE&lt;br&gt;IS &lt;span class=&#34;glue-word&#34;&gt;TOD&lt;span class=&#34;highlight-ai&#34;&gt;AI!&lt;/span&gt;&lt;/span&gt;&lt;/h2&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;header-right&#34;&gt;&#xA;&lt;h1 class=&#34;main-title-about&#34;&gt;ABOUT ME&lt;/h1&gt;&#xA;&lt;div class=&#34;subtitle-tag&#34;&gt;Senior AI Engineer | Generative AI &amp; LLMs&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;/header&gt;&#xA;&lt;div class=&#34;poster-layout&#34;&gt;&#xA;&lt;aside class=&#34;side-col&#34;&gt;&#xA;&lt;div class=&#34;photo-frame-retro&#34;&gt;&#xA;&lt;img src=&#34;http://localhost:1313/JMLinkedin.jpeg&#34; alt=&#34;Javier Matas Poster&#34; onerror=&#34;this.style.display=&#39;none&#39;&#34;&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;bio-card&#34;&gt;&#xA;&lt;p&gt;Battle-tested expertise in the high-stakes world of production AI. For over three years, I’ve been architecting the systems that define tomorrow—transforming raw code into living intelligence. I don&#39;t just build applications; I deploy the future.&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;bio-card&#34;&gt;&#xA;&lt;p&gt;When the machines rest, the pursuit of excellence continues. I thrive on the world’s toughest cognitive challenges, while the discipline of Brazilian Jiu-Jitsu and the precision of Quantitative Finance keep my focus razor-sharp.&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

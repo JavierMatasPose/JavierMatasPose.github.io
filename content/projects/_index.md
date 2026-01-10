@@ -1,6 +1,7 @@
 ---
 title: "Projects"
 description: "My Engineering Portfolio"
+showTitle: false
 layout: "simple"
 ---
 <!-- RAW HTML START -->

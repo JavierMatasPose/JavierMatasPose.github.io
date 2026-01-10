@@ -8,7 +8,7 @@ layout: "simple"
 
 <!-- HERO SECTION: TÍTULO CENTRADO -->
 <div class="hero-container">
-  <h1 class="poster-text">
+  <h1 class="poster-text home-title">
     THE FUTURE <br> IS TOD<span class="highlight-ai">AI</span>
   </h1>
 </div>
@@ -20,7 +20,7 @@ layout: "simple"
     Senior Artificial Intelligence Engineer @ Capgemini
   </p>
   
-  <p style="text-transform: uppercase; font-weight: 700; color: #a90636; font-size: 1.3rem; text-align: center; border: 2px solid #a90636; padding: 5px; transform: rotate(-1deg);">
+  <p style="text-transform: uppercase; font-weight: 700; color: #c9303e; font-size: 1.3rem; text-align: center; border: 2px solid #c9303e; padding: 5px; transform: rotate(-1deg);">
     WHY SETTLE FOR SLOW DATA?
   </p>
   

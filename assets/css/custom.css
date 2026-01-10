@@ -19,14 +19,42 @@ body, html {
     min-height: 100vh;
 }
 
-/* Resetear fondos de blowfish */
+/* =========================================
+   BLOWFISH OVERRIDES (SOLUCIÓN DEFINITIVA)
+   ========================================= */
+
+/* 1. OCULTAR TODO H1 POR DEFECTO EN CABECERAS */
+/* Esto mata los títulos negros automáticos */
+header h1, 
+article > header h1,
+main > header h1,
+.article-header h1 {
+    display: none !important;
+}
+
+/* 2. EXCEPCIÓN: MOSTRAR NUESTROS TÍTULOS */
+/* Si el h1 está dentro de nuestros contenedores, se muestra */
+.hero-container h1,
+.vintage-container h1,
+.poster-header h1 {
+    display: block !important;
+    visibility: visible !important;
+}
+
+/* Resetear fondos y espacios */
 .article-content, main, header, footer {
     background: transparent !important;
     padding: 0 !important;
 }
 
+.max-w-prose {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    max-width: none !important;
+}
+
 /* =========================================
-   ESTILOS BASE (CONTENEDOR GLOBAL)
+   ESTILOS BASE
    ========================================= */
 .vintage-container {
     background-color: var(--bg-red);
@@ -35,7 +63,7 @@ body, html {
     min-height: 100vh;
     box-sizing: border-box;
     max-width: 1400px;
-    margin: 0 auto;
+    margin: 40px auto 0 auto !important;
 }
 
 /* --- CABECERA COMÚN --- */
@@ -50,6 +78,55 @@ body, html {
     gap: 20px;
 }
 
+/* =========================================
+   HERO SECTION (PORTADA)
+   ========================================= */
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 60vh;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.home-title {
+  font-family: 'Bungee', cursive;
+  font-size: clamp(4rem, 15vw, 8rem);
+  font-weight: 900;
+  line-height: 0.85;
+  text-transform: uppercase;
+  color: #AEEEEE; 
+  text-shadow: 6px 6px 0px #7a82f8, 12px 12px 0px #5a5be2;
+  letter-spacing: -2px;
+  transform: rotate(-2deg);
+}
+
+.poster-text {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(4rem, 15vw, 8rem);
+  font-weight: 900;
+  line-height: 0.85;
+  text-transform: uppercase;
+  color: var(--paper-yellow);
+  text-shadow: 6px 6px 0px var(--shadow-blue), 12px 12px 0px var(--accent-mauve);
+  margin: 0;
+  letter-spacing: -2px;
+  transform: rotate(-2deg);
+}
+
+.ai-highlight {
+    color: #fff;
+    text-decoration: underline white 6px;
+    text-underline-offset: 8px;
+    display: inline-block;
+}
+
+/* =========================================
+   ABOUT ME & PROJECTS COMMON
+   ========================================= */
 .main-title-about, .main-title-projects {
     font-size: clamp(3rem, 6vw, 5.5rem);
     color: var(--paper-yellow);
@@ -68,13 +145,6 @@ body, html {
     margin: 0;
 }
 
-.ai-highlight {
-    color: #fff;
-    text-decoration: underline white 6px;
-    text-underline-offset: 8px;
-    display: inline-block;
-}
-
 .subtitle-tag {
     background: var(--paper-yellow);
     color: var(--ink-black);
@@ -86,16 +156,12 @@ body, html {
     margin-top: 10px;
 }
 
-/* =========================================
-   SECCIÓN ABOUT ME (ACORDEÓN)
-   ========================================= */
 .poster-layout {
     display: grid;
     grid-template-columns: 320px 1fr;
     gap: 2.5rem;
 }
 
-/* Sidebar Foto */
 .photo-frame-retro {
     background: var(--ink-black);
     padding: 10px;
@@ -123,27 +189,20 @@ body, html {
 
 /* Experiencia Grid */
 .experience-grid-retro {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 20px !important;
+    width: 100% !important;
     margin-bottom: 3rem;
 }
 
-.label-heading {
-    font-family: 'Bungee', cursive;
-    color: var(--paper-yellow);
-    text-transform: uppercase;
-    font-size: 1.8rem;
-    text-shadow: 3px 3px 0px var(--ink-black);
-    margin-bottom: 1.5rem;
+.expandable-wrapper {
+    width: 100% !important;
+    min-width: 0 !important;
+    display: block !important;
+    margin-bottom: 0 !important;
 }
 
-/* Acordeón Checkbox Hack */
-.expandable-wrapper {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
 .toggle-input { display: none; }
 
 .paper-card {
@@ -152,10 +211,13 @@ body, html {
     padding: 1.5rem;
     box-shadow: 8px 8px 0px var(--ink-black);
     cursor: pointer;
-    flex-grow: 1;
-    transition: all 0.3s ease;
     position: relative;
     color: var(--ink-black);
+    display: block !important;
+    width: 100% !important;
+    min-height: 120px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 
 .paper-card h4 {
@@ -206,9 +268,16 @@ body, html {
 .clean-list { list-style: none; padding: 0; }
 .clean-list li { margin-bottom: 0.5rem; }
 
-/* =========================================
-   SECCIÓN PROJECTS (TARJETAS PRO)
-   ========================================= */
+.label-heading {
+    font-family: 'Bungee', cursive;
+    color: var(--paper-yellow);
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    text-shadow: 3px 3px 0px var(--ink-black);
+    margin-bottom: 1.5rem;
+}
+
+/* Projects Grid */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -231,7 +300,6 @@ body, html {
     box-shadow: 15px 15px 0px var(--ink-black);
 }
 
-/* Imagen Placeholder (si no hay img real) */
 .project-image-placeholder {
     height: 200px;
     background-color: var(--ink-black);
@@ -314,26 +382,25 @@ body, html {
     transform: translate(2px, 2px);
 }
 
-/* =========================================
-   HERO SECTION (Portada) - Re-apply for safety
-   ========================================= */
-.poster-text {
+.download-btn {
+  display: block;
+  background-color: var(--shadow-blue);
+  color: white;
+  text-align: center;
+  padding: 15px;
   font-family: 'Anton', sans-serif;
-  font-size: clamp(4rem, 15vw, 8rem);
-  font-weight: 900;
-  line-height: 0.85;
+  text-decoration: none;
+  font-size: 1.5rem;
+  margin-top: 30px;
+  border: 4px solid var(--ink-black);
+  box-shadow: 6px 6px 0px var(--ink-black);
   text-transform: uppercase;
-  color: var(--paper-yellow);
-  text-shadow: 6px 6px 0px var(--shadow-blue), 12px 12px 0px var(--accent-mauve);
-  margin: 0;
-  letter-spacing: -2px;
-  transform: rotate(-2deg);
 }
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
     .poster-layout, .experience-grid-retro, .bottom-sections, .projects-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
     }
     .poster-header { flex-direction: column; align-items: center; text-align: center; }
     .vintage-container { padding: 1.5rem; }

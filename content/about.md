@@ -1,6 +1,7 @@
 ---
 title: "About Me"
 description: "My Journey in AI Engineering"
+showTitle: false
 layout: "simple"
 ---
 <!-- RAW HTML START -->

@@ -3,7 +3,6 @@ title: "Javier Matas - AI Revolution"
 description: "High-Performance AI Engineering"
 layout: "simple"
 ---
-<!-- RAW HTML START -->
 <div class="hero-container">
 <h1 class="poster-text home-title">
 THE FUTURE <br> IS TOD<span class="highlight-ai">AI</span>
@@ -35,4 +34,3 @@ DOWNLOAD TECHNICAL SPECS (CV)
 JAVIER MATAS: THE SOLUTION FOR MODERN INDUSTRY.
 </p>
 </div>
-<!-- RAW HTML END -->

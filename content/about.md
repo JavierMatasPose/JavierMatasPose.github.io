@@ -4,7 +4,6 @@ description: "My Journey in AI Engineering"
 showTitle: false
 layout: "simple"
 ---
-<!-- RAW HTML START -->
 <div class="vintage-container">
 <header class="poster-header">
 <div class="header-left">
@@ -86,4 +85,3 @@ layout: "simple"
 </main>
 </div>
 </div>
-<!-- RAW HTML END -->

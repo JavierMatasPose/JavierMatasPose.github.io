@@ -11,7 +11,7 @@ layout: "simple"
 </div>
 <div class="header-right">
 <h1 class="main-title-projects">PROJECTS</h1>
-<div class="subtitle-tag">AI Engineering | FinTech | Game Dev</div>
+<div class="subtitle-tag">AI Engineering | FinTech | DRL</div>
 </div>
 </header>
 <div class="projects-grid">

@@ -14,6 +14,16 @@ layout: "simple"
 <div class="subtitle-tag">AI Engineering | FinTech | DRL</div>
 </div>
 </header>
+<nav class="project-filters">
+<input type="radio" name="filter" id="filter-all" class="filter-input" checked>
+<label for="filter-all" class="filter-label">All</label>
+<input type="radio" name="filter" id="filter-ai" class="filter-input">
+<label for="filter-ai" class="filter-label">AI/ML</label>
+<input type="radio" name="filter" id="filter-fintech" class="filter-input">
+<label for="filter-fintech" class="filter-label">FinTech</label>
+<input type="radio" name="filter" id="filter-fullstack" class="filter-input">
+<label for="filter-fullstack" class="filter-label">Full Stack</label>
+</nav>
 <div class="projects-grid">
 <!-- Project 1 -->
 <div class="expandable-wrapper">

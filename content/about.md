@@ -73,23 +73,59 @@ layout: "simple"
 </div>
 <div class="achieve-block">
 <h3 class="label-heading">Achievements</h3>
-<div class="paper-card">
-<ul class="clean-list">
-<li>🏆 <strong>Mensa International:</strong> High-IQ society member.</li>
-<li>📈 <strong>Robotrader Top 3:</strong> Quant trading competition.</li>
-<li>🎤 <strong>Speaker:</strong> Madrid Stock Exchange - AI for Trading.</li>
-</ul>
+<section class="press-section-enhanced">
+<div class="press-marquee">
+<div class="press-item-enhanced press-item-enhanced--gold">
+<span class="press-icon-large">🏆</span>
+<div class="press-content">
+<strong>Robotrader</strong>
+<span class="press-detail">International Top 3 — 2024</span>
 </div>
+</div>
+<div class="press-item-enhanced press-item-enhanced--blue">
+<span class="press-icon-large">🎤</span>
+<div class="press-content">
+<strong>Speaker</strong>
+<span class="press-detail">Madrid Stock Exchange</span>
+</div>
+</div>
+<div class="press-item-enhanced press-item-enhanced--mauve">
+<span class="press-icon-large">🧠</span>
+<div class="press-content">
+<strong>Mensa</strong>
+<span class="press-detail">High-IQ Society Member</span>
+</div>
+</div>
+</div>
+</section>
 </div>
 </div>
 </main>
 </div>
-<section class="press-section">
-<h3 class="label-heading">As Seen In</h3>
-<div class="press-grid">
-<div class="press-item">🏆 Robotrader Competition — Top 3</div>
-<div class="press-item">🎤 Speaker @ Madrid Stock Exchange</div>
-<div class="press-item">🧠 Mensa International Member</div>
+<section class="journey-section">
+<h3 class="journey-title">★ The Journey ★</h3>
+<div class="journey-line">
+<div class="journey-point">
+<div class="journey-dot">🎓</div>
+<span class="journey-year">2020</span>
+<span class="journey-label">Started Coding AI</span>
 </div>
+<div class="journey-point">
+<div class="journey-dot">📊</div>
+<span class="journey-year">2022</span>
+<span class="journey-label">SDG Group</span>
+</div>
+<div class="journey-point">
+<div class="journey-dot">🚀</div>
+<span class="journey-year">2023</span>
+<span class="journey-label">DXC Technology</span>
+</div>
+<div class="journey-point">
+<div class="journey-dot">🤖</div>
+<span class="journey-year">NOW</span>
+<span class="journey-label">Capgemini</span>
+</div>
+</div>
+<p class="journey-tagline">"From code to intelligence, the path of a digital architect"</p>
 </section>
 </div>

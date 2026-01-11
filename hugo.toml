@@ -23,7 +23,7 @@ theme = "blowfish"
   [params.author]
     name = "Javier Matas Pose"
     image = "JMLinkedin.jpeg"
-    headline = "Senior AI Engineer @ Capgemini"
+    headline = "Senior AI Engineer"
     bio = "Passionate about Quantitative Finance, AI Engineering, and BJJ. Building scalable solutions with LLMs and Agents."
     links = [
       { email = "mailto:javiermatasjr@gmail.com" },

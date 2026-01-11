@@ -26,9 +26,9 @@ theme = "blowfish"
     headline = "Senior AI Engineer @ Capgemini"
     bio = "Passionate about Quantitative Finance, AI Engineering, and BJJ. Building scalable solutions with LLMs and Agents."
     links = [
-      { email = "javiermatasjr@gmail.com" },
-      { github = "JavierMatasPose" },
-      { linkedin = "javiermatas" }
+      { email = "mailto:javiermatasjr@gmail.com" },
+      { github = "https://github.com/JavierMatasPose" },
+      { linkedin = "https://www.linkedin.com/in/javiermatas" }
     ]
 
   [params.footer]

@@ -28,7 +28,7 @@ theme = "blowfish"
     links = [
       { email = "mailto:javiermatasjr@gmail.com" },
       { github = "https://github.com/JavierMatasPose" },
-      { linkedin = "https://www.linkedin.com/in/javiermatas" }
+      { linkedin = "https://www.linkedin.com/in/javier-cayetano-matas-pose-18b0a520a/" }
     ]
 
   [params.footer]

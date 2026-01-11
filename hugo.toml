@@ -10,6 +10,9 @@ theme = "blowfish"
   enableSearch = true
   enableRobotsTXT = true
   customCSS = ["css/custom.css"]
+  
+  # Open Graph / Social Sharing
+  images = ["og-image.png"]
 
   [params.homepage]
     layout = "hero"

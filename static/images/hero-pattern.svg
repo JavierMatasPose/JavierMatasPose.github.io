@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <!-- Synthwave Grid Pattern -->
+  <defs>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#1a1a1a" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+    <linearGradient id="sunGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#fff59e;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#c9303e;stop-opacity:0"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background Grid -->
+  <rect width="400" height="400" fill="url(#grid)"/>
+  
+  <!-- Synthwave Sun -->
+  <circle cx="200" cy="350" r="80" fill="url(#sunGrad)"/>
+  
+  <!-- Horizontal Lines (Synthwave Effect) -->
+  <g stroke="#7a82f8" stroke-width="1" opacity="0.15">
+    <line x1="0" y1="280" x2="400" y2="280"/>
+    <line x1="0" y1="300" x2="400" y2="300"/>
+    <line x1="0" y1="320" x2="400" y2="320"/>
+    <line x1="0" y1="340" x2="400" y2="340"/>
+    <line x1="0" y1="360" x2="400" y2="360"/>
+    <line x1="0" y1="380" x2="400" y2="380"/>
+  </g>
+  
+  <!-- Perspective Grid Lines -->
+  <g stroke="#1a1a1a" stroke-width="0.5" opacity="0.2">
+    <line x1="200" y1="200" x2="0" y2="400"/>
+    <line x1="200" y1="200" x2="100" y2="400"/>
+    <line x1="200" y1="200" x2="200" y2="400"/>
+    <line x1="200" y1="200" x2="300" y2="400"/>
+    <line x1="200" y1="200" x2="400" y2="400"/>
+  </g>
+  
+  <!-- Circuit/Tech Accents -->
+  <g stroke="#fff59e" stroke-width="1" fill="none" opacity="0.1">
+    <circle cx="50" cy="50" r="20"/>
+    <circle cx="350" cy="80" r="15"/>
+    <rect x="30" y="120" width="30" height="30" rx="3"/>
+    <path d="M 320 150 L 360 150 L 360 180"/>
+  </g>
+</svg>

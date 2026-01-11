@@ -6,26 +6,41 @@ description: "High-Performance AI Engineering"
 <!-- Section 0: Hero -->
 <section id="hero" class="section-hero">
 <div class="hero-container">
+<div class="cube-container">
+<div class="cube">
+<div class="cube-face cube-front">JM</div>
+<div class="cube-face cube-back">AI</div>
+<div class="cube-face cube-right">⚡</div>
+<div class="cube-face cube-left">🧠</div>
+<div class="cube-face cube-top">📈</div>
+<div class="cube-face cube-bottom">🔥</div>
+</div>
+</div>
 <h1 class="poster-text home-title">
-THE FUTURE <br> IS 
-<span class="glue-word">TOD<span class="highlight-ai">AI!</span></span>
+THE FUTURE <br> IS <span class="glue-word">TOD<span class="highlight-ai">AI!</span></span>
+OLD MAN
 </h1>
-<span class="since-tag">Engineering Intelligence since 2020</span>
+<span class="since-tag">From Simple Ideas to Production — Zero Fluff.</span>
 </div>
 </section>
 
 <!-- Section Divider -->
-<div class="section-divider"><span>⚡ MEET THE ENGINEER ⚡</span></div>
+<div class="marquee section-divider">
+<div class="marquee__inner">
+⚡ AI ENGINEER ⚡ QUANT FINANCE ⚡ LLMs ⚡ DEEP LEARNING ⚡ AI ENGINEER ⚡ QUANT FINANCE ⚡ LLMs ⚡ DEEP LEARNING ⚡
+</div>
+</div>
 
 <!-- Section 1: About -->
-<section id="about" class="section-about">
+<section id="about" class="section-about section--cream">
+<div class="content-wrapper">
 <div class="vintage-container">
 <header class="poster-header">
 <div class="header-left">
 <h2 class="retro-headline">THE FUTURE<br>IS <span class="glue-word">TOD<span class="highlight-ai">AI!</span></span></h2>
 </div>
 <div class="header-right">
-<h1 class="main-title-about">ABOUT ME</h1>
+<h2 class="main-title-about">ABOUT ME</h2>
 <div class="subtitle-tag">Meet the man behind the code</div>
 </div>
 </header>
@@ -34,17 +49,29 @@ THE FUTURE <br> IS
 <div class="photo-frame-retro">
 <img src="/JMLinkedin.jpg" alt="Javier Matas Poster" onerror="this.style.display='none'">
 </div>
-<div class="bio-card">
-<p>Are you tired of weak AI projects that nobody uses? Hi, I am Javier, and I have the ultimate solution! I build business centered systems designed to optimice all of your workflows.
-</p>
-</div>
-<div class="bio-card">
-<p>But wait, that is not all! My mind is sharpened by the complex world of Quantitative Finance and toughened daily on the mats of Brazilian Jiu Jitsu. Don't accept substitutes. Get the power and precision you need right now!</p>
+<!-- Impact Pills -->
+<div class="impact-pills">
+    <div class="pill" data-reveal="1">🔥 Tired of AI projects that gather dust?</div>
+    <div class="pill" data-reveal="2">⚡ I build systems that optimize real workflows.</div>
+    <div class="pill" data-reveal="3">🧠 Sharpened by Quantitative Finance and Mathematics.</div>
+    <div class="pill" data-reveal="4">🥋 Toughened daily on the BJJ mats.</div>
 </div>
 </aside>
 <main class="main-col">
 <div class="bottom-sections">
 <div class="edu-block">
+<h3 class="label-heading">Metrics</h3>
+<!-- Stat Counters -->
+<div class="stat-group">
+    <div class="stat-counter">
+        <span class="stat-value" data-target="3">0</span>
+        <span class="stat-label">Years XP</span>
+    </div>
+    <div class="stat-counter">
+        <span class="stat-value" data-target="47">0</span>%
+        <span class="stat-label">Model ROI</span>
+    </div>
+</div>
 <h3 class="label-heading">Education</h3>
 <div class="paper-card">
 <p><strong>UPM - Telecommunications Engineering</strong></p>
@@ -83,43 +110,78 @@ THE FUTURE <br> IS
 </main>
 </div>
 </div>
+</div>
 </section>
 
 <!-- Section Divider -->
-<div class="section-divider"><span>★ POWERED BY ★</span></div>
+<div class="marquee section-divider">
+<div class="marquee__inner">
+★ POWERED BY ★ CUTTING EDGE TECH ★ POWERED BY ★ CUTTING EDGE TECH ★ POWERED BY ★ CUTTING EDGE TECH ★
+</div>
+</div>
 
 <!-- Section 2: Tech Stack -->
-<section id="stack" class="section-stack">
+<section id="stack" class="section-stack section--dark">
+<div class="content-wrapper">
 <div class="tech-showcase">
 <h3 class="tech-showcase-title">★ Powered By ★</h3>
-<div class="tech-grid">
-<span class="tech-badge tech-badge--ai">Python</span>
-<span class="tech-badge tech-badge--ai">PyTorch</span>
-<span class="tech-badge tech-badge--ai">LangChain</span>
-<span class="tech-badge tech-badge--ai">AWS Bedrock</span>
-<div class="tech-divider"></div>
-<span class="tech-badge tech-badge--backend">FastAPI</span>
-<span class="tech-badge tech-badge--backend">PostgreSQL</span>
-<span class="tech-badge tech-badge--backend">Vector DBs</span>
-<div class="tech-divider"></div>
-<span class="tech-badge tech-badge--fintech">DRL</span>
-<span class="tech-badge tech-badge--fintech">Quant Trading</span>
+<div class="bento-grid">
+<div class="bento-item bento-item--large bento-item--ai">
+<span class="bento-icon">🐍</span>
+<span class="bento-label">Python</span>
+<span class="bento-sublabel">Core Language</span>
+</div>
+<div class="bento-item bento-item--ai">
+<span class="bento-icon">🔥</span>
+<span class="bento-label">PyTorch</span>
+</div>
+<div class="bento-item bento-item--ai">
+<span class="bento-icon">🦜</span>
+<span class="bento-label">LangChain</span>
+</div>
+<div class="bento-item bento-item--ai">
+<span class="bento-icon">☁️</span>
+<span class="bento-label">AWS Bedrock</span>
+</div>
+<div class="bento-item bento-item--backend">
+<span class="bento-icon">⚡</span>
+<span class="bento-label">FastAPI</span>
+</div>
+<div class="bento-item bento-item--backend">
+<span class="bento-icon">🐘</span>
+<span class="bento-label">PostgreSQL</span>
+</div>
+<div class="bento-item bento-item--backend">
+<span class="bento-icon">📊</span>
+<span class="bento-label">Vector DBs</span>
+</div>
+<div class="bento-item bento-item--wide bento-item--fintech">
+<span class="bento-icon">📈</span>
+<span class="bento-label">DRL & Quant Trading</span>
+<span class="bento-sublabel">Deep Reinforcement Learning</span>
+</div>
+</div>
 </div>
 </div>
 </section>
 
 <!-- Section Divider -->
-<div class="section-divider"><span>🚀 THE WORK 🚀</span></div>
+<div class="marquee section-divider">
+<div class="marquee__inner">
+🚀 THE WORK 🚀 REAL PROJECTS 🚀 THE WORK 🚀 REAL PROJECTS 🚀 THE WORK 🚀 REAL PROJECTS 🚀
+</div>
+</div>
 
 <!-- Section 3: Projects -->
-<section id="projects" class="section-projects">
+<section id="projects" class="section-projects section--red">
+<div class="content-wrapper">
 <div class="vintage-container">
 <header class="poster-header">
 <div class="header-left">
 <h2 class="retro-headline">THE FUTURE<br>IS <span class="glue-word">TOD<span class="highlight-ai">AI!</span></span></h2>
 </div>
 <div class="header-right">
-<h1 class="main-title-projects">PROJECTS</h1>
+<h2 class="main-title-projects">PROJECTS</h2>
 <div class="subtitle-tag">Some of my most interactive projects</div>
 </div>
 </header>
@@ -220,13 +282,19 @@ Bridging the gap between <strong>Raw Neural Networks</strong> and seamless user 
 </div>
 </div>
 </div>
+</div>
 </section>
 
 <!-- Section Divider -->
-<div class="section-divider"><span>📈 THE JOURNEY 📈</span></div>
+<div class="marquee section-divider">
+<div class="marquee__inner">
+📈 THE JOURNEY 📈 CAREER PATH 📈 THE JOURNEY 📈 CAREER PATH 📈 THE JOURNEY 📈 CAREER PATH 📈
+</div>
+</div>
 
 <!-- Section 4: Experience Timeline -->
-<section id="experience" class="section-experience">
+<section id="experience" class="section-experience section--cream">
+<div class="content-wrapper">
 <div class="vintage-container">
 <h3 class="label-heading">Work Experience (Click to Expand)</h3>
 <div class="experience-grid-retro">
@@ -266,30 +334,32 @@ Bridging the gap between <strong>Raw Neural Networks</strong> and seamless user 
 </div>
 <section class="journey-section">
 <h3 class="journey-title">★ The Journey ★</h3>
-<div class="journey-line">
-<div class="journey-point">
-<div class="journey-dot">🎓</div>
-<span class="journey-year">2020</span>
-<span class="journey-label">Started Coding AI</span>
-</div>
-<div class="journey-point">
-<div class="journey-dot">📊</div>
-<span class="journey-year">2022</span>
-<span class="journey-label">SDG Group</span>
-</div>
-<div class="journey-point">
-<div class="journey-dot">🚀</div>
-<span class="journey-year">2023</span>
-<span class="journey-label">DXC Technology</span>
-</div>
-<div class="journey-point">
-<div class="journey-dot">🤖</div>
-<span class="journey-year">NOW</span>
-<span class="journey-label">Capgemini</span>
-</div>
+<div class="journey-line"></div> <!-- Animated generic line -->
+<div class="journey-container">
+    <div class="journey-point">
+        <div class="journey-dot">🎓</div>
+        <span class="journey-year">2020</span>
+        <span class="journey-label">Started Coding AI</span>
+    </div>
+    <div class="journey-point">
+        <div class="journey-dot">📊</div>
+        <span class="journey-year">2022</span>
+        <span class="journey-label">SDG Group</span>
+    </div>
+    <div class="journey-point">
+        <div class="journey-dot">🚀</div>
+        <span class="journey-year">2023</span>
+        <span class="journey-label">DXC Technology</span>
+    </div>
+    <div class="journey-point">
+        <div class="journey-dot">🤖</div>
+        <span class="journey-year">NOW</span>
+        <span class="journey-label">Capgemini</span>
+    </div>
 </div>
 <p class="journey-tagline">"From code to intelligence, the path of a digital architect"</p>
 </section>
+</div>
 </div>
 </section>
 

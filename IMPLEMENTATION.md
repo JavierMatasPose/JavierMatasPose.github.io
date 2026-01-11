@@ -1,978 +1,655 @@
-# 📋 Plan de Implementación — Mejoras de Diseño Portfolio
+# IMPLEMENTATION.md — Transformación Visual del Portfolio
 
-> **Basado en:** [SUGGESTIONS.md](file:///mnt/c/Users/javie/Programacion/GitHub/JavierMatasPose.github.io/SUGGESTIONS.md)  
-> **Referencia técnica:** [GEMINI.md](file:///mnt/c/Users/javie/Programacion/GitHub/JavierMatasPose.github.io/GEMINI.md)  
-> **Fecha:** 2026-01-11
+> **Objetivo**: Convertir el portfolio de Javier Matas Pose de una "página estática" a una "experiencia dinámica de élite", manteniendo la estética Vintage Synthwave (Rojo/Crema/Negro).
 
 ---
 
-## Objetivo
-
-Implementar todas las mejoras de diseño sugeridas manteniendo la estética "Vintage Synthwave Poster" americana de los años 80-90. Este plan detalla cambios específicos en archivos CSS y Markdown.
-
-> [!IMPORTANT]
-> **Reglas de implementación:**
-> - Usar **siempre** variables CSS (no valores hexadecimales hardcoded)
-> - HTML en Markdown debe estar **sin indentar** (crítico para Hugo)
-> - Seguir la organización por secciones de `custom.css`
-> - Testear con `hugo server -D` antes de cada commit
-
----
-
-## Resumen de Cambios Propuestos
-
-| # | Mejora | Archivos Afectados | Prioridad |
-|---|--------|-------------------|-----------|
-| 1 | Quick Navigation Cards en Homepage | `_index.md`, `custom.css` | Alta |
-| 2 | Tech Stack Visual Grid | `_index.md`, `custom.css` | Media |
-| 3 | Eliminar/Mejorar sección Press duplicada | `about.md`, `custom.css` | Alta |
-| 4 | Footer con Hook Phrase mejorado | `_index.md`, `custom.css` | Baja |
-| 5 | Filtros de categoría en Projects | `projects/_index.md`, `custom.css` | Media |
-| 6 | Micro-interacciones mejoradas | `custom.css` | Baja |
-| 7 | Eliminar contenido redundante | `about.md` | Alta |
-| 8 | Timeline "The Journey" | `about.md`, `custom.css` | Opcional |
-
----
-
-## Cambios Detallados por Archivo
-
-### [MODIFY] [custom.css](file:///mnt/c/Users/javie/Programacion/GitHub/JavierMatasPose.github.io/assets/css/custom.css)
-
-#### Sección 12: QUICK NAVIGATION CARDS (Líneas ~786+)
-
-**Descripción:** Añadir nuevo bloque de estilos para las tarjetas de navegación rápida tipo "sticker".
-
-```css
-/* =========================================
-   12. QUICK NAVIGATION CARDS (Homepage)
-   ========================================= */
-
-/* Container para las 3 tarjetas de navegación */
-.quick-nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    margin: 3rem auto;
-    padding: 2rem 0;
-    max-width: 1000px;
-    width: 100%;
-}
-
-/* Tarjeta individual estilo sticker */
-.nav-card {
-    background: var(--paper-yellow);
-    border: 4px solid var(--ink-black);
-    box-shadow: 8px 8px 0 var(--ink-black);
-    padding: 1.5rem 2rem;
-    text-align: center;
-    text-decoration: none;
-    color: var(--ink-black);
-    min-width: 200px;
-    max-width: 280px;
-    flex: 1 1 200px;
-    transition: all 0.2s ease;
-    position: relative;
-}
-
-/* Rotaciones alternadas para efecto "sticker pegado" */
-.nav-card:nth-child(1) { transform: rotate(-2deg); }
-.nav-card:nth-child(2) { transform: rotate(1deg); }
-.nav-card:nth-child(3) { transform: rotate(-1.5deg); }
-
-/* Icono/decoración superior */
-.nav-card-icon {
-    font-size: 3rem;
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-/* Título de la tarjeta */
-.nav-card-title {
-    font-family: 'Bungee', cursive;
-    font-size: 1.4rem;
-    text-transform: uppercase;
-    margin: 0.5rem 0;
-    text-shadow: 2px 2px 0 var(--shadow-blue);
-}
-
-/* Subtítulo descriptivo */
-.nav-card-subtitle {
-    font-family: 'Roboto Slab', serif;
-    font-size: 0.85rem;
-    color: var(--bg-red);
-    font-weight: bold;
-}
-
-/* Hover: wiggle + elevación */
-.nav-card:hover {
-    animation: wiggle 0.3s ease-in-out;
-    box-shadow: 12px 12px 0 var(--shadow-blue);
-    transform: rotate(0deg) translateY(-5px);
-}
-
-/* Badge decorativo "sticker label" */
-.nav-card::after {
-    content: "★";
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    background: var(--bg-red);
-    color: var(--paper-yellow);
-    padding: 5px 10px;
-    font-family: 'Bungee', cursive;
-    font-size: 0.8rem;
-    border: 2px solid var(--ink-black);
-    box-shadow: 2px 2px 0 var(--ink-black);
-}
-
-/* Tagline bajo las tarjetas */
-.quick-nav-tagline {
-    text-align: center;
-    font-family: 'Permanent Marker', cursive;
-    color: var(--paper-yellow);
-    font-size: 1.2rem;
-    text-shadow: 2px 2px 0 var(--ink-black);
-    margin: 1rem 0 2rem 0;
-}
-```
-
----
-
-#### Sección 13: TECH STACK SHOWCASE (Líneas ~860+)
-
-**Descripción:** Grid visual de tecnologías con badges estilo sticker.
-
-```css
-/* =========================================
-   13. TECH STACK SHOWCASE (Homepage)
-   ========================================= */
-
-/* Contenedor con bordes dashed */
-.tech-showcase {
-    width: 100%;
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 2rem 1rem;
-    border-top: 3px dashed var(--ink-black);
-    border-bottom: 3px dashed var(--ink-black);
-    text-align: center;
-}
-
-/* Título de la sección */
-.tech-showcase-title {
-    font-family: 'Bungee', cursive;
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    color: var(--paper-yellow);
-    text-shadow: 3px 3px 0 var(--ink-black);
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
-}
-
-/* Grid de badges */
-.tech-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-}
-
-/* Badge individual */
-.tech-badge {
-    background: var(--paper-yellow);
-    border: 3px solid var(--ink-black);
-    box-shadow: 4px 4px 0 var(--shadow-blue);
-    padding: 0.8rem 1.2rem;
-    font-family: 'Roboto Slab', serif;
-    font-weight: bold;
-    font-size: 0.9rem;
-    color: var(--ink-black);
-    transition: all 0.2s ease;
-}
-
-/* Rotaciones alternadas */
-.tech-badge:nth-child(odd) { transform: rotate(-1deg); }
-.tech-badge:nth-child(even) { transform: rotate(1deg); }
-
-/* Variantes de color por categoría */
-.tech-badge--ai {
-    background: linear-gradient(135deg, var(--accent-mauve) 0%, var(--paper-yellow) 100%);
-}
-.tech-badge--backend {
-    background: linear-gradient(135deg, var(--accent-blue-light) 0%, var(--paper-yellow) 100%);
-}
-.tech-badge--frontend {
-    background: linear-gradient(135deg, var(--accent-orange) 0%, var(--paper-yellow) 100%);
-}
-.tech-badge--fintech {
-    background: linear-gradient(135deg, var(--shadow-blue) 0%, var(--paper-yellow) 100%);
-}
-
-/* Hover: wiggle */
-.tech-badge:hover {
-    animation: wiggle 0.3s ease-in-out;
-    transform: scale(1.1) rotate(0deg);
-    z-index: 10;
-}
-
-/* Separador visual entre categorías */
-.tech-divider {
-    width: 3px;
-    height: 40px;
-    background: var(--ink-black);
-    margin: 0 1rem;
-    align-self: center;
-}
-
-/* Responsive: ocultar dividers en mobile */
-@media (max-width: 768px) {
-    .tech-divider { display: none; }
-}
-```
-
----
-
-#### Sección 14: PRESS/FEATURED SECTION ENHANCED (Líneas ~930+)
-
-**Descripción:** Rediseño de la sección "As Seen In" con marquee horizontal y gradientes.
-
-```css
-/* =========================================
-   14. PRESS/FEATURED SECTION ENHANCED
-   ========================================= */
-
-/* Contenedor principal con scroll horizontal opcional */
-.press-section-enhanced {
-    width: 100%;
-    margin: 3rem 0;
-    padding: 2rem 0;
-    border-top: 4px solid var(--ink-black);
-    border-bottom: 4px solid var(--ink-black);
-    background: repeating-linear-gradient(
-        -45deg,
-        transparent,
-        transparent 10px,
-        rgba(0,0,0,0.03) 10px,
-        rgba(0,0,0,0.03) 20px
-    );
-}
-
-/* Título estilo cartel de cine */
-.press-title {
-    font-family: 'Bungee', cursive;
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
-    color: var(--paper-yellow);
-    text-shadow: 4px 4px 0 var(--ink-black);
-    text-align: center;
-    margin-bottom: 2rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-/* Grid de items (scroll horizontal en mobile) */
-.press-marquee {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem;
-    padding: 0 1rem;
-}
-
-/* Item individual estilo ticket/entrada */
-.press-item-enhanced {
-    background: var(--paper-yellow);
-    border: 4px solid var(--ink-black);
-    box-shadow: 6px 6px 0 var(--shadow-blue);
-    padding: 1.5rem;
-    min-width: 220px;
-    max-width: 300px;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    transition: all 0.2s ease;
-    position: relative;
-}
-
-/* Rotaciones tipo sticker */
-.press-item-enhanced:nth-child(1) { transform: rotate(-1deg); }
-.press-item-enhanced:nth-child(2) { transform: rotate(1.5deg); }
-.press-item-enhanced:nth-child(3) { transform: rotate(-0.5deg); }
-
-/* Icono grande a la izquierda */
-.press-icon-large {
-    font-size: 2.5rem;
-    flex-shrink: 0;
-}
-
-/* Contenido textual */
-.press-content {
-    display: flex;
-    flex-direction: column;
-}
-
-.press-content strong {
-    font-family: 'Bungee', cursive;
-    font-size: 1rem;
-    color: var(--ink-black);
-    text-transform: uppercase;
-}
-
-.press-detail {
-    font-family: 'Roboto Slab', serif;
-    font-size: 0.85rem;
-    color: var(--bg-red);
-    font-weight: bold;
-    margin-top: 0.3rem;
-}
-
-/* Variantes de color */
-.press-item-enhanced--gold {
-    border-left: 8px solid #FFD700;
-}
-.press-item-enhanced--blue {
-    border-left: 8px solid var(--accent-blue-light);
-}
-.press-item-enhanced--mauve {
-    border-left: 8px solid var(--accent-mauve);
-}
-
-/* Hover: elevación */
-.press-item-enhanced:hover {
-    transform: rotate(0deg) translateY(-5px);
-    box-shadow: 10px 10px 0 var(--shadow-deep);
-}
-
-/* Decoración "ticket stub" */
-.press-item-enhanced::before {
-    content: "";
-    position: absolute;
-    right: -10px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-    background: var(--bg-red);
-    border-radius: 50%;
-}
-```
-
----
-
-#### Sección 15: FOOTER ENHANCED (Líneas ~1010+)
-
-**Descripción:** Mejoras al footer con hook phrase dividido y animación.
-
-```css
-/* =========================================
-   15. FOOTER ENHANCED
-   ========================================= */
-
-/* Hook phrase con efecto de dos líneas */
-.footer-hook {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.footer-hook h3 {
-    font-family: 'Roboto Slab', serif;
-    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-    color: var(--ink-black);
-    margin: 0;
-    font-weight: normal;
-}
-
-.hook-highlight {
-    font-family: 'Bungee', cursive !important;
-    font-size: clamp(2rem, 4vw, 3rem) !important;
-    color: var(--bg-red) !important;
-    text-shadow: 3px 3px 0 var(--shadow-blue);
-    margin: 0 !important;
-}
-
-/* Tagline descriptivo */
-.footer-tagline {
-    font-family: 'Permanent Marker', cursive;
-    font-size: 1rem;
-    color: var(--ink-black);
-    opacity: 0.8;
-    margin-bottom: 1.5rem;
-}
-
-/* Mejora del CTA button con micro-bounce */
-.footer-cta:hover {
-    animation: micro-bounce 0.4s ease;
-}
-
-@keyframes micro-bounce {
-    0%, 100% { transform: translate(-2px, -2px); }
-    50% { transform: translate(-4px, -4px); }
-}
-```
-
----
-
-#### Sección 16: PROJECT CATEGORY FILTERS (Líneas ~1060+)
-
-**Descripción:** Filtros de categoría usando CSS checkbox hack (sin JavaScript).
-
-```css
-/* =========================================
-   16. PROJECT CATEGORY FILTERS
-   ========================================= */
-
-/* Contenedor de filtros */
-.project-filters {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-    padding: 1rem;
-}
-
-/* Input oculto para filtros */
-.filter-input { display: none; }
-
-/* Label como "sticker tab" */
-.filter-label {
-    background: var(--paper-yellow);
-    border: 3px solid var(--ink-black);
-    box-shadow: 4px 4px 0 var(--ink-black);
-    padding: 0.6rem 1.2rem;
-    font-family: 'Bungee', cursive;
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    text-transform: uppercase;
-}
-
-.filter-label:hover {
-    transform: translateY(-2px);
-    box-shadow: 6px 6px 0 var(--shadow-blue);
-}
-
-/* Estado activo del filtro */
-.filter-input:checked + .filter-label {
-    background: var(--bg-red);
-    color: var(--paper-yellow);
-    transform: rotate(0deg) scale(1.05);
-    box-shadow: 6px 6px 0 var(--shadow-blue);
-}
-
-/* Decoración de estrella para filtro activo */
-.filter-input:checked + .filter-label::before {
-    content: "★ ";
-}
-```
-
-> [!NOTE]
-> El filtrado real de proyectos requiere JavaScript o categorías separadas en Hugo. La implementación CSS solo provee la interfaz visual. Para un filtrado real, se debería usar JavaScript o crear páginas separadas por categoría.
-
----
-
-#### Sección 17: MICRO-INTERACTIONS ENHANCED (Líneas ~1110+)
-
-**Descripción:** Mejoras de micro-interacciones para experiencia táctil.
-
-```css
-/* =========================================
-   17. MICRO-INTERACTIONS ENHANCED
-   ========================================= */
-
-/* Underline animado para links de menú */
-.main-menu nav a {
-    position: relative;
-    overflow: hidden;
-}
-
-.main-menu nav a::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: -100%;
-    width: 100%;
-    height: 3px;
-    background: var(--paper-yellow);
-    transition: left 0.3s ease;
-}
-
-.main-menu nav a:hover::after {
-    left: 0;
-}
-
-/* Sombra más profunda en cards expandidas */
-.toggle-input:checked + .paper-card {
-    box-shadow: 15px 15px 0 var(--accent-mauve) !important;
-}
-
-/* Micro-bounce para botones de proyecto */
-.project-button {
-    position: relative;
-    overflow: hidden;
-}
-
-.project-button::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(255,255,255,0.3);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.3s, height 0.3s;
-}
-
-.project-button:active::after {
-    width: 200px;
-    height: 200px;
-}
-
-/* Enhanced focus states for accessibility */
-.nav-card:focus,
-.tech-badge:focus,
-.press-item-enhanced:focus,
-.project-button:focus,
-.filter-label:focus {
-    outline: 4px dashed var(--paper-yellow);
-    outline-offset: 4px;
-}
-```
-
----
-
-#### Sección 18: TIMELINE "THE JOURNEY" (Líneas ~1160+)
-
-**Descripción:** Timeline horizontal con puntos de carrera.
-
-```css
-/* =========================================
-   18. TIMELINE "THE JOURNEY"
-   ========================================= */
-
-/* Contenedor del timeline */
-.journey-section {
-    width: 100%;
-    max-width: 1000px;
-    margin: 3rem auto;
-    padding: 2rem 1rem;
-    text-align: center;
-}
-
-/* Título del journey */
-.journey-title {
-    font-family: 'Bungee', cursive;
-    font-size: clamp(1.5rem, 3vw, 2.2rem);
-    color: var(--paper-yellow);
-    text-shadow: 4px 4px 0 var(--ink-black);
-    margin-bottom: 2rem;
-}
-
-/* Línea del timeline */
-.journey-line {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    padding: 2rem 0;
-}
-
-/* Línea conectora horizontal */
-.journey-line::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 5%;
-    right: 5%;
-    height: 4px;
-    background: var(--ink-black);
-    transform: translateY(-50%);
-    z-index: 0;
-}
-
-/* Punto individual del timeline */
-.journey-point {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-/* Círculo del punto */
-.journey-dot {
-    width: 60px;
-    height: 60px;
-    background: var(--paper-yellow);
-    border: 4px solid var(--ink-black);
-    border-radius: 50%;
-    box-shadow: 4px 4px 0 var(--shadow-blue);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Bungee', cursive;
-    font-size: 0.9rem;
-    color: var(--ink-black);
-    transition: all 0.2s ease;
-}
-
-/* Año debajo del punto */
-.journey-year {
-    font-family: 'Bungee', cursive;
-    font-size: 1rem;
-    color: var(--paper-yellow);
-    text-shadow: 2px 2px 0 var(--ink-black);
-    margin-top: 0.5rem;
-}
-
-/* Label de la empresa/etapa */
-.journey-label {
-    font-family: 'Roboto Slab', serif;
-    font-size: 0.85rem;
-    color: var(--paper-yellow);
-    margin-top: 0.3rem;
-    max-width: 100px;
-}
-
-/* Hover: elevación del punto */
-.journey-point:hover .journey-dot {
-    transform: translateY(-5px) scale(1.1);
-    box-shadow: 6px 6px 0 var(--shadow-deep);
-}
-
-/* Variantes de color por etapa */
-.journey-point:nth-child(1) .journey-dot { background: var(--accent-orange); }
-.journey-point:nth-child(2) .journey-dot { background: var(--accent-blue-light); }
-.journey-point:nth-child(3) .journey-dot { background: var(--accent-mauve); }
-.journey-point:nth-child(4) .journey-dot { background: var(--paper-yellow); }
-
-/* Tagline final del journey */
-.journey-tagline {
-    font-family: 'Permanent Marker', cursive;
-    font-size: 1.1rem;
-    color: var(--paper-yellow);
-    text-shadow: 2px 2px 0 var(--ink-black);
-    margin-top: 2rem;
-    font-style: italic;
-}
-
-/* Responsive: stack vertical en mobile */
-@media (max-width: 768px) {
-    .journey-line {
-        flex-direction: column;
-        gap: 2rem;
+## Sección 1: Dinamismo Narrativo (Adiós al Texto Estático)
+
+### 1.1 Storytelling Interactivo
+
+**Diagnóstico**: El portfolio actual presenta bloques de texto densos ("Are you tired of weak AI projects...") que funcionan pero no enganchan. Phamily Pharma fragmenta su narrativa en unidades visuales que aparecen progresivamente.
+
+**Estrategia: Píldoras de Impacto con Scroll-Reveal**
+
+1.  **Fragmentar el Bio**:
+    -   **Antes**: Dos párrafos largos en `bio-card`.
+    -   **Después**: 3-4 "impact pills" que se revelan secuencialmente al hacer scroll.
+    
+    ```html
+    <!-- Ejemplo de estructura -->
+    <div class="impact-pills">
+      <div class="pill" data-reveal="1">🔥 Tired of AI projects that gather dust?</div>
+      <div class="pill" data-reveal="2">⚡ I build systems that optimize real workflows.</div>
+      <div class="pill" data-reveal="3">🧠 Sharpened by Quantitative Finance.</div>
+      <div class="pill" data-reveal="4">🥋 Toughened daily on the BJJ mats.</div>
+    </div>
+    ```
+
+2.  **Técnica CSS para Reveal Escalonado (Staggered Animation)**:
+    ```css
+    .pill {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s var(--ease-out-expo), 
+                  transform 0.6s var(--ease-out-expo);
     }
     
+    .pill.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Stagger delay via CSS custom properties */
+    .pill[data-reveal="1"] { transition-delay: 0ms; }
+    .pill[data-reveal="2"] { transition-delay: 150ms; }
+    .pill[data-reveal="3"] { transition-delay: 300ms; }
+    .pill[data-reveal="4"] { transition-delay: 450ms; }
+    ```
+
+3.  **JavaScript Mínimo (Intersection Observer)**:
+    ```javascript
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, { threshold: 0.2 });
+    
+    document.querySelectorAll('.pill').forEach(pill => observer.observe(pill));
+    ```
+
+---
+
+### 1.2 Copywriting de Autoridad
+
+**Diagnóstico**: Los textos actuales son correctos pero genéricos. Phamily usa frases que venden **resultados**, no features.
+
+**Transformaciones Propuestas**:
+
+| Sección | Texto Actual | Texto de Impacto |
+|:--------|:-------------|:-----------------|
+| **Hero Title** | "THE FUTURE IS TODAI!" | THE FUTURE IS TODAI! OLD MAN" |
+| **Hero Subtitle** | "Engineering Intelligence since 2020" | "From RAG to Production — Zero Fluff." |
+| **Bio Card 1** | "I build business centered systems..." | "Your workflows. Optimized by AI. In production." |
+| **Bio Card 2** | "My mind is sharpened by..." | "Finance precision. Combat discipline. Code quality." |
+| **Project Hook** | "Witness high stakes DRL in action..." | "An AlphaZero-inspired agent. Live on Nasdaq. 47% returns." |
+
+**Jerarquía de Texto (Phamily Pattern)**:
+1.  **Impact Statement** (H1/H2): 3-6 palabras. Beneficio claro.
+2.  **Supporting Line** (Subtitle): Credibilidad o especificación técnica.
+3.  **Proof Points** (Pills/Tags): Métricas o keywords escaneables.
+
+---
+
+### 1.3 Data Visualization Dinámica
+
+**Diagnóstico**: Los logros actuales (Robotrader, Speaker, Mensa) están en badges estáticos. No hay visualización de skills.
+
+**Estrategia: Elementos Dinámicos en Lugar de Listas**
+
+1.  **Stat Counters Animados**:
+    -   Para métricas cuantificables del Hero o About.
+    
+    ```html
+    <div class="stat-counter" data-target="47.3">
+      <span class="stat-value">0</span>%
+      <span class="stat-label">Max Returns (Simulated)</span>
+    </div>
+    ```
+    
+    ```javascript
+    // Animación de contador
+    const animateCounter = (el) => {
+      const target = parseFloat(el.dataset.target);
+      let current = 0;
+      const increment = target / 60; // ~60 frames
+      const update = () => {
+        current += increment;
+        if (current < target) {
+          el.querySelector('.stat-value').textContent = current.toFixed(1);
+          requestAnimationFrame(update);
+        } else {
+          el.querySelector('.stat-value').textContent = target;
+        }
+      };
+      update();
+    };
+    ```
+
+2.  **Tech Stack como "Orbit" o "Constellation"**:
+    -   En lugar de badges planos, animar las tecnologías orbitando un centro (Python como núcleo, LangChain/PyTorch como satélites).
+    -   Alternativa más simple: **Hover Expansion** donde al pasar el mouse, el badge revela una descripción.
+
+3.  **Timeline de Experiencia Animado**:
+    -   El "Journey" actual es estático.
+    -   Añadir una línea que se "dibuja" al hacer scroll, conectando los puntos.
+    
+    ```css
     .journey-line::before {
-        top: 5%;
-        bottom: 5%;
-        left: 50%;
-        right: auto;
-        width: 4px;
-        height: auto;
-        transform: translateX(-50%);
+      content: '';
+      position: absolute;
+      width: 3px;
+      background: var(--shadow-blue);
+      height: 0; /* Animada a 100% */
+      transition: height 1s var(--ease-out-expo);
     }
     
-    .journey-point {
-        flex-direction: row;
-        gap: 1rem;
+    .journey-line.is-visible::before {
+      height: 100%;
+    }
+    ```
+
+---
+
+## Sección 2: Motion Design & Fluidity (La "Magia" del Movimiento)
+
+### 2.1 Scroll Experience Premium
+
+**Diagnóstico**: Phamily Pharma usa **Lenis** para scroll suave. El portfolio actual tiene scroll nativo (brusco en comparación).
+
+**Implementación: Lenis.js (Scroll Suave)**
+
+1.  **Instalación**:
+    ```html
+    <!-- En extend-footer.html -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script>
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // ease-out-expo
+        smoothWheel: true,
+      });
+      
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+    </script>
+    ```
+
+2.  **Parallax Sutil en Hero**:
+    -   El título "THE FUTURE IS TODAI!" se mueve a velocidad diferente que el fondo.
+    
+    ```css
+    .hero-container {
+      position: relative;
+      overflow: hidden;
     }
     
-    .journey-label {
+    .hero-title {
+      transform: translateY(calc(var(--scroll-y, 0) * 0.3));
+      will-change: transform;
+    }
+    ```
+    
+    ```javascript
+    // Actualizar variable CSS con scroll
+    window.addEventListener('scroll', () => {
+      document.documentElement.style.setProperty('--scroll-y', window.scrollY + 'px');
+    });
+    ```
+
+3.  **Progressive Blur en Scroll (Depth Effect)**:
+    -   Al hacer scroll, el header/hero se desenfoca sutilmente, dando sensación de profundidad.
+    
+    ```css
+    .hero-container {
+      filter: blur(calc(var(--scroll-y, 0) * 0.01px));
+      opacity: calc(1 - var(--scroll-y, 0) * 0.001);
+    }
+    ```
+
+---
+
+### 2.2 Micro-interacciones Premium
+
+**Diagnóstico**: El portfolio tiene hover effects básicos (elevación de sombra). Phamily añade "peso" y "magnetismo".
+
+**Implementaciones Específicas**:
+
+1.  **Efecto Magnético en Botones**:
+    -   El cursor "atrae" el botón ligeramente hacia él.
+    
+    ```javascript
+    document.querySelectorAll('.project-button, .footer-cta').forEach(btn => {
+      btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        
+        btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+      });
+      
+      btn.addEventListener('mouseleave', () => {
+        btn.style.transform = 'translate(0, 0)';
+      });
+    });
+    ```
+
+2.  **Cursor Custom**:
+    -   Reemplazar el cursor por un círculo personalizado que sigue el mouse.
+    
+    ```html
+    <div class="custom-cursor"></div>
+    ```
+    
+    ```css
+    .custom-cursor {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--paper-yellow);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      mix-blend-mode: difference;
+      transition: transform 0.15s var(--ease-out-expo);
+    }
+    
+    .custom-cursor.hover {
+      transform: scale(2.5);
+      background: var(--paper-yellow);
+      opacity: 0.3;
+    }
+    ```
+    
+    ```javascript
+    const cursor = document.querySelector('.custom-cursor');
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX - 10 + 'px';
+      cursor.style.top = e.clientY - 10 + 'px';
+    });
+    
+    document.querySelectorAll('a, button, .project-card').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
+    ```
+
+3.  **Transiciones de Color Orgánicas**:
+    -   En lugar de cambios instantáneos, usar `transition` con curva personalizada.
+    
+    ```css
+    .project-button {
+      background: var(--bg-red);
+      transition: background-color 0.4s var(--ease-in-out-smooth),
+                  transform 0.3s var(--ease-out-expo),
+                  box-shadow 0.3s var(--ease-out-expo);
+    }
+    
+    .project-button:hover {
+      background: var(--shadow-blue);
+    }
+    ```
+
+---
+
+### 2.3 Transiciones de Página (Sin "Salto Blanco")
+
+**Diagnóstico**: La navegación actual (anclas `/#about`, `/#projects`) tiene scroll instantáneo sin transición visual.
+
+**Estrategia: Smooth Scroll + View Transitions API**
+
+1.  **Smooth Scroll Nativo (ya activo con Lenis)**:
+    ```css
+    html {
+      scroll-behavior: smooth;
+    }
+    ```
+
+2.  **View Transitions API (CSS Nativo, Chromium 111+)**:
+    -   Añade fade/morph entre secciones sin JS pesado.
+    
+    ```css
+    @view-transition {
+      navigation: auto;
+    }
+    
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+      animation-duration: 0.4s;
+      animation-timing-function: var(--ease-out-expo);
+    }
+    ```
+
+3.  **Fallback para navegadores sin soporte**:
+    -   El scroll suave de Lenis es suficiente como experiencia base.
+    -   No añadir polyfills pesados.
+
+---
+
+## Sección 3: Evolución del Layout y Elementos
+
+### 3.1 Breaking the Grid (Asimetría y Espacio Negativo)
+
+**Diagnóstico**: El portfolio actual usa un layout de columna única centrada. Funciona pero es "plantilla estándar".
+
+**Estrategia: Disposiciones Asimétricas Controladas**
+
+1.  **Hero Section — Off-Center Title**:
+    -   Mover el título principal hacia la izquierda (60/40 split) en desktop.
+    -   El espacio negativo a la derecha genera tensión visual y sofisticación.
+    
+    ```css
+    @media (min-width: 1024px) {
+      .hero-container {
         text-align: left;
-        max-width: none;
+        padding-left: 10%;
+        padding-right: 30%;
+      }
     }
-}
-```
+    ```
+
+2.  **About Section — Magazine Layout**:
+    -   La foto actual está en una columna fija. Cambiar a "overlapping" donde la foto "invade" el bloque de texto.
+    
+    ```css
+    .poster-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 0; /* Sin gap, overlap intencionado */
+    }
+    
+    .photo-frame-retro {
+      transform: translateX(40px) rotate(-3deg);
+      z-index: 10;
+    }
+    ```
+
+3.  **Projects Grid — Staggered Heights**:
+    -   No todas las cards deben tener la misma altura. Usar `masonry` o simular con CSS Grid.
+    
+    ```css
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-auto-rows: auto;
+    }
+    
+    .project-card:nth-child(odd) {
+      margin-top: 40px;
+    }
+    ```
 
 ---
 
-### [MODIFY] [_index.md](file:///mnt/c/Users/javie/Programacion/GitHub/JavierMatasPose.github.io/content/_index.md)
+### 3.2 Modern Components (Rediseño de Elementos Clave)
 
-**Estado actual (18 líneas):**
-```html
-<div class="hero-container">...</div>
-<footer class="vintage-footer">...</footer>
-```
+**Diagnóstico**: Las cards actuales tienen bordes duros y sombras offset. Son coherentes con la estética pero pueden elevarse.
 
-**Nuevo contenido propuesto:**
+**Mejoras Propuestas**:
 
-```html
+1.  **Project Cards — Glassmorphism Adaptado**:
+    -   Mantener bordes negros pero añadir un sutil `backdrop-filter` al fondo.
+    -   **No cambiar la paleta**, solo añadir profundidad.
+    
+    ```css
+    .project-card {
+      background: rgba(255, 245, 158, 0.85); /* paper-yellow con transparencia */
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 3px solid var(--ink-black);
+      box-shadow: 10px 10px 0px var(--ink-black);
+    }
+    ```
+
+2.  **Tech Stack — Bento Grid Inspiration**:
+    -   En lugar de badges en línea, organizar como un "bento box" con celdas de diferentes tamaños.
+    
+    ```css
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, auto);
+      gap: 10px;
+    }
+    
+    .tech-badge--featured {
+      grid-column: span 2;
+      font-size: 1.2em;
+    }
+    ```
+
+3.  **Footer — Minimalismo con CTA Destacado**:
+    -   Reducir el texto del footer actual.
+    -   Un solo CTA grande: "Let's Connect →"
+    -   Fondo invertido (ink-black en lugar de paper-yellow) para contraste.
+    
+    ```css
+    .vintage-footer {
+      background: var(--ink-black);
+      color: var(--paper-yellow);
+      padding: var(--space-xl);
+      text-align: center;
+    }
+    
+    .footer-cta {
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      padding: var(--space-md) var(--space-lg);
+    }
+    ```
+
 ---
-title: "Javier Matas - AI Revolution"
-description: "High-Performance AI Engineering"
+
+### 3.3 Visual Anchors (Puntos de Atención)
+
+**Diagnóstico**: El portfolio carece de un "hero image" impactante. La foto de perfil es pequeña y funcional.
+
+**Estrategia: Añadir Anclas Visuales**
+
+1.  **Hero Section — Illustrated Background**:
+    -   Añadir una ilustración SVG sutil (circuitos, ondas synthwave) detrás del título.
+    -   Usar `mix-blend-mode: multiply` para integrarla con el fondo rojo.
+    
+    ```css
+    .hero-container::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('/images/hero-pattern.svg') center/cover no-repeat;
+      opacity: 0.15;
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
+    ```
+
+2.  **About Section — Enlarged Photo with Parallax**:
+    -   Hacer la foto más grande (ocupa más espacio vertical).
+    -   Añadir parallax sutil para que se mueva al scroll.
+
+3.  **Projects — ASCII Art Animado**:
+    -   El ASCII art actual es estático.
+    -   Añadir una animación sutil de "typing" o "glitch".
+    
+    ```css
+    @keyframes glitch {
+      0%, 100% { text-shadow: 2px 0 var(--shadow-blue), -2px 0 var(--bg-red); }
+      25% { text-shadow: -2px 0 var(--shadow-blue), 2px 0 var(--bg-red); }
+      50% { text-shadow: 2px 2px var(--shadow-blue), -2px -2px var(--bg-red); }
+      75% { text-shadow: -2px 2px var(--shadow-blue), 2px -2px var(--bg-red); }
+    }
+    
+    .ascii-art:hover {
+      animation: glitch 0.3s infinite;
+    }
+    ```
+
+4.  **Opcional — 3D Element (Spline/Three.js)**:
+    -   Añadir un pequeño elemento 3D (ej: un cubo rotando con tu logo) en el Hero.
+    -   **Alta complejidad, baja prioridad**. Solo si hay tiempo.
+
 ---
-<div class="hero-container">
-<h1 class="poster-text home-title">
-THE FUTURE <br> IS 
-<span class="glue-word">TOD<span class="highlight-ai">AI!</span></span>
-</h1>
-<span class="since-tag">Engineering Intelligence since 2020</span>
-</div>
-<nav class="quick-nav">
-<a href="/about/" class="nav-card">
-<span class="nav-card-icon">👨‍💻</span>
-<h3 class="nav-card-title">About Me</h3>
-<span class="nav-card-subtitle">The Engineer Behind the Code</span>
-</a>
-<a href="/projects/" class="nav-card">
-<span class="nav-card-icon">🚀</span>
-<h3 class="nav-card-title">Projects</h3>
-<span class="nav-card-subtitle">AI Solutions in Action</span>
-</a>
-<a href="/ResumeJavierMatas.pdf" target="_blank" class="nav-card">
-<span class="nav-card-icon">📄</span>
-<h3 class="nav-card-title">Resume</h3>
-<span class="nav-card-subtitle">Download My CV</span>
-</a>
-</nav>
-<p class="quick-nav-tagline">Click to explore the future</p>
-<section class="tech-showcase">
-<h3 class="tech-showcase-title">★ Powered By ★</h3>
-<div class="tech-grid">
-<span class="tech-badge tech-badge--ai">Python</span>
-<span class="tech-badge tech-badge--ai">PyTorch</span>
-<span class="tech-badge tech-badge--ai">LangChain</span>
-<span class="tech-badge tech-badge--ai">AWS Bedrock</span>
-<div class="tech-divider"></div>
-<span class="tech-badge tech-badge--backend">FastAPI</span>
-<span class="tech-badge tech-badge--backend">PostgreSQL</span>
-<span class="tech-badge tech-badge--backend">Vector DBs</span>
-<div class="tech-divider"></div>
-<span class="tech-badge tech-badge--fintech">DRL</span>
-<span class="tech-badge tech-badge--fintech">Quant Trading</span>
-</div>
-</section>
-<footer class="vintage-footer">
-<div class="footer-hook">
-<h3>AI Updates for Your</h3>
-<h3 class="hook-highlight">INBOX</h3>
-</div>
-<p class="footer-tagline">Insights, projects, and the occasional mind-bending idea.</p>
-<a href="https://www.linkedin.com/in/javier-cayetano-matas-pose-18b0a520a/" target="_blank" class="footer-cta">Let's Connect</a>
-<p class="footer-copyright">© 2026 Javier Matas Pose — Engineering Tomorrow</p>
-</footer>
-```
+
+## Sección 4: Guía de Ejecución Visual (Look & Feel)
+
+### 4.1 Jerarquía y Ritmo Tipográfico
+
+**Diagnóstico**: La tipografía actual es consistente pero puede "respirar" más. Phamily usa espacios generosos entre secciones.
+
+**Estrategia: "Breathing Room" y Escala Fluida**
+
+1.  **Tipografía Fluida con `clamp()`**:
+    -   Ya implementado parcialmente. Reforzar en títulos de sección.
+    
+    ```css
+    .main-title-about,
+    .main-title-projects {
+      font-size: clamp(3rem, 8vw + 1rem, 8rem);
+      letter-spacing: -0.02em;
+      line-height: 0.9;
+    }
+    
+    .project-title {
+      font-size: clamp(1.25rem, 3vw, 2rem);
+    }
+    
+    body {
+      font-size: clamp(1rem, 1vw + 0.5rem, 1.25rem);
+      line-height: 1.6;
+    }
+    ```
+
+2.  **Espaciado Vertical Generoso**:
+    -   Usar las variables `--space-*` ya definidas.
+    -   Aumentar `margin-bottom` entre secciones principales.
+    
+    ```css
+    section {
+      margin-bottom: var(--space-section);
+    }
+    
+    .poster-header {
+      margin-bottom: var(--space-lg);
+    }
+    
+    .bio-card + .bio-card {
+      margin-top: var(--space-md);
+    }
+    ```
+
+3.  **Jerarquía Visual Clara (Pattern)**:
+    | Nivel | Uso | Tamaño | Peso |
+    |:------|:----|:-------|:-----|
+    | **H1** | Solo Hero | `clamp(4rem, 15vw, 8rem)` | Black (900) |
+    | **H2** | Secciones (About, Projects) | `clamp(3rem, 8vw, 6rem)` | Bold (700) |
+    | **H3** | Subsecciones | `clamp(1.5rem, 3vw, 2.5rem)` | Bold (700) |
+    | **Body** | Texto general | `clamp(1rem, 1vw, 1.25rem)` | Regular (400) |
+    | **Small** | Tags, captions | `0.85rem` | Medium (500) |
+
+---
+
+### 4.2 Depth & Layers (Profundidad Visual)
+
+**Diagnóstico**: El portfolio usa sombras offset planas (coherentes con la estética). Pueden añadirse capas sutiles sin romper el estilo.
+
+**Técnicas para Añadir Profundidad**:
+
+1.  **Sombras Multi-Capa**:
+    -   Mantener la sombra offset principal, pero añadir una sombra suave secundaria.
+    
+    ```css
+    .project-card {
+      box-shadow: 
+        10px 10px 0px var(--ink-black),                    /* Hard offset */
+        20px 20px 30px rgba(26, 26, 26, 0.15);            /* Soft depth */
+    }
+    
+    .project-card:hover {
+      box-shadow: 
+        15px 15px 0px var(--ink-black),
+        25px 25px 40px rgba(26, 26, 26, 0.2);
+    }
+    ```
+
+2.  **Gradientes Dinámicos en Fondos**:
+    -   Añadir un gradiente muy sutil al fondo rojo para evitar monotonía.
+    
+    ```css
+    .section--red {
+      background: 
+        radial-gradient(ellipse at 30% 20%, rgba(122, 130, 248, 0.1) 0%, transparent 50%),
+        var(--bg-red);
+    }
+    ```
+
+3.  **Blur Selectivo (Depth of Field)**:
+    -   Elementos lejanos en el layout pueden tener un blur muy sutil.
+    -   Usar con moderación.
+    
+    ```css
+    .marquee.section-divider {
+      filter: blur(0.5px);
+      opacity: 0.9;
+    }
+    ```
+
+4.  **Overlay Textures**:
+    -   El portfolio ya usa una textura de fondo (`stardust.png`).
+    -   Considerar añadir un "grain" sutil sobre imágenes para consistencia.
+    
+    ```css
+    .photo-frame-retro img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('/images/noise.png');
+      opacity: 0.05;
+      mix-blend-mode: overlay;
+      pointer-events: none;
+    }
+    ```
+
+---
+
+## Checklist de Implementación Priorizado
 
 > [!IMPORTANT]
-> **Recuerda:** El HTML en Markdown de Hugo debe estar SIN INDENTAR para renderizar correctamente.
+> Ordenado por **impacto visual / esfuerzo**. Empezar por P0 para "WOW" inmediato.
+
+### 🔴 P0 — Quick Wins (WOW en 1 hora)
+
+| # | Tarea | Impacto |
+|:-:|:------|:-------:|
+| 1 | Añadir Lenis.js para scroll suave | ⭐⭐⭐ |
+| 2 | Implementar copywriting de autoridad (Hero + Bio) | ⭐⭐⭐ |
+| 3 | Glitch animation en ASCII art `:hover` | ⭐⭐ |
+| 4 | Espaciado generoso entre secciones | ⭐⭐ |
+
+### 🟠 P1 — Medium Effort (1-3 horas)
+
+| # | Tarea | Impacto |
+|:-:|:------|:-------:|
+| 5 | Scroll-reveal para bio "pills" | ⭐⭐⭐ |
+| 6 | Stat counters animados (returns %) | ⭐⭐ |
+| 7 | Cursor custom con efecto hover | ⭐⭐ |
+| 8 | Botones magnéticos | ⭐⭐ |
+
+### 🟢 P2 — Major Features (3+ horas)
+
+| # | Tarea | Impacto |
+|:-:|:------|:-------:|
+| 9 | Layout asimétrico (Hero off-center, photo overlap) | ⭐⭐⭐ |
+| 10 | Glassmorphism adaptado en cards | ⭐⭐ |
+| 11 | Hero background illustration (SVG) | ⭐⭐ |
+| 12 | Timeline animado (línea que se dibuja) | ⭐⭐ |
+
+### 🔵 P3 — Nice to Have
+
+| # | Tarea | Impacto |
+|:-:|:------|:-------:|
+| 13 | 3D element (Spline) en Hero | ⭐ (alto esfuerzo) |
+| 14 | View Transitions API | ⭐ (soporte limitado) |
+| 15 | Bento grid para Tech Stack | ⭐⭐ |
 
 ---
 
-### [MODIFY] [about.md](file:///mnt/c/Users/javie/Programacion/GitHub/JavierMatasPose.github.io/content/about.md)
+## Próximos Pasos
 
-#### Cambio 1: Eliminar sección `.press-section` duplicada
+1. **Revisar este documento** y aprobar el enfoque visual.
+2. **Priorizar tareas** según disponibilidad de tiempo.
+3. **Implementar P0** para impacto inmediato (~1 hora).
+4. **Iterar en P1/P2** según feedback.
 
-**Líneas a eliminar (87-94):**
-```html
-<section class="press-section">
-<h3 class="label-heading">As Seen In</h3>
-<div class="press-grid">
-<div class="press-item">🏆 Robotrader Competition — Top 3</div>
-<div class="press-item">🎤 Speaker @ Madrid Stock Exchange</div>
-<div class="press-item">🧠 Mensa International Member</div>
-</div>
-</section>
-```
-
-**Razón:** Duplica el contenido de la sección Achievements (líneas 74-83).
-
----
-
-#### Cambio 2: Añadir sección "The Journey" Timeline (Opcional)
-
-**Insertar después de la línea 85 (`</main>`):**
-
-```html
-<section class="journey-section">
-<h3 class="journey-title">★ The Journey ★</h3>
-<div class="journey-line">
-<div class="journey-point">
-<div class="journey-dot">🎓</div>
-<span class="journey-year">2020</span>
-<span class="journey-label">Started Coding AI</span>
-</div>
-<div class="journey-point">
-<div class="journey-dot">📊</div>
-<span class="journey-year">2022</span>
-<span class="journey-label">SDG Group</span>
-</div>
-<div class="journey-point">
-<div class="journey-dot">🚀</div>
-<span class="journey-year">2023</span>
-<span class="journey-label">DXC Technology</span>
-</div>
-<div class="journey-point">
-<div class="journey-dot">🤖</div>
-<span class="journey-year">NOW</span>
-<span class="journey-label">Capgemini</span>
-</div>
-</div>
-<p class="journey-tagline">"From code to intelligence, the path of a digital architect"</p>
-</section>
-```
-
----
-
-#### Cambio 3: Mejorar sección Press/Featured con nuevo diseño
-
-**Si se decide mantener una sección "Featured"**, reemplazar la sección Achievements (líneas 74-83) con diseño mejorado:
-
-```html
-<div class="achieve-block">
-<h3 class="label-heading">Achievements</h3>
-<section class="press-section-enhanced">
-<div class="press-marquee">
-<div class="press-item-enhanced press-item-enhanced--gold">
-<span class="press-icon-large">🏆</span>
-<div class="press-content">
-<strong>Robotrader</strong>
-<span class="press-detail">International Top 3 — 2024</span>
-</div>
-</div>
-<div class="press-item-enhanced press-item-enhanced--blue">
-<span class="press-icon-large">🎤</span>
-<div class="press-content">
-<strong>Speaker</strong>
-<span class="press-detail">Madrid Stock Exchange</span>
-</div>
-</div>
-<div class="press-item-enhanced press-item-enhanced--mauve">
-<span class="press-icon-large">🧠</span>
-<div class="press-content">
-<strong>Mensa</strong>
-<span class="press-detail">High-IQ Society Member</span>
-</div>
-</div>
-</div>
-</section>
-</div>
-```
-
----
-
-### [MODIFY] [projects/_index.md](file:///mnt/c/Users/javie/Programacion/GitHub/JavierMatasPose.github.io/content/projects/_index.md)
-
-#### Cambio: Añadir filtros de categoría (decorativos)
-
-**Insertar después de `</header>` (línea 16):**
-
-```html
-<nav class="project-filters">
-<input type="radio" name="filter" id="filter-all" class="filter-input" checked>
-<label for="filter-all" class="filter-label">All</label>
-<input type="radio" name="filter" id="filter-ai" class="filter-input">
-<label for="filter-ai" class="filter-label">AI/ML</label>
-<input type="radio" name="filter" id="filter-fintech" class="filter-input">
-<label for="filter-fintech" class="filter-label">FinTech</label>
-<input type="radio" name="filter" id="filter-fullstack" class="filter-input">
-<label for="filter-fullstack" class="filter-label">Full Stack</label>
-</nav>
-```
-
-> [!WARNING]
-> Estos filtros son **solo visuales**. El filtrado real requiere JavaScript o páginas separadas por categoría en Hugo.
-
----
-
-## Plan de Verificación
-
-### Verificación Automatizada
-
-No existen tests automatizados en este proyecto (es un sitio estático Hugo). La verificación se realizará manualmente.
-
-### Verificación Manual
-
-#### Test 1: Build de Hugo
-
-```bash
-cd /mnt/c/Users/javie/Programacion/GitHub/JavierMatasPose.github.io
-hugo --minify
-```
-
-**Resultado esperado:** Build exitoso sin errores ni warnings.
-
----
-
-#### Test 2: Servidor de desarrollo
-
-```bash
-cd /mnt/c/Users/javie/Programacion/GitHub/JavierMatasPose.github.io
-hugo server -D
-```
-
-**Verificar en http://localhost:1313:**
-
-1. **Homepage:**
-   - [ ] Hero title visible con sombras correctas
-   - [ ] 3 tarjetas Quick Nav visibles con rotaciones
-   - [ ] Hover en tarjetas produce wiggle y elevación
-   - [ ] Grid de Tech Stack visible con badges coloreados
-   - [ ] Footer con hook phrase dividido ("AI Updates for Your" / "INBOX")
-   - [ ] Footer CTA funciona (link a LinkedIn)
-
-2. **About Page:**
-   - [ ] No existe sección Press duplicada
-   - [ ] Achievements section con nuevo diseño (si se implementó)
-   - [ ] Timeline Journey visible (si se implementó)
-   - [ ] Experience cards expandibles funcionan
-   - [ ] Foto de perfil visible
-
-3. **Projects Page:**
-   - [ ] Filtros de categoría visibles
-   - [ ] Filtro "All" marcado por defecto
-   - [ ] Click en filtros cambia estado visual
-   - [ ] Project cards expandibles funcionan
-   - [ ] ASCII art visible en placeholders
-
-4. **Responsive (viewport < 768px):**
-   - [ ] Quick Nav cards se apilan verticalmente
-   - [ ] Tech dividers ocultos
-   - [ ] Timeline Journey se convierte en vertical
-   - [ ] Todos los textos legibles
-
----
-
-#### Test 3: Interacciones CSS
-
-| Elemento | Acción | Resultado Esperado |
-|----------|--------|-------------------|
-| `.nav-card` | Hover | Wiggle animation + elevación |
-| `.tech-badge` | Hover | Wiggle + scale(1.1) |
-| `.press-item-enhanced` | Hover | TranslateY(-5px) + sombra profunda |
-| `.project-button` | Active | Ripple effect |
-| `.main-menu nav a` | Hover | Underline animado desde izquierda |
-| `.filter-label` | Click | Background cambia a rojo, texto a amarillo |
-
----
-
-## Orden de Implementación Sugerido
-
-1. **Fase 1 — Quick Wins (Alta prioridad):**
-   - Eliminar `.press-section` duplicada de `about.md`
-   - Añadir estilos de Quick Nav y Tech Showcase a `custom.css`
-
-2. **Fase 2 — Homepage Enhancement:**
-   - Modificar `_index.md` con Quick Nav + Tech Grid
-   - Mejorar Footer con hook phrase
-
-3. **Fase 3 — About Page Improvements:**
-   - Implementar Press/Featured enhanced
-   - Añadir Timeline Journey (opcional)
-
-4. **Fase 4 — Projects Page:**
-   - Añadir filtros decorativos
-   - Mejorar micro-interacciones
-
-5. **Fase 5 — Polish:**
-   - Revisar responsive en todos los viewports
-   - Ajustar animaciones y transiciones
-   - Verificar accesibilidad (focus states)
-
----
-
-*Documento creado: 2026-01-11*

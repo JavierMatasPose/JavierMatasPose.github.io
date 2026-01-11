@@ -1,0 +1,56 @@
+{{/* 
+  Shortcode: img
+  Usage: {{< img src="images/hero.jpg" alt="Hero image" lazy="true" >}}
+  
+  Generates:
+  - WebP version + JPG fallback
+  - srcset for multiple breakpoints
+  - Automatic lazy loading (optional)
+*/}}
+
+{{ $src := .Get "src" }}
+{{ $alt := .Get "alt" | default "" }}
+{{ $lazy := .Get "lazy" | default "true" }}
+{{ $class := .Get "class" | default "" }}
+
+{{ $img := resources.Get $src }}
+{{ if $img }}
+  {{ $widths := slice 320 640 960 1280 }}
+  
+  {{/* Generate WebP srcset */}}
+  {{ $webpSrcset := slice }}
+  {{ range $widths }}
+    {{ $resized := $img.Resize (printf "%dx webp q80" .) }}
+    {{ $webpSrcset = $webpSrcset | append (printf "%s %dw" $resized.RelPermalink .) }}
+  {{ end }}
+  
+  {{/* Generate JPG srcset */}}
+  {{ $jpgSrcset := slice }}
+  {{ range $widths }}
+    {{ $resized := $img.Resize (printf "%dx jpg q85" .) }}
+    {{ $jpgSrcset = $jpgSrcset | append (printf "%s %dw" $resized.RelPermalink .) }}
+  {{ end }}
+  
+  {{/* Default sizes */}}
+  {{ $webp := $img.Resize "1280x webp q80" }}
+  {{ $jpg := $img.Resize "1280x jpg q85" }}
+  
+  <picture>
+    <source 
+      srcset="{{ delimit $webpSrcset ", " }}" 
+      sizes="(max-width: 640px) 100vw, (max-width: 960px) 80vw, 1280px"
+      type="image/webp">
+    <img 
+      src="{{ $jpg.RelPermalink }}" 
+      srcset="{{ delimit $jpgSrcset ", " }}"
+      sizes="(max-width: 640px) 100vw, (max-width: 960px) 80vw, 1280px"
+      alt="{{ $alt }}"
+      width="{{ $img.Width }}" 
+      height="{{ $img.Height }}"
+      {{ if eq $lazy "true" }}loading="lazy" decoding="async"{{ end }}
+      {{ with $class }}class="{{ . }}"{{ end }}
+    >
+  </picture>
+{{ else }}
+  <!-- Image not found: {{ $src }} -->
+{{ end }}

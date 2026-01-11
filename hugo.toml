@@ -17,13 +17,13 @@ theme = "blowfish"
 
   [params.home]
     profile = true
-    title = "Senior AI Engineer"
+    title = "Medior AI Engineer"
     subtitle = "GenAI | LLMs | Data Consulting"
     
   [params.author]
     name = "Javier Matas Pose"
-    image = "JMLinkedin.jpeg"
-    headline = "Senior AI Engineer"
+    image = "JMLinkedin.jpg"
+    headline = "Medior AI Engineer"
     bio = "Passionate about Quantitative Finance, AI Engineering, and BJJ. Building scalable solutions with LLMs and Agents."
     links = [
       { email = "mailto:javiermatasjr@gmail.com" },

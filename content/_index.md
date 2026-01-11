@@ -48,7 +48,7 @@ THE FUTURE <br> IS
 <h3>AI Updates for Your</h3>
 <h3 class="hook-highlight">INBOX</h3>
 </div>
-<p class="footer-tagline">Insights, projects, and the occasional mind-bending idea.</p>
+<p class="footer-tagline">Insights, projects, and the occasional mind blowing idea.</p>
 <a href="https://www.linkedin.com/in/javier-cayetano-matas-pose-18b0a520a/" target="_blank" class="footer-cta">Let's Connect</a>
-<p class="footer-copyright">© 2026 Javier Matas Pose — Engineering Tomorrow</p>
+<p class="footer-copyright">© 2026 Javier Matas Pose — The future is todAI!</p>
 </footer>

@@ -11,19 +11,20 @@ layout: "simple"
 </div>
 <div class="header-right">
 <h1 class="main-title-about">ABOUT ME</h1>
-<div class="subtitle-tag">Medior AI Engineer | Generative AI & LLMs</div>
+<div class="subtitle-tag">Meet the man behind the code</div>
 </div>
 </header>
 <div class="poster-layout">
 <aside class="side-col">
 <div class="photo-frame-retro">
-<img src="/JMLinkedin.jpeg" alt="Javier Matas Poster" onerror="this.style.display='none'">
+<img src="/JMLinkedin.jpg" alt="Javier Matas Poster" onerror="this.style.display='none'">
 </div>
 <div class="bio-card">
-<p>Battle-tested expertise in the high-stakes world of production AI. For over three years, I’ve been architecting the systems that define tomorrow—transforming raw code into living intelligence. I don't just build applications; I deploy the future.</p>
+<p>Are you tired of weak AI projects that nobody uses? Hi, I am Javier, and I have the ultimate solution! I build business centered systems designed to optimice all of your workflows.
+</p>
 </div>
 <div class="bio-card">
-<p>When the machines rest, the pursuit of excellence continues. I thrive on the world’s toughest cognitive challenges, while the discipline of Brazilian Jiu-Jitsu and the precision of Quantitative Finance keep my focus razor-sharp.</p>
+<p>But wait, that is not all! My mind is sharpened by the complex world of Quantitative Finance and toughened daily on the mats of Brazilian Jiu Jitsu. Don't accept substitutes. Get the power and precision you need right now!</p>
 </div>
 </aside>
 <main class="main-col">

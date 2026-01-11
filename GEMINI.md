@@ -6,7 +6,7 @@
 
 ## 1. Project Overview
 
-**Owner:** Javier Matas Pose — Senior AI Engineer  
+**Owner:** Javier Matas Pose — Medior AI Engineer  
 **Purpose:** Personal portfolio website showcasing expertise in Generative AI, LLMs, Agentic AI, and Quantitative Finance.  
 **Live URL:** https://javiermataspose.github.io/
 
@@ -52,7 +52,7 @@ JavierMatasPose.github.io/
 │   └── partials/
 │       └── extend-head.html  # Font preconnect links
 ├── static/
-│   ├── JMLinkedin.jpeg       # Profile photo
+│   ├── JMLinkedin.jpg       # Profile photo
 │   └── ResumeJavierMatas.pdf # Downloadable CV
 ├── themes/
 │   └── blowfish/             # Base theme (submodule)

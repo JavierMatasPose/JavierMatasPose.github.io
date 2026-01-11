@@ -2,7 +2,7 @@
 
 [![Live Site](https://img.shields.io/badge/Live-Site-ff0055?style=for-the-badge)](https://javiermataspose.github.io/)
 
-**Senior AI Engineer | Specialized in Generative AI & LLMs**
+**Medior AI Engineer | Specialized in Generative AI & LLMs**
 
 This repository contains the source code for my personal portfolio, built with **Hugo** and designed with a custom **"Vintage Synthwave"** aesthetic.
 

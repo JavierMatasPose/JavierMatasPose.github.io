@@ -11,7 +11,7 @@ layout: "simple"
 </div>
 <div class="header-right">
 <h1 class="main-title-about">ABOUT ME</h1>
-<div class="subtitle-tag">Senior AI Engineer | Generative AI & LLMs</div>
+<div class="subtitle-tag">Medior AI Engineer | Generative AI & LLMs</div>
 </div>
 </header>
 <div class="poster-layout">

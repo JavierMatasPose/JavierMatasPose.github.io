@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on Javier Matas Pose</title>
-    <link>https://JavierMatasPose.github.io/tags/python/</link>
+    <link>http://localhost:1313/tags/python/</link>
     <description>Recent content in Python on Javier Matas Pose</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2026 Javier Matas Pose</copyright>
-    <lastBuildDate>Sat, 20 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://JavierMatasPose.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>DQNTicTacToe</title>
-      <link>https://JavierMatasPose.github.io/projects/tictactoe/</link>
+      <link>http://localhost:1313/projects/tictactoe/</link>
       <pubDate>Sat, 20 Jan 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://JavierMatasPose.github.io/projects/tictactoe/</guid>
+      <guid>http://localhost:1313/projects/tictactoe/</guid>
       <description>Full-Stack application to play against a Deep Q-Network agent.</description>
       
     </item>
     
     <item>
       <title>AI in Financial Markets</title>
-      <link>https://JavierMatasPose.github.io/projects/financial-markets/</link>
+      <link>http://localhost:1313/projects/financial-markets/</link>
       <pubDate>Fri, 15 Sep 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://JavierMatasPose.github.io/projects/financial-markets/</guid>
+      <guid>http://localhost:1313/projects/financial-markets/</guid>
       <description>Deep Reinforcement Learning system for real-time trading (AlphaZero/AlphaTensor).</description>
       
     </item>

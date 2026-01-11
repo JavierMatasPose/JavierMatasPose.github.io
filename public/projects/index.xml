@@ -7,25 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2026 Javier Matas Pose</copyright>
-    <lastBuildDate>Sat, 20 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://JavierMatasPose.github.io/projects/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://JavierMatasPose.github.io/projects/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>DQNTicTacToe</title>
-      <link>https://JavierMatasPose.github.io/projects/tictactoe/</link>
-      <pubDate>Sat, 20 Jan 2024 00:00:00 +0000</pubDate>
+      <title></title>
+      <link>https://JavierMatasPose.github.io/projects/financial-markets/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://JavierMatasPose.github.io/projects/tictactoe/</guid>
-      <description>Full-Stack application to play against a Deep Q-Network agent.</description>
+      <guid>https://JavierMatasPose.github.io/projects/financial-markets/</guid>
+      <description>&lt;!-- ---&#xA;title: &#34;AI in Financial Markets&#34;&#xA;date: 2023-09-15&#xA;summary: &#34;Deep Reinforcement Learning system for real-time trading (AlphaZero/AlphaTensor).&#34;&#xA;tags: [&#34;Python&#34;, &#34;Reinforcement Learning&#34;, &#34;Finance&#34;, &#34;Algorithmic Trading&#34;]&#xA;externalUrl: &#34;https://www.youtube.com/watch?v=5EibcbIFkjs&amp;t=7829s&#34;&#xA;showReadingTime: false&#xA;---&#xA;&#xA;**Master&#39;s Thesis &amp; Entrepreneurship**&#xA;&#xA;I developed and implemented an artificial intelligence in a financial market simulation environment, capable of automatically buying and selling shares through a real broker.&#xA;&#xA;*   **Technology:** Based on **Deep Reinforcement Learning** (DRL), taking inspiration from AlphaZero and AlphaTensor.&#xA;*   **Results:** Traded automatically on the Nasdaq, achieving returns of up to **47.3%**.&#xA;*   **Recognition:** &#xA;    *   **Top 3 Award** at the international Robotrader algorithmic trading competition.&#xA;    *   Presented at the **Madrid Stock Exchange**.&#xA;&#xA;[Watch Talk (Spanish)](https://www.youtube.com/watch?v=5EibcbIFkjs&amp;t=7829s) --&gt;</description>
       
     </item>
     
     <item>
-      <title>AI in Financial Markets</title>
-      <link>https://JavierMatasPose.github.io/projects/financial-markets/</link>
-      <pubDate>Fri, 15 Sep 2023 00:00:00 +0000</pubDate>
+      <title></title>
+      <link>https://JavierMatasPose.github.io/projects/tictactoe/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://JavierMatasPose.github.io/projects/financial-markets/</guid>
-      <description>Deep Reinforcement Learning system for real-time trading (AlphaZero/AlphaTensor).</description>
+      <guid>https://JavierMatasPose.github.io/projects/tictactoe/</guid>
+      <description>&lt;!-- ---&#xA;title: &#34;DQNTicTacToe&#34;&#xA;date: 2024-01-20&#xA;summary: &#34;Full-Stack application to play against a Deep Q-Network agent.&#34;&#xA;tags: [&#34;Python&#34;, &#34;Flask&#34;, &#34;PyTorch&#34;, &#34;Web Dev&#34;]&#xA;externalUrl: &#34;https://dqntictactoe.onrender.com/&#34;&#xA;showReadingTime: false&#xA;---&#xA;&#xA;**Full-stack web application &amp; Reinforcement Learning**&#xA;&#xA;DQNTicTacToe is a web app where you can challenge a self-taught Deep Q-Network (DQN) agent in a game of Tic Tac Toe.&#xA;&#xA;*   **The Agent:** Learned the basics via *self-play* and continues to evolve.&#xA;*   **Tech Stack:** Python, Flask (backend), Gymnasium (game mechanics), PyTorch (DL).&#xA;&#xA;[Play against the Agent](https://dqntictactoe.onrender.com/) | [GitHub Repository](https://github.com/JavierMatasPose/DQNTicTacToe.git) --&gt;</description>
       
     </item>
     

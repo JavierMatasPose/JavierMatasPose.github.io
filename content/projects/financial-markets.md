@@ -1,4 +1,4 @@
----
+<!-- ---
 title: "AI in Financial Markets"
 date: 2023-09-15
 summary: "Deep Reinforcement Learning system for real-time trading (AlphaZero/AlphaTensor)."
@@ -17,4 +17,4 @@ I developed and implemented an artificial intelligence in a financial market sim
     *   **Top 3 Award** at the international Robotrader algorithmic trading competition.
     *   Presented at the **Madrid Stock Exchange**.
 
-[Watch Talk (Spanish)](https://www.youtube.com/watch?v=5EibcbIFkjs&t=7829s)
+[Watch Talk (Spanish)](https://www.youtube.com/watch?v=5EibcbIFkjs&t=7829s) -->

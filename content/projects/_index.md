@@ -62,15 +62,13 @@ Witness the power of an AlphaZero-inspired brain conquering the Nasdaq. This isn
 <label for="proj-tictac" class="project-card">
 <div class="project-image-placeholder">
 <pre class="ascii-art">
-   |   |   
- X | O | X 
-___|___|___
-   |   |   
- O | X |   
-___|___|___
-   |   |   
-   |   | O 
-   |   |   
+╔═══╦═══╦═══╗
+║ X ║ O ║ X ║
+╠═══╬═══╬═══╣
+║ O ║ X ║   ║
+╠═══╬═══╬═══╣
+║   ║   ║ O ║
+╚═══╩═══╩═══╝
 </pre>
 </div>
 <div class="project-content">

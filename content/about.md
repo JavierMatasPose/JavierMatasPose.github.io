@@ -84,4 +84,12 @@ layout: "simple"
 </div>
 </main>
 </div>
+<section class="press-section">
+<h3 class="label-heading">As Seen In</h3>
+<div class="press-grid">
+<div class="press-item">🏆 Robotrader Competition — Top 3</div>
+<div class="press-item">🎤 Speaker @ Madrid Stock Exchange</div>
+<div class="press-item">🧠 Mensa International Member</div>
+</div>
+</section>
 </div>

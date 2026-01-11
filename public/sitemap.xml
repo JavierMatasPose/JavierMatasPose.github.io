@@ -3,18 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>https://JavierMatasPose.github.io/projects/financial-markets/</loc>
+    <loc>http://localhost:1313/about/</loc>
   </url>
   <url>
-    <loc>https://JavierMatasPose.github.io/projects/tictactoe/</loc>
+    <loc>http://localhost:1313/</loc>
   </url>
   <url>
-    <loc>https://JavierMatasPose.github.io/about/</loc>
-  </url>
-  <url>
-    <loc>https://JavierMatasPose.github.io/</loc>
-  </url>
-  <url>
-    <loc>https://JavierMatasPose.github.io/projects/</loc>
+    <loc>http://localhost:1313/projects/</loc>
   </url>
 </urlset>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Bungee&family=Roboto+Slab:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Bungee&family=Roboto+Slab:wght@400;700&family=Permanent+Marker&display=swap');
 
 /* =========================================
    1. CSS VARIABLES (Design Tokens)
@@ -801,4 +801,170 @@ article.max-w-full.prose section.prose {
         max-width: 300px; 
         margin: 0 auto 2rem; 
     }
+}
+
+/* =========================================
+   11. DESIGN IMPROVEMENTS (Back to Nature Inspired)
+   ========================================= */
+
+/* --- 1.2 Animations --- */
+@keyframes wiggle {
+    0%, 100% { transform: rotate(-2deg); }
+    50% { transform: rotate(2deg); }
+}
+
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 6px 6px 0px var(--ink-black); }
+    50% { box-shadow: 8px 8px 0px var(--shadow-blue); }
+}
+
+/* --- 1.3 Enhanced Tech Stack Tags (Sticker Effect) --- */
+.tech-stack-tag {
+    border: 3px solid var(--ink-black) !important;
+    box-shadow: 3px 3px 0 var(--shadow-blue) !important;
+    transform: rotate(-1deg);
+    transition: transform 0.2s ease;
+}
+
+.tech-stack-tag:nth-child(even) {
+    transform: rotate(1deg);
+}
+
+.tech-stack-tag:hover {
+    animation: wiggle 0.3s ease-in-out;
+}
+
+/* --- 1.4 Enhanced CTA Buttons --- */
+.download-btn, .project-button {
+    position: relative;
+    transform: rotate(1deg);
+    transition: all 0.2s ease;
+}
+
+.download-btn:hover {
+    transform: rotate(0deg) translate(-3px, -3px) !important;
+    box-shadow: 9px 9px 0px var(--ink-black) !important;
+}
+
+.project-button:hover {
+    transform: rotate(0deg) translate(-3px, -3px) !important;
+    box-shadow: 7px 7px 0px var(--ink-black) !important;
+}
+
+/* --- 1.5 Since Tag --- */
+.since-tag {
+    font-family: 'Permanent Marker', cursive;
+    color: var(--paper-yellow);
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    text-shadow: 2px 2px 0 var(--ink-black);
+    margin-top: 10px;
+    display: block;
+}
+
+/* --- 1.6 Press/Recognition Section --- */
+.press-section {
+    width: 100%;
+    margin: 3rem 0;
+    padding: 2rem 0;
+    border-top: 3px dashed var(--ink-black);
+    border-bottom: 3px dashed var(--ink-black);
+}
+
+.press-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.press-item {
+    background: var(--paper-yellow);
+    color: var(--ink-black);
+    padding: 1rem 1.5rem;
+    border: 3px solid var(--ink-black);
+    box-shadow: 5px 5px 0 var(--shadow-blue);
+    font-family: 'Roboto Slab', serif;
+    font-weight: bold;
+    transform: rotate(-1deg);
+    transition: transform 0.2s ease;
+}
+
+.press-item:nth-child(even) {
+    transform: rotate(1deg);
+}
+
+.press-item:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+/* --- 1.7 Project Card Decorative Label --- */
+.project-card {
+    position: relative;
+}
+
+.project-card::before {
+    content: "★ PROJECT ★";
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: var(--bg-red);
+    color: var(--paper-yellow);
+    padding: 4px 12px;
+    font-family: 'Bungee', cursive;
+    font-size: 0.65rem;
+    border: 2px solid var(--ink-black);
+    box-shadow: 2px 2px 0 var(--ink-black);
+    z-index: 5;
+}
+
+/* --- 1.8 Vintage Footer --- */
+.vintage-footer {
+    width: 100%;
+    max-width: 1400px;
+    margin: 4rem auto 2rem auto;
+    padding: 3rem 2rem;
+    background: var(--paper-yellow);
+    border: 4px solid var(--ink-black);
+    box-shadow: 10px 10px 0 var(--ink-black);
+    text-align: center;
+}
+
+.vintage-footer h3 {
+    font-family: 'Bungee', cursive;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    color: var(--ink-black);
+    text-shadow: 2px 2px 0 var(--shadow-blue);
+    margin-bottom: 1rem;
+}
+
+.vintage-footer p {
+    font-family: 'Roboto Slab', serif;
+    color: var(--ink-black);
+    margin-bottom: 1.5rem;
+}
+
+.footer-cta {
+    display: inline-block;
+    background: var(--bg-red);
+    color: var(--paper-yellow);
+    padding: 1rem 2rem;
+    font-family: 'Bungee', cursive;
+    text-decoration: none;
+    border: 3px solid var(--ink-black);
+    box-shadow: 5px 5px 0 var(--ink-black);
+    transition: all 0.2s ease;
+}
+
+.footer-cta:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0 var(--ink-black);
+}
+
+.footer-copyright {
+    margin-top: 2rem;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }

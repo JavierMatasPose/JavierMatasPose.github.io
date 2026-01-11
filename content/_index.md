@@ -7,30 +7,11 @@ description: "High-Performance AI Engineering"
 THE FUTURE <br> IS 
 <span class="glue-word">TOD<span class="highlight-ai">AI!</span></span>
 </h1>
+<span class="since-tag">Engineering Intelligence since 2020</span>
 </div>
-<div class="ad-box">
-<h2>Javier Cayetano Matas Pose</h2>
-<p class="ad-role-text">
-Senior Artificial Intelligence Engineer @ Capgemini
-</p>
-<p class="why-settle-tag">
-WHY SETTLE FOR SLOW DATA?
-</p>
-<p>
-As an expert in <strong>Generative AI & LLMs</strong>, I have engineered executive summarization tools that slash report preparation time by a massive <strong>50-70%</strong>. Industrial-grade power for the modern era.
-</p>
-<div class="specs-box">
-<strong class="specs-title">ELITE SPECIFICATIONS:</strong>
-<ul>
-<li><strong>Mensa International:</strong> Member of the High IQ Society.</li>
-<li><strong>Robotrader:</strong> Top 3 in International Quant Trading Competition.</li>
-<li><strong>Robust Architecture:</strong> Expert deployments in Azure, Docker, and Kubernetes.</li>
-</ul>
-</div>
-<a href="/ResumeJavierMatas.pdf" class="download-btn">
-DOWNLOAD TECHNICAL SPECS (CV)
-</a>
-<p class="footer-slogan">
-JAVIER MATAS: THE SOLUTION FOR MODERN INDUSTRY.
-</p>
-</div>
+<footer class="vintage-footer">
+<h3>Ready to Build the Future?</h3>
+<p>I'm always open to new challenges in AI, FinTech, and cutting-edge technology.</p>
+<a href="https://www.linkedin.com/in/javiercayetanomataspose/" target="_blank" class="footer-cta">Let's Connect</a>
+<p class="footer-copyright">© 2026 Javier Matas Pose — Engineering Tomorrow</p>
+</footer>

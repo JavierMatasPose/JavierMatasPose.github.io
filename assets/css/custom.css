@@ -1327,3 +1327,210 @@ article.max-w-full.prose section.prose {
         min-width: 100%;
     }
 }
+
+/* =========================================
+   19. MONOPAGE LAYOUT SYSTEM
+   ========================================= */
+
+/* Smooth scroll for the entire page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Each section takes at least full viewport height */
+.section-hero,
+.section-about,
+.section-stack,
+.section-projects,
+.section-experience {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hero takes EXACTLY full viewport */
+.section-hero {
+    min-height: 100vh;
+    padding: 0;
+}
+
+/* Alternate section backgrounds for visual rhythm */
+.section-about {
+    background: linear-gradient(180deg, var(--bg-red) 0%, #a52834 100%);
+}
+
+.section-projects {
+    background: linear-gradient(180deg, var(--bg-red) 0%, #8a2530 100%);
+}
+
+/* =========================================
+   20. SECTION DIVIDERS ("Caution Tape")
+   ========================================= */
+
+.section-divider {
+    width: 100%;
+    padding: 1.5rem 0;
+    background: repeating-linear-gradient(
+        45deg,
+        var(--ink-black),
+        var(--ink-black) 20px,
+        var(--paper-yellow) 20px,
+        var(--paper-yellow) 40px
+    );
+    text-align: center;
+    overflow: hidden;
+}
+
+.section-divider span {
+    display: inline-block;
+    background: var(--ink-black);
+    color: var(--paper-yellow);
+    font-family: 'Bungee', cursive;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    padding: 0.5rem 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 4px 4px 0 var(--shadow-blue);
+}
+
+/* =========================================
+   21. WATERMARK BACKGROUND TEXT
+   ========================================= */
+
+.section-projects::before {
+    content: "CODE";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-10deg);
+    font-family: 'Bungee', cursive;
+    font-size: clamp(15rem, 30vw, 40rem);
+    color: var(--ink-black);
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 0;
+    white-space: nowrap;
+}
+
+.section-about::before {
+    content: "AI";
+    position: absolute;
+    top: 50%;
+    right: -10%;
+    transform: translateY(-50%) rotate(15deg);
+    font-family: 'Bungee', cursive;
+    font-size: clamp(20rem, 40vw, 50rem);
+    color: var(--ink-black);
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* =========================================
+   22. DUOTONE IMAGE HOVER EFFECT
+   ========================================= */
+
+.photo-frame-retro img {
+    filter: grayscale(0%) contrast(100%);
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.photo-frame-retro:hover img {
+    filter: grayscale(100%) contrast(120%) sepia(30%);
+    transform: scale(1.02);
+}
+
+/* =========================================
+   23. STICKY NAVIGATION ENHANCEMENT
+   ========================================= */
+
+.main-menu {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(201, 48, 62, 0.95);
+    backdrop-filter: blur(5px);
+    padding: 0.5rem 0;
+    box-shadow: 0 4px 0 var(--ink-black);
+}
+
+/* Hide sticky nav when at hero (optional JS enhancement) */
+.main-menu--hidden {
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+}
+
+/* =========================================
+   24. READABILITY FIXES (Force Black Text)
+   ========================================= */
+
+/* Force black text on yellow background cards */
+.paper-card,
+.paper-card h4,
+.paper-card p,
+.paper-card ul,
+.paper-card li,
+.paper-card span:not(.tech-stack-tag),
+.paper-card strong,
+.paper-card b,
+.paper-card em,
+.content-reveal,
+.content-reveal strong,
+.content-reveal b,
+.content-reveal span:not(.tech-stack-tag),
+.bio-card,
+.bio-card p,
+.bio-card strong,
+.bio-card b,
+.press-item-enhanced strong,
+.press-item-enhanced b,
+.press-content strong,
+.press-content b,
+.press-detail {
+    color: var(--ink-black) !important;
+}
+
+/* Project cards: ONLY the yellow content area */
+.project-content,
+.project-content h3,
+.project-content p,
+.project-content strong,
+.project-content b,
+.project-title,
+.project-subtitle,
+.project-description,
+.project-description strong,
+.project-description b,
+.click-hint,
+.project-reveal,
+.project-reveal p,
+.project-reveal ul,
+.project-reveal li,
+.project-reveal strong,
+.project-reveal b {
+    color: var(--ink-black) !important;
+}
+
+/* Ensure links in these sections are also legible */
+.paper-card a,
+.project-reveal a {
+    color: var(--bg-red) !important;
+    font-weight: bold;
+}
+
+/* PRESERVE colors for dark background elements */
+.ascii-art,
+.ascii-art-small,
+.tech-stack-tag,
+.tech-stack span,
+.project-image-placeholder,
+.project-image-placeholder * {
+    color: var(--paper-yellow) !important;
+}

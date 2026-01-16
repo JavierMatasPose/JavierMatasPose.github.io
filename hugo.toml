@@ -61,7 +61,7 @@ theme = "blowfish"
   [[menu.main]]
     identifier = "resume"
     name = "Resume"
-    url = "/ResumeJavierMatas.pdf"
+    url = "/resume.pdf"
     weight = 40
 
 [markup]

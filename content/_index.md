@@ -6,7 +6,6 @@ description: "High-Performance AI Engineering"
 <!-- Section 0: Hero -->
 <section id="hero" class="section-hero">
 <div class="hero-container">
-<img src="/JMLinkedin.jpg" class="hero-avatar" alt="Javier Matas">
 <div class="cube-container">
 <div class="cube">
 <div class="cube-face cube-front">JM</div>

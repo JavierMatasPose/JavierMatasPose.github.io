@@ -336,6 +336,28 @@ article.max-w-full.prose section.prose {
     z-index: 0;
 }
 
+/* --- Hero Avatar --- */
+.hero-avatar {
+    width: 15rem;
+    height: 15rem;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--paper-yellow);
+    box-shadow: 0 0 0 5px var(--ink-black), 10px 10px 0 var(--shadow-blue);
+    margin: 0 auto 1rem auto;
+    display: block;
+    position: relative;
+    z-index: 5;
+    background-color: var(--ink-black);
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
 /* =========================================
    7B. 3D ROTATING CUBE
    ========================================= */
@@ -345,7 +367,7 @@ article.max-w-full.prose section.prose {
     perspective: 800px;
     width: 120px;
     height: 120px;
-    margin-top: 3rem;
+    margin-top: 1rem;
     margin-bottom: 2rem;
     padding: 30px;
     position: relative;
@@ -441,7 +463,7 @@ article.max-w-full.prose section.prose {
     font-family: 'Bungee', cursive;
     font-size: clamp(4rem, 15vw, 8rem);
     font-weight: 900;
-    line-height: 0.85;
+    line-height: 1.1;
     text-transform: uppercase;
     color: var(--paper-yellow); 
     text-shadow: 6px 6px 0px var(--shadow-blue), 12px 12px 0px var(--shadow-deep);

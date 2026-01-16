@@ -1,8 +1,17 @@
-@SUGGESTIONS.md
-@IMPLEMENTATION.md
-@walkthrough.md.resolved
+# General
+.DS_Store
+Thumbs.db
 
-# Implementation and Analysis docs
+# Editors
+.vscode/
+.idea/
+
+# Hugo
+.hugo_build.lock
+# resources/_gen/ # Uncomment if you want to ignore generated resources (recommended for source repos)
+
+# Agent & Planning Docs
+.gemini/
 ANALIZE.md
 GEMINI.md
 IMPLEMENTATION.md

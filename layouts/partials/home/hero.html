@@ -1,0 +1,11 @@
+{{ $disableImageOptimization := .Site.Params.disableImageOptimization | default false }}
+<article class="max-w-full w-full">
+  <div class="relative w-full">
+    <!-- Removed max-w-7xl and padding container -->
+    <div class="w-full p-0">
+        <div class="relative w-full flex flex-col items-center justify-center text-center">
+          <section class="w-full">{{ .Content }}</section>
+        </div>
+    </div>
+  </div>
+</article>

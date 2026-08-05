@@ -20,14 +20,14 @@ theme = "blowfish"
 
   [params.home]
     profile = true
-    title = "Medior AI Engineer"
-    subtitle = "GenAI | LLMs | Data Consulting"
+    title = "Forward Deployed AI Engineer"
+    subtitle = "GenAI | Agentic Workflows | MLOps"
     
   [params.author]
     name = "Javier Matas Pose"
     image = "JMLinkedin.jpg"
-    headline = "Medior AI Engineer"
-    bio = "Passionate about Quantitative Finance, AI Engineering, and BJJ. Building scalable solutions with LLMs and Agents."
+    headline = "Forward Deployed AI Engineer (FDE)"
+    bio = "Forward Deployed AI Engineer at BCG X. 3+ years shipping production GenAI architectures, Agentic Workflows, and enterprise MLOps."
     links = [
       { email = "mailto:javiermatasjr@gmail.com" },
       { github = "https://github.com/JavierMatasPose" },

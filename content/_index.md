@@ -51,9 +51,9 @@ OLD MAN
 </div>
 <!-- Impact Pills -->
 <div class="impact-pills">
-    <div class="pill" data-reveal="1">🔥 Tired of AI projects that gather dust?</div>
-    <div class="pill" data-reveal="2">⚡ I build systems that optimize real workflows.</div>
-    <div class="pill" data-reveal="3">🧠 Sharpened by Quantitative Finance and Mathematics.</div>
+    <div class="pill" data-reveal="1">🔥 3+ years shipping production GenAI & Agentic Workflows.</div>
+    <div class="pill" data-reveal="2">⚡ Forward Deployed AI Engineer (FDE) at BCG X.</div>
+    <div class="pill" data-reveal="3">🧠 Voice AI, LangGraph, MS Foundry, MCP & Databricks MLOps.</div>
     <div class="pill" data-reveal="4">🥋 Toughened daily on the BJJ mats.</div>
 </div>
 </aside>
@@ -132,28 +132,33 @@ OLD MAN
 <span class="bento-sublabel">Core Language</span>
 </div>
 <div class="bento-item bento-item--ai">
-<span class="bento-icon">🔥</span>
-<span class="bento-label">PyTorch</span>
-</div>
-<div class="bento-item bento-item--ai">
 <span class="bento-icon">🦜</span>
-<span class="bento-label">LangChain</span>
+<span class="bento-label">LangGraph</span>
+<span class="bento-sublabel">Agentic Systems</span>
 </div>
 <div class="bento-item bento-item--ai">
-<span class="bento-icon">☁️</span>
-<span class="bento-label">AWS Bedrock</span>
+<span class="bento-icon">🛠️</span>
+<span class="bento-label">MCP & MS Foundry</span>
+<span class="bento-sublabel">Agent Tooling</span>
+</div>
+<div class="bento-item bento-item--ai">
+<span class="bento-icon">🪓</span>
+<span class="bento-label">Odin</span>
+<span class="bento-sublabel">Learning</span>
 </div>
 <div class="bento-item bento-item--backend">
 <span class="bento-icon">⚡</span>
-<span class="bento-label">FastAPI</span>
+<span class="bento-label">FastAPI & Django</span>
 </div>
 <div class="bento-item bento-item--backend">
-<span class="bento-icon">🐘</span>
-<span class="bento-label">PostgreSQL</span>
+<span class="bento-icon">🧱</span>
+<span class="bento-label">Databricks MLOps</span>
+<span class="bento-sublabel">Bundles & Pipelines</span>
 </div>
 <div class="bento-item bento-item--backend">
-<span class="bento-icon">📊</span>
-<span class="bento-label">Vector DBs</span>
+<span class="bento-icon">☁️</span>
+<span class="bento-label">AWS & Azure</span>
+<span class="bento-sublabel">Docker & K8s</span>
 </div>
 <div class="bento-item bento-item--wide bento-item--fintech">
 <span class="bento-icon">📈</span>
@@ -326,6 +331,84 @@ From <strong>Training to Backtesting</strong> — One unified dashboard.
 </div>
 </label>
 </div>
+<!-- Project 4: nvim-pose -->
+<div class="expandable-wrapper">
+<input type="checkbox" id="proj-nvim" class="toggle-input">
+<label for="proj-nvim" class="project-card">
+<div class="project-image-placeholder">
+<pre class="ascii-art-small">
+ ╔══════════════════════╗
+ ║  NVIM + OPENCODE AI  ║
+ ║      Lua Plugin      ║
+ ╚══════════════════════╝
+</pre>
+</div>
+<div class="project-content">
+<h3 class="project-title">NVIM-POSE</h3>
+<p class="project-subtitle">AI-Powered Neovim Plugin (2026)</p>
+<p class="project-description">
+An <strong>AI-Powered Neovim Plugin</strong> written in Lua.
+Integrates directly with the <strong>OpenCode API</strong> for seamless in-editor AI code editing,
+session persistence, dynamic model switching, and real-time refactoring.
+</p>
+<div class="tech-stack">
+<span class="tech-stack-tag">Lua</span>
+<span class="tech-stack-tag">Neovim</span>
+<span class="tech-stack-tag">OpenCode API</span>
+<span class="tech-stack-tag">AI Tooling</span>
+</div>
+<div class="click-hint">(Click for Details)</div>
+<div class="project-reveal">
+<ul class="clean-list">
+<li>⚡ <strong>AI Code Editing:</strong> Direct file edits and intelligent completions inside Neovim.</li>
+<li>🔄 <strong>Session Persistence:</strong> Maintain agentic chat contexts across coding sessions.</li>
+<li>🧠 <strong>Model Switching:</strong> Seamlessly toggle between language models on the fly.</li>
+</ul>
+<div class="project-links-container">
+<a href="https://github.com/JavierMatasPose/nvim-pose" target="_blank" class="project-button">GitHub</a>
+</div>
+</div>
+</div>
+</label>
+</div>
+<!-- Project 5: Metroidvania in Odin -->
+<div class="expandable-wrapper">
+<input type="checkbox" id="proj-metroidvania" class="toggle-input">
+<label for="proj-metroidvania" class="project-card">
+<div class="project-image-placeholder">
+<pre class="ascii-art-small">
+ ╔══════════════════════╗
+ ║  ODIN + RAYLIB GAME  ║
+ ║    🪓 VIKING 🛡️      ║
+ ╚══════════════════════╝
+</pre>
+</div>
+<div class="project-content">
+<h3 class="project-title">ODIN METROIDVANIA</h3>
+<p class="project-subtitle">2D Game Engine (Coming Soon)</p>
+<p class="project-description">
+A 2D <strong>Metroidvania Game</strong> built in <strong>Odin</strong> with <strong>Raylib</strong>.
+Currently in active development in my free time.
+</p>
+<div class="tech-stack">
+<span class="tech-stack-tag">Odin</span>
+<span class="tech-stack-tag">Raylib</span>
+<span class="tech-stack-tag">GameDev</span>
+<span class="tech-stack-tag">Systems Programming</span>
+</div>
+<div class="click-hint">(Click for Details)</div>
+<div class="project-reveal">
+<ul class="clean-list">
+<li>🎮 <strong>Odin + Raylib:</strong> Custom 2D game engine built from scratch.</li>
+<li>⏳ <strong>Status:</strong> Active side project — Coming Soon!</li>
+</ul>
+<div class="project-links-container">
+<a href="https://odin-lang.org/docs/overview/" target="_blank" class="project-button">Odin Overview</a>
+</div>
+</div>
+</div>
+</label>
+</div>
 </div>
 </div>
 </div>
@@ -345,35 +428,44 @@ From <strong>Training to Backtesting</strong> — One unified dashboard.
 <h3 class="label-heading">Work Experience (Click to Expand)</h3>
 <div class="experience-grid-retro">
 <div class="expandable-wrapper">
-<input type="checkbox" id="exp-cap" class="toggle-input">
-<label for="exp-cap" class="paper-card exp-card-purple">
-<h4>Capgemini</h4>
+<input type="checkbox" id="exp-bcg" class="toggle-input">
+<label for="exp-bcg" class="paper-card exp-card-purple">
+<h4>Boston Consulting Group (BCG X)</h4>
+<span class="date-tag">April 2026 - Present | Forward Deployed AI Engineer (FDE)</span>
 <div class="content-reveal">
-<span class="date-tag">June 2025 - Present</span>
-<ul><li><strong>Agents & MCPs:</strong> Developing Agents and Model Context Protocols for Santander Bank utilizing the AWS stack.</li></ul>
-</div>
-</label>
-</div>
-<div class="expandable-wrapper">
-<input type="checkbox" id="exp-dxc" class="toggle-input">
-<label for="exp-dxc" class="paper-card exp-card-blue">
-<h4>DXC Technology</h4>
-<div class="content-reveal">
-<span class="date-tag">Aug 2023 - May 2025</span>
 <ul>
-<li><strong>Consulting:</strong> Reduced report preparation time by 50–70% with executive summarization tools.</li>
-<li><strong>Gen AI Platform:</strong> Built scalable platform using FastAPI, PostgreSQL, and Vector Stores.</li>
+<li><strong>Voice Agent:</strong> Healthcare voice AI agent with 92% intent accuracy, handling 20% of total patient calls.</li>
+<li><strong>Sales Agent:</strong> MS Foundry Agent Suite, LangGraph, custom MCP tools & Django REST APIs with Entra ID SSO.</li>
+<li><strong>Databricks MLOps:</strong> Databricks Bundles for automated model training, evaluation, and inference pipelines.</li>
+<li><strong>Client Delivery:</strong> Led working sessions with clients to capture business requirements and co-design high-value solutions.</li>
 </ul>
 </div>
 </label>
 </div>
 <div class="expandable-wrapper">
-<input type="checkbox" id="exp-sdg" class="toggle-input">
-<label for="exp-sdg" class="paper-card exp-card-orange">
-<h4>SDG Group</h4>
+<input type="checkbox" id="exp-cap" class="toggle-input">
+<label for="exp-cap" class="paper-card exp-card-blue">
+<h4>Capgemini (OpenBank)</h4>
+<span class="date-tag">May 2025 - April 2026 | AI Engineer (External Consultant)</span>
 <div class="content-reveal">
-<span class="date-tag">July 2022 - May 2023</span>
-<ul><li><strong>Business Analytics:</strong> Enhanced decision-making via QlikView, QlikSense, and PowerBI apps.</li></ul>
+<ul>
+<li><strong>Fintech AI Agent:</strong> Built AWS microservices for OpenBank's AI agent serving end users.</li>
+<li><strong>Agentic Workflows:</strong> Architected multi-agent system with LangGraph and FastAPI.</li>
+</ul>
+</div>
+</label>
+</div>
+<div class="expandable-wrapper">
+<input type="checkbox" id="exp-dxc" class="toggle-input">
+<label for="exp-dxc" class="paper-card exp-card-orange">
+<h4>DXC Technology</h4>
+<span class="date-tag">May 2023 - May 2025 | AI Engineer</span>
+<div class="content-reveal">
+<ul>
+<li><strong>Consulting & Summarization:</strong> Reduced report preparation time by 50–70% with LangChain summarization engine.</li>
+<li><strong>GenAI Platform Architecture:</strong> Core backend microservices using FastAPI, PostgreSQL, and Chroma.</li>
+<li><strong>Cloud MLOps:</strong> Deployed containerized AI on Azure via Docker & Kubernetes with CI/CD pipelines.</li>
+</ul>
 </div>
 </label>
 </div>
@@ -388,19 +480,19 @@ From <strong>Training to Backtesting</strong> — One unified dashboard.
         <span class="journey-label">Started Coding AI</span>
     </div>
     <div class="journey-point">
-        <div class="journey-dot">📊</div>
-        <span class="journey-year">2022</span>
-        <span class="journey-label">SDG Group</span>
-    </div>
-    <div class="journey-point">
         <div class="journey-dot">🚀</div>
         <span class="journey-year">2023</span>
         <span class="journey-label">DXC Technology</span>
     </div>
     <div class="journey-point">
         <div class="journey-dot">🤖</div>
+        <span class="journey-year">2025</span>
+        <span class="journey-label">Capgemini (OpenBank)</span>
+    </div>
+    <div class="journey-point">
+        <div class="journey-dot">⚡</div>
         <span class="journey-year">NOW</span>
-        <span class="journey-label">Capgemini</span>
+        <span class="journey-label">BCG X (FDE)</span>
     </div>
 </div>
 <p class="journey-tagline">"From code to intelligence, the path of a digital architect"</p>

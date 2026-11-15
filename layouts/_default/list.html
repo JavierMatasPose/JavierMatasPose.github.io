@@ -1,0 +1,17 @@
+{{ define "main" }}
+{{ if eq .Section "misc" }}
+<h1>{{ hugo.Data.site.misc.title }}</h1>
+<ul>
+  {{ range hugo.Data.site.misc.links }}
+  <li><a href="{{ .url }}">{{ .label }}</a></li>
+  {{ end }}
+</ul>
+{{ else }}
+<h1>{{ hugo.Data.site.writing.title }}</h1>
+<ul class="posts">
+  {{ range .RegularPages.ByTitle.ByDate.Reverse }}
+  <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time></li>
+  {{ end }}
+</ul>
+{{ end }}
+{{ end }}

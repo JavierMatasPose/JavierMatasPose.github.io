@@ -1,0 +1,79 @@
+# Edit text here. Keep indentation; quote colours and addresses containing #.
+name: Javier Matas Pose
+description: Javier Matas Pose is an AI engineer living in Madrid, Spain. He builds agents and takes them to production.
+# Sanzo Wada combination 214: Ivory Buff, Violet, Sudan Brown.
+colors:
+  ground: '#ebd3a2'
+  ink: '#4f4086'
+  accent: '#a36752'
+skip_label: Skip to content
+# Add/delete an entry, or move its whole label/url pair to change the order.
+# Use root-relative addresses for pages on this site.
+navigation:
+  - label: About
+    url: /
+  - label: Writing
+    url: /writing/
+  - label: Misc
+    url: /misc/
+about:
+  # Each item has Markdown text and an optional title. Blank lines separate paragraphs.
+  # Add/delete/move a whole item to add/delete/move a section. Example:
+  # - title: A heading in the margin
+  #   text: |
+  #     A paragraph with a [link](/writing/).
+  sections:
+    - text: |
+        I'm an AI engineer living in Madrid, Spain. I'm currently a forward deployed
+        engineer at [BCG X](https://www.bcg.com/x). I previously worked at Capgemini
+        and DXC Technology.
+
+        I build agents and take them to production. At BCG X, I built a sales agent
+        that runs inside the CRM of a European industrial distributor. It cut meeting
+        preparation from 3 hours to 15 minutes. I also deployed a voice agent for
+        public hospital networks. It completes 20% of calls without a human.
+
+        Before BCG X, I worked on OpenBank's customer AI agent as a consultant at
+        Capgemini, and on a generative AI platform at DXC Technology.
+
+        For my Master's thesis, I built a trading system that learns by deep
+        reinforcement learning. It traded live through brokerage APIs and returned
+        47.3% in 6 months. It placed in the top 3 of Robotrader, an international
+        quantitative trading competition. In 2023, I gave a keynote on it at the
+        Madrid Stock Exchange.
+
+        In my own time, I build tools that make coding agents prove their work, and I
+        [write about them](/writing/). I also maintain
+        [nvim-pose](https://github.com/JavierMatasPose/nvim-pose), a Neovim plugin,
+        and I'm making a 2D game in Odin.
+
+        I train and compete in Brazilian jiu-jitsu. I'm a blue belt at Lotus BJJ in
+        Madrid.
+
+        I studied Telecommunications Engineering at Universidad Politécnica de Madrid
+        (M.Sc. and B.Sc.).
+writing:
+  title: Writing
+misc:
+  title: Miscellany
+  # Move a whole label/url pair to reorder links. Copy or delete a pair to add/remove one.
+  links:
+    - label: My Talk on AI in Financial Markets
+      url: https://www.youtube.com/watch?v=5EibcbIFkjs&t=7829s
+    - label: Play Tic-Tac-Toe Against My DQN Agent
+      url: https://dqntictactoe.onrender.com/
+    - label: nvim-pose (My Neovim Plugin)
+      url: https://github.com/JavierMatasPose/nvim-pose
+    - label: DRL Trading Benchmark
+      url: https://github.com/JavierMatasPose/DRL-Trading-Benchmark
+    - label: My Resume (PDF)
+      url: /resume.pdf
+footer:
+  # The same label/url list format works here; order is the display order.
+  links:
+    - label: Email
+      url: mailto:javiermatasjr@gmail.com
+    - label: GitHub
+      url: https://github.com/JavierMatasPose
+    - label: LinkedIn
+      url: https://www.linkedin.com/in/javier-cayetano-matas-pose-18b0a520a/

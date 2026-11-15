@@ -1,0 +1,6 @@
+{{ define "main" }}
+{{ range hugo.Data.site.about.sections }}
+{{ with .title }}<h2>{{ . }}</h2>{{ end }}
+{{ $.RenderString (dict "display" "block") .text }}
+{{ end }}
+{{ end }}

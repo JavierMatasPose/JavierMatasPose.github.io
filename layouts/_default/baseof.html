@@ -1,0 +1,280 @@
+{{- $site := hugo.Data.site -}}
+{{- $kind := "post" -}}
+{{- if .IsHome -}}{{- $kind = "about" -}}{{- else if eq .Section "misc" -}}{{- $kind = "misc" -}}{{- else if .IsSection -}}{{- $kind = "writing" -}}{{- end -}}
+{{- $title := .Title -}}
+{{- if .IsHome -}}{{- $title = $site.name -}}{{- else if eq $kind "misc" -}}{{- $title = $site.misc.title -}}{{- else if eq $kind "writing" -}}{{- $title = $site.writing.title -}}{{- end -}}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ $title }}{{ if not .IsHome }} – {{ $site.name }}{{ end }}</title>
+<meta name="description" content="{{ $site.description }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $site.description }}">
+<meta property="og:image" content="{{ "og-image.png" | absURL }}">
+{{- $icon := printf "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%s'/><rect y='13' width='20' height='6' fill='%s'/><rect x='23' y='8' width='9' height='16' fill='%s'/></svg>" $site.colors.ground $site.colors.accent $site.colors.ink -}}
+<link rel="icon" href="{{ printf "data:image/svg+xml,%s" (urlquery $icon) | safeURL }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Atkinson+Hyperlegible+Mono:wght@400;700&display=swap">
+<style>
+/*
+  The margin keeps your place.
+  The left margin names (site, section, heading). The text column says.
+  One accent line shows where you are. All other things are ink on ground.
+
+  Colour: combination 214 from Sanzo Wada, "A Dictionary of Color Combinations".
+*/
+:root { --ground: {{ $site.colors.ground | safeCSS }}; --ink: {{ $site.colors.ink | safeCSS }}; --accent: {{ $site.colors.accent | safeCSS }}; color-scheme: light; }
+
+:root {
+  --sans: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --mono: "Atkinson Hyperlegible Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --narrow: 80%;            /* the width of the type in the margin */
+  --pad: 1.25rem;           /* the space at the sides of the page */
+  --top: 1.5rem;            /* the space above the first line */
+  --rule: color-mix(in srgb, var(--ink) 28%, var(--ground));
+  --tint: color-mix(in srgb, var(--accent) 25%, var(--ground));
+  --mark: 0.375rem;         /* the thickness of the accent line */
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { background: var(--ground); -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  display: flex; flex-direction: column; min-height: 100vh; min-height: 100svh;   /* the footer ends the window on a short page */
+  margin: 0; overflow-x: clip;
+  background: var(--ground); color: var(--ink);
+  font: 400 1.0625rem/1.6 var(--sans); font-stretch: 100%;
+  font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--ink); color: var(--ground); }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+a { color: inherit; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 0.14em; text-underline-offset: 0.2em; transition: text-decoration-color 0.15s; }
+a:hover { text-decoration-color: currentColor; }
+
+.skip { position: absolute; left: var(--pad); top: -6rem; z-index: 5; padding: 0.5rem 0.9rem; background: var(--ink); color: var(--ground); font-weight: 700; text-decoration: none; }
+.skip:focus { top: 0.5rem; }
+
+/* ---- The margin: name and navigation ---- */
+.site { position: sticky; top: 0; z-index: 3; background: var(--ground); padding: 0.8rem var(--pad) 0.7rem; }
+.site::after { content: ""; position: absolute; inset: 100% 0 auto; height: 1rem; background: linear-gradient(var(--ground), transparent); pointer-events: none; }
+.site nav { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.2rem 0.95rem; font-stretch: var(--narrow); line-height: 1.5; }
+.site a { position: relative; text-decoration: none; }
+.site a:hover { text-decoration: underline; text-decoration-color: currentColor; text-decoration-thickness: 0.09em; }
+.site .name { margin-right: auto; font-weight: 800; white-space: nowrap; }
+.site i { display: none; position: absolute; inset: auto 0 -0.3rem; height: var(--mark); background: var(--accent); }
+.site [aria-current] { font-weight: 800; }
+.site [aria-current] i { display: block; view-transition-name: here; }
+
+/* ---- The text column ---- */
+main { flex: 1 0 auto; padding: var(--top) var(--pad) 5rem; }
+main > *, main > section > * { margin-block: 0; }
+main > * + *, main > section > * + * { margin-top: 1.05em; }
+/* A line of text has 60 to 75 characters at the most. Code and tables can be wider. */
+main > :not(pre, table, section, h1), main > section > :not(pre, table) { max-width: 33rem; }
+h1 { max-width: 42rem; }
+
+h1 { margin: 0; font-size: clamp(2rem, 1.35rem + 2.9vw, 2.75rem); line-height: 1.06; font-weight: 800; letter-spacing: -0.012em; text-wrap: balance; }
+h2 { font-size: 1.3125rem; line-height: 1.2; font-weight: 800; font-stretch: var(--narrow); text-wrap: balance; }
+main > h2, main > section { margin-top: 2.6rem; }
+main h2 + * { margin-top: 0.7rem; }
+main p { text-wrap: pretty; }
+strong, th { font-weight: 700; }
+
+.date { margin-top: 0.9rem; font-stretch: var(--narrow); font-size: 0.9375rem; }
+[data-kind="post"] .date + * { margin-top: 2.2rem; }
+
+[data-kind="about"] main > p:first-child { font-size: clamp(1.3125rem, 1.1rem + 1vw, 1.625rem); line-height: 1.32; font-weight: 500; letter-spacing: -0.006em; text-wrap: pretty; }
+[data-kind="about"] main > p:first-child + p { margin-top: 1.9rem; }
+
+/* Lists: the mark of each item hangs to the left of the text. */
+main ul, main ol { padding: 0 0 0 1.6rem; list-style: none; }
+main li { position: relative; }
+main li + li { margin-top: 0.5em; }
+main ul > li::before { content: "\2013"; position: absolute; left: -1.6rem; }
+main ol { counter-reset: step; }
+main ol > li { counter-increment: step; }
+main ol > li::before { content: counter(step); position: absolute; left: -1.6rem; font-weight: 800; font-stretch: var(--narrow); font-variant-numeric: tabular-nums; }
+
+/* Code */
+code, pre { font-family: var(--mono); font-variant-ligatures: none; }
+code { font-size: 0.875em; padding: 0.1em 0.32em; background: var(--tint); overflow-wrap: break-word; }
+pre { margin-inline: 0 calc(-1 * var(--pad)); padding: 1rem 1.15rem; overflow-x: auto; background: var(--ink); color: var(--ground); font-size: 0.8125rem; line-height: 1.6; tab-size: 2; }
+pre code { padding: 0; background: none; font-size: 1em; overflow-wrap: normal; }
+pre::selection, pre ::selection { background: var(--ground); color: var(--ink); }
+pre:focus-visible, table:focus-visible { outline-offset: -3px; outline-color: var(--accent); }
+
+/* Tables scroll sideways when they are wider than the page. */
+table { display: block; margin-inline: 0 calc(-1 * var(--pad)); overflow-x: auto; border-collapse: collapse; font-size: 0.9375rem; line-height: 1.4; }
+th, td { padding: 0.6rem 1.25rem 0.6rem 0; text-align: left; vertical-align: top; }
+th { border-bottom: 2px solid var(--ink); font-stretch: var(--narrow); white-space: nowrap; }
+td { border-bottom: 1px solid var(--rule); }
+td + td { min-width: 11.5rem; }
+td:first-child:nth-last-child(n + 3) { min-width: 8.5rem; }   /* the first of three columns or more */
+
+/* Writing: the list of posts */
+.posts, [data-kind="misc"] main > ul { padding: 0; }
+[data-kind="writing"] h1 + *, [data-kind="misc"] h1 + * { margin-top: 2.2rem; }
+.posts li, [data-kind="misc"] main li { padding: 0.85rem 0; border-top: 1px solid var(--rule); margin: 0; }
+.posts li:last-child, [data-kind="misc"] main li:last-child { border-bottom: 1px solid var(--rule); }
+.posts li::before, [data-kind="misc"] main li::before { content: none; }
+.posts a, [data-kind="misc"] main li a { display: block; font-size: 1.25rem; line-height: 1.22; font-weight: 700; text-decoration-color: transparent; text-wrap: balance; }
+.posts a:hover, [data-kind="misc"] main li a:hover { text-decoration-color: var(--accent); }
+.posts time { display: block; margin-top: 0.25rem; font-stretch: var(--narrow); font-size: 0.9375rem; font-variant-numeric: tabular-nums; }
+
+/* ---- Footer: a band of accent, then a solid block of ink ---- */
+.foot { font-stretch: var(--narrow); }
+.foot p, .foot ul { margin: 0; padding: 0; list-style: none; }
+.foot .reach { padding: 1.3rem var(--pad); background: color-mix(in srgb, var(--accent) 60%, var(--ground)); color: var(--ink); font-weight: 800; font-size: 1.25rem; }
+.foot .links { display: flex; flex-wrap: wrap; gap: 0.3rem 1.5rem; }
+.foot .links a { text-decoration-color: currentColor; text-decoration-thickness: 0.09em; }
+.foot .end { padding: 1.6rem var(--pad) 4.5rem; background: var(--ink); color: var(--ground); font-size: 0.9375rem; }
+.foot .end :focus-visible { outline-color: var(--ground); }
+
+/* ---- Wide page: the margin is a column of its own ---- */
+@media (min-width: 56rem) {
+  :root { --pad: 2rem; --top: 3.25rem; --stick: 14rem; }
+  body {
+    display: grid; font-size: 1.125rem;
+    grid-template-columns: minmax(var(--pad), 1fr) 12.5rem 3rem 33rem minmax(0, 15rem) minmax(var(--pad), 2fr);
+    grid-template-rows: 1fr auto;
+  }
+
+  .site { grid-area: 1 / 2; align-self: start; padding: var(--top) 0 0.5rem; }
+  /* Things that leave the margin go under the navigation, also to the left of it. */
+  .site::before { content: ""; position: absolute; inset: 0 100% 0 auto; width: 100vw; background: var(--ground); }
+  .site::after { height: 1rem; left: -100vw; }
+  .site nav { display: block; font-size: 1.125rem; line-height: 1.25; }
+  .site a { display: block; width: fit-content; padding: 0.25rem 0; }
+  .site .name { margin: 0 0 1.5rem; font-size: 1.25rem; padding-top: 0; }
+  /* The accent line comes from the edge of the screen to the place where you are. */
+  .site i, main h2::before { inset: auto; right: calc(100% + 0.75rem); width: 100vw; height: var(--mark); background: var(--accent); }
+  .site i { top: calc(0.25rem + 0.625em - var(--mark) / 2); }
+
+  main { grid-area: 1 / 2 / 2 / 6; display: grid; grid-template-columns: subgrid; align-content: start; padding: var(--top) 0 6.5rem; }
+  main > section { grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; align-content: start; }
+  main > *, main > section > * { grid-column: 3; min-width: 0; }
+  main > section { grid-column: 1 / -1; }
+  main pre, main table { grid-column: 3 / 5; margin-inline: 0; }
+  main table { justify-self: start; max-width: 100%; }
+  main pre { font-size: 0.875rem; }
+
+  /* A heading sits in the margin, next to the text that it names. */
+  main h2 { grid-column: 1; position: relative; z-index: 1; align-self: start; padding: 0.175em 0 1.5rem; font-size: 1.125rem; line-height: 1.25; }
+  main > h2 + * { margin-top: 2.6rem; }
+  main > section > h2 + * { margin-top: 0; }
+  main h2::before { content: ""; position: absolute; top: calc(0.8em - var(--mark) / 2); opacity: 0; transition: opacity 0.2s; }
+  main h2[data-here]::before { opacity: 1; }
+  /* With JavaScript, each heading is in a section of its own and stays next to the text you read. */
+  /* The heading spans all rows of its section, so a short first paragraph leaves no gap. */
+  main > section > h2 { position: sticky; top: var(--stick); grid-row: 1 / span 99; }
+
+  h1 { grid-column: 3 / 5; margin-top: -0.12em; }
+  [data-kind="about"] main > p:first-child { margin-top: -0.2em; }
+  main ul, main ol { padding-left: 0; }
+  main ol > li::before { left: -1.5rem; }
+  main ul > li::before { left: -1.5rem; }
+  td + td, td:first-child:nth-last-child(n + 3) { min-width: 0; }
+
+  .posts li { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 2rem; align-items: baseline; }
+  .posts time { margin: 0; white-space: nowrap; }
+
+  .foot { grid-area: 2 / 1 / 3 / -1; display: grid; grid-template-columns: subgrid; }
+  .foot .reach, .foot .end { grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; align-items: baseline; padding-inline: 0; }
+  .foot .reach { padding-block: 1.5rem; }
+  .foot .links { grid-column: 4 / 6; }
+  .foot .end { padding-block: 2.25rem 6.5rem; }
+  .foot .end p { grid-column: 2; }
+}
+
+/* Short window: nothing stays fixed in the margin. */
+@media (min-width: 56rem) and (max-height: 34rem) {
+  .site, main > section > h2 { position: static; }
+  main h2::before { display: none; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+  ::view-transition-group(here) { animation-duration: 0.3s; animation-timing-function: cubic-bezier(0.3, 0, 0.1, 1); }
+  ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.18s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; }
+}
+
+@media print {
+  .site, main > section > h2 { position: static; }
+}
+</style>
+</head>
+<body data-kind="{{ $kind }}">
+<a class="skip" href="#main">{{ $site.skip_label }}</a>
+
+<header class="site">
+  <nav aria-label="Site">
+    <a class="name" href="/">{{ $site.name }}</a>
+    {{ range $site.navigation }}
+    <a href="{{ .url }}"{{ if eq .url $.RelPermalink }} aria-current="page"{{ else if and (eq $kind "post") (eq .url "/writing/") }} aria-current="true"{{ end }}><i aria-hidden="true"></i>{{ .label }}</a>
+    {{ end }}
+  </nav>
+</header>
+
+<main id="main">
+{{ block "main" . }}{{ end }}
+</main>
+
+<footer class="foot">
+  <div class="reach">
+    <ul class="links">
+      {{ range $site.footer.links }}
+      <li><a href="{{ .url }}" rel="me">{{ .label }}</a></li>
+      {{ end }}
+    </ul>
+  </div>
+  <div class="end">
+    <p>© {{ now.Year }} {{ $site.name }}.</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  'use strict';
+  // A scroll area must be reachable with the keyboard.
+  for (const box of document.querySelectorAll('main pre, main table')) {
+    if (box.scrollWidth > box.clientWidth) box.tabIndex = 0;
+  }
+
+  // Each heading goes into a section with its text, so that it can stay in the margin.
+  const main = document.querySelector('main');
+  const heads = [...main.querySelectorAll(':scope > h2')];
+  if (heads.length) {
+    for (const head of heads) {
+      const section = document.createElement('section');
+      head.before(section);
+      for (let el = head, next; el && (el === head || el.tagName !== 'H2'); el = next) {
+        next = el.nextElementSibling;
+        section.append(el);
+      }
+    }
+
+    // The accent line goes to the heading of the section that you read.
+    let waiting = false;
+    const place = () => {
+      waiting = false;
+      const line = (parseFloat(getComputedStyle(heads[0]).top) || 0) + 1;
+      let here = null;
+      for (const head of heads) if (head.getBoundingClientRect().top <= line) here = head;
+      for (const head of heads) head.toggleAttribute('data-here', head === here);
+    };
+    const ask = () => { if (!waiting) { waiting = true; requestAnimationFrame(place); } };
+    addEventListener('scroll', ask, { passive: true });
+    addEventListener('resize', ask);
+    place();
+  }
+
+})();
+</script>
+</body>
+</html>

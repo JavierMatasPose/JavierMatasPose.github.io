@@ -1,71 +1,9 @@
 baseURL = "https://JavierMatasPose.github.io/"
-languageCode = "en"
-title = "Javier Matas Pose"
-theme = "blowfish"
+locale = "en"
+disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
 
-[params]
-  colorScheme = "light"
-  showAppearanceToggleButton = false
-  defaultTheme = "light"
-  enableSearch = true
-  enableRobotsTXT = true
-  customCSS = ["css/custom.css"]
-  
-  # Open Graph / Social Sharing
-  images = ["og-image.png"]
+[markup.highlight]
+  codeFences = false
 
-  [params.homepage]
-    layout = "hero"
-    showRecent = false
-
-  [params.home]
-    profile = true
-    title = "Forward Deployed AI Engineer"
-    subtitle = "GenAI | Agentic Workflows | MLOps"
-    
-  [params.author]
-    name = "Javier Matas Pose"
-    image = "JMLinkedin.jpg"
-    headline = "Forward Deployed AI Engineer (FDE)"
-    bio = "Forward Deployed AI Engineer at BCG X. 3+ years shipping production GenAI architectures, Agentic Workflows, and enterprise MLOps."
-    links = [
-      { email = "mailto:javiermatasjr@gmail.com" },
-      { github = "https://github.com/JavierMatasPose" },
-      { linkedin = "https://www.linkedin.com/in/javier-cayetano-matas-pose-18b0a520a/" }
-    ]
-
-  [params.footer]
-    showCopyright = true
-
-[menu]
-  [[menu.main]]
-    identifier = "about"
-    name = "About Me"
-    url = "/#about"
-    weight = 10
-  [[menu.main]]
-    identifier = "stack"
-    name = "Tech Stack"
-    url = "/#stack"
-    weight = 15
-  [[menu.main]]
-    identifier = "projects"
-    name = "Projects"
-    url = "/#projects"
-    weight = 20
-  [[menu.main]]
-    identifier = "experience"
-    name = "Experience"
-    url = "/#experience"
-    weight = 30
-  [[menu.main]]
-    identifier = "resume"
-    name = "Resume"
-    url = "/resume.pdf"
-    weight = 40
-
-[markup]
-  [markup.goldmark.renderer]
-    unsafe = true
-  [markup.highlight]
-    style = "dracula"
+[markup.goldmark.extensions]
+  typographer = false

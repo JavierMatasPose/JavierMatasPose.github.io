@@ -103,6 +103,16 @@ code, pre { font-family: var(--mono); font-variant-ligatures: none; }
 code { font-size: 0.875em; padding: 0.1em 0.32em; background: var(--tint); overflow-wrap: break-word; }
 pre { margin-inline: 0 calc(-1 * var(--pad)); padding: 1rem 1.15rem; overflow-x: auto; background: var(--ink); color: var(--ground); font-size: 0.8125rem; line-height: 1.6; tab-size: 2; }
 pre code { padding: 0; background: none; font-size: 1em; overflow-wrap: normal; }
+
+/* Diagrams (Hugo GoAT code blocks) scroll sideways on a narrow screen, like code. */
+.goat { overflow-x: auto; }
+.goat svg { display: block; width: 100%; min-width: 38rem; height: auto; }
+/* Footnotes */
+sup { font-size: 0.75em; line-height: 0; }
+.footnote-ref { padding: 0 0.1em; font-weight: 700; text-decoration: none; }
+.footnote-backref { text-decoration: none; }
+.footnotes { font-size: 0.9375rem; line-height: 1.45; }
+.footnotes hr { display: none; }
 pre::selection, pre ::selection { background: var(--ground); color: var(--ink); }
 pre:focus-visible, table:focus-visible { outline-offset: -3px; outline-color: var(--accent); }
 
@@ -158,6 +168,7 @@ td:first-child:nth-last-child(n + 3) { min-width: 8.5rem; }   /* the first of th
   main > *, main > section > * { grid-column: 3; min-width: 0; }
   main > section { grid-column: 1 / -1; }
   main pre, main table { grid-column: 3 / 5; margin-inline: 0; }
+  main > .goat, main > section > .goat { grid-column: 3 / 5; max-width: none; }
   main table { justify-self: start; max-width: 100%; }
   main pre { font-size: 0.875rem; }
 

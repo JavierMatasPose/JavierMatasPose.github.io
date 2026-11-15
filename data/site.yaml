@@ -24,17 +24,17 @@ about:
   #     A paragraph with a [link](/writing/).
   sections:
     - text: |
-        I'm a telecommunications engineer living in Madrid, Spain. I'm currently
-        a forward deployed AI engineer at [BCG X](https://www.bcg.com/x).
+        I'm a Telecommunications engineer living in Madrid. I'm currently
+        working as forward deployed AI engineer at [BCG X](https://www.bcg.com/x).
 
-        I build agents and the tools around them.
+        I build systems (sometimes agentic) and the tools around them.
 
-        I've loved AI since university, especially reinforcement learning and
+        I've loved AI since university, especially DRL and
         generative models. For my Master's thesis, I built a trading agent that
         learns from its own mistakes. It traded live through brokerage APIs.
 
-        Outside work I code, paint and train Brazilian jiu-jitsu. I'm a blue belt
-        at Lotus BJJ in Madrid.
+        Outside work I code, paint and train BJJ (btw I'm a blue belt
+        at Lotus).
 
         I use agents for the repetitive work. The ideas and the problem solving
         I keep for myself.

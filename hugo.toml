@@ -2,8 +2,8 @@ baseURL = "https://JavierMatasPose.github.io/"
 locale = "en"
 disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
 
-[markup.highlight]
-  codeFences = false
+# Code blocks: no syntax colours. layouts/_default/_markup/render-codeblock.html writes them plain.
+# "goat" blocks become diagrams.
 
 [markup.goldmark.extensions]
   typographer = false

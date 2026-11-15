@@ -3,13 +3,15 @@ title: My Agent Harness and Rex Setup
 date: 2026-11-15
 ---
 
-I use three coding agents every day: Pi, Claude Code and Codex. They're good.
-But an agent that ran the tests and an agent that says it ran the tests look
-the same in a chat window.
+I use three coding harnesses every day: Pi, Claude Code and Codex. They're good.
+But I need something more personal.
 
-So I built a small harness around them. It has one job: an agent has to prove
-its work, and I have to be able to check the proof without reading the whole
-session.
+So I built a small harness around them. The goal: reliable work.
+I think and design all my solutions, then the harness provides a framework for agents to work, test and report.
+
+This post is the implementation: the files, the scripts and the commands.
+The reasons behind them are in
+[How I Work with Coding Agents](/writing/how-i-work-with-coding-agents/).
 
 This is how it looks in November 2026. It changes often, and I'm not claiming
 it's the right setup for anyone else. It's the one I use.
@@ -29,8 +31,8 @@ a short instruction file.
 The first one is about writing. It's an adaptation of ASD-STE100, the
 simplified English that aerospace uses for maintenance manuals. Lead with the
 answer, keep sentences short, and never make a claim sound more certain just
-to make it shorter. I read a lot of agent output, so I want it brief and
-honest about what it doesn't know.
+to make it shorter. I want agent output to the minimum, so I keep it brief and
+honest.
 
 The second one is about code: solve the whole task with the least new code.
 Reuse what the project has, then the standard library, then what's already
@@ -41,8 +43,8 @@ rule there and delete the sentence. More on that below.
 
 ## One tab per agent
 
-Everything runs in [Rex](https://www.superlogical.com/rex), in a single
-session called `DEV`. Each agent gets its own tab, so I can see who's working
+Everything runs in [Rex](https://www.superlogical.com/rex) (btw, I love Mitchell's work), in a single
+session. Each agent gets its own tab, so I can see who's working
 and jump into any of them.
 
 Agents also start servers, test runs and builds. Those don't get tabs, or I'd
@@ -59,18 +61,18 @@ rex-cleanup "T123 "                    # close the finished blocks of the task
 each block with the name of its task. The second closes the finished ones and
 tells me what's still running. A task isn't done until that report is empty.
 
-One thing I'm strict about: a tab isn't a permission boundary. Each agent
+A tab isn't a permission boundary. Each agent
 keeps its own sandbox and its own denials. An agent never types an approval
 or a command into another agent's terminal. What an agent prints is data,
 not permission.
 
 ## No ticket, no launch
 
-The agent I talk to is the parent. When it delegates, it starts a worker: a
+I only talk to one agent, to avoid cognitive load. Let's call it parent. When it delegates, it starts a worker: a
 second agent in its own tab. Pi is my default worker. I ask for Claude Code
 or Codex by name when a task needs one of them.
 
-Before a worker starts, the parent opens a ticket and writes a brief. Then it
+Before a worker starts, the parent opens a ticket based on my demands and writes a brief. Then it
 launches:
 
 ```sh
@@ -100,7 +102,8 @@ task isn't ready to hand off.
 
 **One worker per task.** I don't run planner, coordinator or reviewer agents.
 When I want things in parallel, I split by artifact, not by role, and no two
-workers write to the same paths.
+workers write to the same paths. I try to avoid dead time between agents, and between an agent and me,
+so I parallelize when possible.
 
 **The worker can't ask questions.** It decides anything reversible and writes
 the decision down. A denial or a permission dialog is a deliberate blocker:

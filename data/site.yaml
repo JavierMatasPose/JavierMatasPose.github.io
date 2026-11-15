@@ -24,35 +24,19 @@ about:
   #     A paragraph with a [link](/writing/).
   sections:
     - text: |
-        I'm an AI engineer living in Madrid, Spain. I'm currently a forward deployed
-        engineer at [BCG X](https://www.bcg.com/x). I previously worked at Capgemini
-        and DXC Technology.
+        I'm a Telecommunications Engineer living in Madrid. Currently working as a forward deployed
+        AI engineer at [BCG X](https://www.bcg.com/x).
 
-        I build agents and take them to production. At BCG X, I built a sales agent
-        that runs inside the CRM of a European industrial distributor. It cut meeting
-        preparation from 3 hours to 15 minutes. I also deployed a voice agent for
-        public hospital networks. It completes 20% of calls without a human.
+        I build systems and tools aiming to make life easier.
 
-        Before BCG X, I worked on OpenBank's customer AI agent as a consultant at
-        Capgemini, and on a generative AI platform at DXC Technology.
+        Since my student days, I've loved AI, speceially RL and Generative.
+        For my Master's thesis, I built a DRL trading agent that learns by mistakes.
+        It traded live through brokerage APIs.  
 
-        For my Master's thesis, I built a trading system that learns by deep
-        reinforcement learning. It traded live through brokerage APIs and returned
-        47.3% in 6 months. It placed in the top 3 of Robotrader, an international
-        quantitative trading competition. In 2023, I gave a keynote on it at the
-        Madrid Stock Exchange.
+        In my own time, I code, paint and practice BJJ.
+        Of course I use agents for repetitive tasks, but I keep to myself the ideation and problem solving.
 
-        In my own time, I build tools that make coding agents prove their work, and I
-        [write about them](/writing/). I also maintain
-        [nvim-pose](https://github.com/JavierMatasPose/nvim-pose), a Neovim plugin,
-        and I'm making a 2D game in Odin.
-
-        I train and compete in Brazilian jiu-jitsu. I'm a blue belt at Lotus BJJ in
-        Madrid.
-
-        I studied Telecommunications Engineering at Universidad Politécnica de Madrid
-        (M.Sc. and B.Sc.).
-writing:
+   writing:
   title: Writing
 misc:
   title: Miscellany

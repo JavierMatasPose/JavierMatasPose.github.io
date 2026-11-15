@@ -72,8 +72,8 @@ a:hover { text-decoration-color: currentColor; }
 main { flex: 1 0 auto; padding: var(--top) var(--pad) 5rem; }
 main > *, main > section > * { margin-block: 0; }
 main > * + *, main > section > * + * { margin-top: 1.05em; }
-/* A line of text has 60 to 75 characters at the most. Code and tables can be wider. */
-main > :not(pre, table, section, h1), main > section > :not(pre, table) { max-width: 33rem; }
+/* A line of text has about 66 characters: 29.33em of its own font size. Code and tables can be wider. */
+main > :not(pre, table, section, h1), main > section > :not(pre, table) { max-width: 29.33em; }
 h1 { max-width: 42rem; }
 
 h1 { margin: 0; font-size: clamp(2rem, 1.35rem + 2.9vw, 2.75rem); line-height: 1.06; font-weight: 800; letter-spacing: -0.012em; text-wrap: balance; }
@@ -172,7 +172,8 @@ td:first-child:nth-last-child(n + 3) { min-width: 8.5rem; }   /* the first of th
   main > section > h2 { position: sticky; top: var(--stick); grid-row: 1 / span 99; }
 
   h1 { grid-column: 3 / 5; margin-top: -0.12em; }
-  [data-kind="about"] main > p:first-child { margin-top: -0.2em; }
+  /* The large first paragraph uses the wide column, and its size follows the room, to keep 66 characters. */
+  [data-kind="about"] main > p:first-child { margin-top: -0.2em; grid-column: 3 / 5; font-size: clamp(1.125rem, 3.41vw - 0.665rem, 1.625rem); }
   main ul, main ol { padding-left: 0; }
   main ol > li::before { left: -1.5rem; }
   main ul > li::before { left: -1.5rem; }

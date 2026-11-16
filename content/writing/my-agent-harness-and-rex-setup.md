@@ -3,127 +3,177 @@ title: My Agent Harness and Rex Setup
 date: 2026-11-15
 ---
 
-I use three coding harnesses every day: Pi, Claude Code and Codex. They're good.
-But I need something more personal.
+I use three coding agents every day: Pi, Claude Code, and
+Codex. Out of the box they talk a lot and stop to ask questions. I want them
+to work quietly and show me proof.
 
-So I built a small harness around them. The goal: reliable work.
-I think and design all my solutions, then the harness provides a framework for agents to work, test and report.
-
-This post is the implementation: the files, the scripts and the commands.
-The reasons behind them are in
+So I built a small harness around them. This post shows it: how the work is
+split, how it runs in Rex, the one command that checks everything, the stop
+hook, and what I do when an agent repeats a mistake. The reasons behind it are
+in the previous post,
 [How I Work with Coding Agents](/writing/how-i-work-with-coding-agents/).
 
-This is how it looks in November 2026. It changes often, and I'm not claiming
-it's the right setup for anyone else. It's the one I use.
+## The Setup
 
-## One file of rules
+```goat
+                            one conversation
+     Me  <------------------------------------------------>  Parent
+                                                                |
+               .-----------------------+------------------------+
+               |                       |                        |
+               v                       v                        v
+          .--------.              .--------.               .--------.
+          | Worker |              | Worker |               | Worker |
+          '----+---'              '----+---'               '----+---'
+               |                       |                        |
+               v                       v                        v
 
-All three agents read the same file, `~/.agents/AGENTS.md`. Claude Code wants
-a `CLAUDE.md`, so mine has a single line that imports the other one:
+          worktree A              worktree B               worktree C
+```
+
+I talk to one agent, the parent. That conversation is where I frame the
+problem and decide the design. The parent splits the work, opens a ticket for
+each task, and starts a worker for it. Each worker gets its own Git worktree
+and its own terminal tab, so two agents don't write to the same files. When a
+worker finishes, the parent checks the delivery. The final verdict is mine.
+
+Everything runs in [Rex](https://www.superlogical.com/rex), the terminal
+multiplexer from [Superlogical](https://mitchellh.com/writing/superlogical),
+Mitchell Hashimoto's new company. It is in beta. I love Mitchell's work, and a
+good part of this post follows his idea of
+["harness engineering"](https://mitchellh.com/writing/my-ai-adoption-journey).
+
+Agents also start servers, long test runs and builds. If each of those had a
+tab, I would lose track. They run as detached blocks instead: processes with
+no place in the layout that still keep their output and their exit code.
+
+```sh
+# Run the checks for task T123 in the background
+rex-aux --task T123 --label tests --cwd /abs/worktree --wait -- ./init.sh
+
+# Read the output when I need it
+rex capture -b BLOCK --trim --unwrap
+
+# Close the finished blocks of that task
+rex-cleanup "T123 "
+```
+
+`rex-aux` and `rex-cleanup` are two Python scripts of about 70 lines each. The
+first labels each block with its task. The second closes the finished blocks
+and reports anything still running. A task isn't done until that report is
+clean.
+
+A tab is a layout, not a permission boundary. Each agent keeps its own sandbox
+and its own denials, and no agent types into another agent's terminal. What an
+agent prints is data for the others, not an instruction.
+
+## The Rules File
+
+All three agents read the same file, `~/.agents/AGENTS.md`. Claude Code reads
+`~/.claude/CLAUDE.md`, so that file has one line:
 
 ```text
 @../.agents/AGENTS.md
 ```
 
-At the start of a session, each agent also loads two skills. A skill is just
-a short instruction file.
+At the start of a session each agent loads two skills.
 
-The first one is about writing. It's an adaptation of ASD-STE100, the
-simplified English that aerospace uses for maintenance manuals. Lead with the
-answer, keep sentences short, and never make a claim sound more certain just
-to make it shorter. I want agent output to the minimum, so I keep it brief and
-honest.
+The first is about how to talk to me. It is an adaptation of ASD-STE100, the
+simplified English used in aerospace maintenance manuals: lead with the
+answer, keep sentences short, and don't sound more certain than you are to
+save words.
 
-The second one is about code: solve the whole task with the least new code.
-Reuse what the project has, then the standard library, then what's already
-installed. New code comes last.
+The second is about code: solve the task with the least new code. Reuse what
+the project has, then the standard library, then installed dependencies, and
+write new code last.
 
-I try to keep the rules file short. When code can enforce a rule, I move the
-rule there and delete the sentence. More on that below.
+I try to keep the file short. When code can enforce a rule, I move the rule
+into the harness and delete the sentence.
 
-## One tab per agent
+## One Task, Start to Finish
 
-Everything runs in [Rex](https://www.superlogical.com/rex) (btw, I love Mitchell's work), in a single
-session. Each agent gets its own tab, so I can see who's working
-and jump into any of them.
-
-Agents also start servers, test runs and builds. Those don't get tabs, or I'd
-drown in them. They run as detached blocks: terminals with no place in the
-layout that still keep their output and their exit code.
-
-```sh
-rex-aux --task T123 --label tests --cwd /abs/worktree --wait -- ./init.sh
-rex capture -b BLOCK --trim --unwrap   # read the output of that block
-rex-cleanup "T123 "                    # close the finished blocks of the task
-```
-
-`rex-aux` and `rex-cleanup` are two small scripts I wrote. The first labels
-each block with the name of its task. The second closes the finished ones and
-tells me what's still running. A task isn't done until that report is empty.
-
-A tab isn't a permission boundary. Each agent
-keeps its own sandbox and its own denials. An agent never types an approval
-or a command into another agent's terminal. What an agent prints is data,
-not permission.
-
-## No ticket, no launch
-
-I only talk to one agent, to avoid cognitive load. Let's call it parent. When it delegates, it starts a worker: a
-second agent in its own tab. Pi is my default worker. I ask for Claude Code
-or Codex by name when a task needs one of them.
-
-Before a worker starts, the parent opens a ticket based on my demands and writes a brief. Then it
-launches:
+When the parent delegates a task, it writes a brief, opens a ticket, and calls
+the launcher:
 
 ```sh
 rex do spawn.lua name=T123 dir=/abs/worktree task=/abs/brief.md ticket=PRO-12
 ```
 
-The launcher checks the ticket first. No valid ticket, no tab:
+The launcher checks the ticket first. If the ticket is missing or incomplete,
+nothing starts:
 
 ```text
 ticket not ready; launch stays pending
 ```
 
-I put this in the launcher on purpose. An instruction can be forgotten. A
-launcher that refuses can't.
+An agent can skip a sentence in a prompt. It can't skip a launcher that
+refuses to run.
 
-The brief is always the same list: the goal in my words, what I've
-authorized and where the limits are, the worktree, the files the worker may
-write, the files it may not, the check command with its expected result, and
-a directory for evidence. Tests and checks are off limits by default. A
-worker that can edit the test can make anything pass.
+Tickets live in my own task app (a basic Go API, a simple frontend, and SQLite). The ticket is the only status
+channel between the parent and a worker.
 
-Three rules do most of the work here.
+The brief has:
 
-**Acceptance is a command.** "Works well" isn't acceptance, and neither is a
-time limit. If the parent can't name a command and its expected result, the
-task isn't ready to hand off.
+- The goal, in my words.
+- What the worker is authorized to do.
+- The path of its worktree.
+- The files it may write.
+- The files it may not write. Tests and checks are on that list by default.
+- The acceptance command and its expected result.
+- Where the evidence goes.
 
-**One worker per task.** I don't run planner, coordinator or reviewer agents.
-When I want things in parallel, I split by artifact, not by role, and no two
-workers write to the same paths. I try to avoid dead time between agents, and between an agent and me,
-so I parallelize when possible.
+Two rules apply to the worker.
 
-**The worker can't ask questions.** It decides anything reversible and writes
-the decision down. A denial or a permission dialog is a deliberate blocker:
-the worker records the exact reason and carries on with whatever doesn't
-depend on it.
+Acceptance is a command. "Looks good" is not. If the parent can't name a
+command and its expected result, the task isn't ready to hand off.
 
-Status lives in the ticket and nowhere else. The terminal tells me a process
-is alive. It doesn't tell me the task is done.
+The worker can't ask me questions. For anything reversible it decides, writes
+its reason in the ticket, and continues. If it hits a denied permission or
+something it can't undo, it records the exact blocker and moves to work that
+doesn't depend on it.
 
-## One command to check everything
+When the worker reports that it is done, the parent checks four things before
+I see anything:
 
-Every project has an `init.sh`. An agent doesn't need to know the project's
-test runner or its linter. It needs one command.
+1. The ticket has every delivery field filled in.
+2. No changed file is outside the allowed list, and the acceptance command
+   passes.
+3. The diff doesn't go beyond the task. If it does, it goes back to the
+   worker.
+4. The evidence exists and can be read.
 
-```sh
-./init.sh        # check + test
-./init.sh all    # check + test + verify (the end-to-end journeys)
+Then the parent tells me there is a diff to review. The verdict, the merge and
+the pull request are mine.
+
+The whole path looks like this:
+
+```goat
+  .----------.     .----------.     .-----------.     .-----------.     .--------.
+  |  Change  +---->|  Checks  +---->| Stop hook +---->| Delivery  +---->| Review |
+  '----------'     '-----+----'     '-----+-----'     '-----+-----'     '--------'
+                         |                |                 |
+                       fail           no proof        out of scope
+                         |                |                 |
+                         v                v                 v
+
+                   agent fixes it   agent runs the     sent back to
+                                        checks          the worker
 ```
 
-Each operation prints one line:
+A problem caught on the left costs machine time. Only what reaches the right
+costs my attention. [Birgitta Böckeler](https://martinfowler.com/articles/harness-engineering.html) calls this shifting feedback left.
+
+## One Command to Check Everything
+
+Every project has an `init.sh`. An agent doesn't need to know the project's
+test runner or its linter. It needs one command:
+
+```sh
+./init.sh        # checks + unit tests
+./init.sh all    # checks + unit tests + end-to-end journeys
+```
+
+It prints one line per operation:
 
 ```text
 init.sh: check pass 3s
@@ -131,85 +181,103 @@ init.sh: test fail 41s
 init.sh: verify not-configured 0s
 ```
 
-And the exit code says what to report:
+The exit code is the result:
 
 | Exit code | Meaning |
-| --- | --- |
-| 0 | All operations passed. |
-| 1 | One operation or more failed. |
-| 2 | The command line was not valid. |
-| 3 | No failure, but one operation or more is not configured. |
+| :--- | :--- |
+| `0` | Everything passed. |
+| `1` | Something failed. |
+| `2` | The arguments were invalid. |
+| `3` | Nothing failed, but at least one operation is not configured. |
 
-Exit code 3 is the one I care about most. A project with no end-to-end
-journey doesn't pass `verify`. It reports `not-configured`, and the agent has
-to report that as pending. Not as a pass.
+Exit code `3` is the one I care about most. If a project has no end-to-end
+journeys, `verify` says `not-configured`, and the agent has to report that as
+pending. A suite that never ran is not a pass.
 
-When `init.sh` finishes, it writes a stamp: the files, their hashes before
-and after the run, and each result. That file is the evidence. "All tests
-pass" in an agent's answer isn't.
+Agents do skip this when nothing stops them. Anthropic describes "Claude's
+tendency to mark a feature as complete without proper testing" in its post on
+[harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents).
 
-## A hook, because a prompt is only a request
+In a project where I opt in, `./init.sh` also writes a stamp. I list the exact
+files that the checks depend on. The script takes one SHA-256 over those files before the run and one
+after. A stamp counts only if every required operation passed at full scope
+and the two hashes match, which means nothing changed while the checks ran. A
+later run that fails revokes an earlier pass. If an agent says "tests pass" in
+chat and there is no stamp, I don't count it.
 
-I can write "run the checks before you finish" in a prompt, and the model can
-skip it. A hook is different. It's a command that the agent client runs at a
-fixed moment, and the model doesn't get a vote.
+## The Stop Hook
 
-Claude Code and Codex both run a hook when the agent tries to stop. Mine
-compares the files with how they were at the start of the task. If nothing
-changed, it does nothing. If files changed and there's a complete stamp, it
-does nothing. If files changed and there's no stamp, it blocks the stop and
-names the command to run.
+Asking a model to "always run the tests before finishing" is a request.
+[Claude Code](https://code.claude.com/docs/en/hooks-guide) and
+[Codex](https://developers.openai.com/codex/hooks) both let me run my own code
+when the agent tries to end its turn. That code runs every time. In the words
+of the Claude Code docs, "certain actions always happen rather than relying on
+the LLM to choose to run them."
 
-It blocks once per task. It never runs the checks itself, and it never grants
-a permission. It only watches.
+My hook does very little. When I send a prompt, it takes a fingerprint of the
+files I listed. When the agent tries to stop, it compares:
 
-## Checking a delivery
+1. Nothing changed. The hook does nothing.
+2. Files changed and there is a valid stamp for them. The hook does nothing.
+3. Files changed and there is no valid stamp. The hook blocks the stop and
+   names the exact `./init.sh` command to run.
 
-When a worker delivers, the parent goes through the same four steps, in
-order:
+It blocks once per task. After that it only reports that verification is
+pending. A hook that keeps blocking can loop, and Claude Code itself overrides
+a Stop hook after eight blocks in a row.
 
-1. Check that the ticket has all its delivery fields.
-2. List every changed path that's outside the allowed paths. If the list is
-   empty, run the acceptance command.
-3. Read the diff. Send back anything that goes beyond the task.
-4. Read the evidence.
+The hook never runs the checks and never grants a permission. If the agent was
+denied permission to run `./init.sh`, the hook tells it to report the blocker
+and not to retry.
 
-Then it offers to show me the diff, and it opens nothing until I say yes. The
-review verdict is mine. So are pull requests and pipelines: no agent creates
-or runs one unless I ask.
+## When an Agent Repeats a Mistake
 
-## Rules become code
+The first time an agent makes a mistake, I correct it. The second time, I look
+for the place where the environment let it happen.
 
-When an agent makes the same mistake twice, I fix it at the strongest level I
-can: structure first, then an automated check, then an instruction. A new
-check has to fail on the mistake that caused it. Once code enforces a rule, I
-delete its sentence from the rules file.
+This is Mitchell's
+[harness engineering](https://mitchellh.com/writing/my-ai-adoption-journey):
+"anytime you find an agent makes a mistake, you take the time to engineer a
+solution such that the agent never makes that mistake again." He does it in
+two ways, a better `AGENTS.md` and programmed tools. My order is structure
+first, then an automated check, and an instruction last. When a check is in
+place, I delete the sentence it replaces.
 
-This is where things stand:
+Böckeler has good words for the two kinds of fix: guides act before the agent
+does, and sensors act after. Her rule is the same: "Whenever an issue happens
+multiple times, the feedforward and feedback controls should be improved."
+
+This is what code enforces today:
 
 | Rule | Enforced by |
-| --- | --- |
-| A valid ticket before a launch | The launcher |
-| A known agent with its default model | The ticket script |
-| Only a person sets the review verdict | The task application |
-| Changed files need a passing check | The stop hook |
+| :--- | :--- |
+| A valid ticket before launch | The launcher, `spawn.lua` |
+| A known agent and its default model on each ticket | The ticket script |
+| Only I can set a review verdict | `pd` |
+| Changed files need a passing stamp | The Stop hook, once, in projects where it is on |
 | No changes outside the allowed paths | The delivery check |
+| No `git reset --hard`, `git clean` or forced push, and no reading `.env` or `~/.ssh` | Deny rules in each agent's configuration |
 
-Destructive commands are denied in each agent's configuration, not in prose:
-`git reset --hard`, `git clean`, a forced push, and any read of `.env` files
-or `~/.ssh`.
 
-One rule has no code behind it. After two failed fixes for the same problem,
-the agent stops. No third variant. It writes down what it learned, and I
-start again with a better plan.
+There is a second rule, and it is for the agent. After two failed fixes of the
+same problem, it stops. It writes down what it tried and what it learned, and
+it doesn't try a third variant. I come back with a better plan.
 
-## What it isn't
+## What It Isn't
 
-None of this is a security boundary. The stamp is a local file, and the hook
-blocks once and then lets go. It's there to catch an agent that forgot, and
-to make the proof easy for me to read.
+It isn't a security boundary. The stamp is a local file, and an agent could
+edit it. The stop hook blocks once and then only reports.
 
-The scripts are personal and I haven't published them.
+It isn't complete. The harness is something I turn on per project, and it
+stays out of the project's commits. The stop hook exists for Claude Code and
+Codex. My default worker is Pi, and for Pi I only have a prototype that asks
+for the check once.
 
-That's the setup. It works for me today, and I expect it to look different in
-a month.
+It isn't as small as I would like. My rule of thumb is that a script over 100
+lines is doing too much. The scripts around Rex are seven Python files and one
+Lua launcher, and three of them are already over that line. The stop hook and
+the stamp are two more files of about 150 lines each. I don't want this to
+become another project that I have to maintain.
+
+What it does is catch oversights and save me from second-guessing what an
+agent tells me.

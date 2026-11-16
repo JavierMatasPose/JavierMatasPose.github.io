@@ -3,176 +3,161 @@ title: How I Work with Coding Agents
 date: 2026-11-15
 ---
 
-I've built my work with coding agents around three things I care about: a
-clear head, full ownership of what I ship, and one task at a time.
+For a while I tried to read every line of code my agents produced. It didn't
+work for me. In practice, delivering more work faster just meant using that
+saved time to take on another task, and another, and another...
+So I just burned out faster.
 
-This post is the why, and the shape of the system. The scripts and the
-commands are in [My Agent Harness and Rex Setup](/writing/my-agent-harness-and-rex-setup/).
+So I had to organize and limit my own time: keep a clear head, retain full
+ownership of what I build, and focus on one task at a time.
 
-Most of these ideas aren't mine. I lean on behavioral psychology: how
-attention works, what it costs to switch tasks, and how we learn from error
-signals. The sources are in the notes at the end.
+This post is the human side of that: how much work I take on, what I keep for
+myself, and what I ask of my tools. The tools are in the next post,
+[My Agent Harness and Rex Setup](/writing/my-agent-harness-and-rex-setup/).
 
-## I talk to one agent
+Most of these ideas aren't mine. Where one came from someone else, I link to
+it. I'm also not a psychologist. This is what works for me today.
 
-I only talk to one agent. I call it the parent. If the work needs more hands,
-the parent starts workers, and they report to it, not to me.
+## A Fixed Budget
 
-Working memory is small. The usual estimate is about four things at
-once.[^cowan] Cognitive load theory starts from that limit.[^sweller] Every
-extra conversation is one more thing to hold: what I asked, what it answered,
-what's still pending. Effort I spend on that is effort I don't spend on the
-problem.
+Say that without AI I finish two complex tasks in a day. With AI I could
+probably push through ten. But is ten the right target? Each extra task adds a
+context switch and a result to verify. I don't know if that cost grows in a
+straight line or faster, and I don't know how tired I will be tomorrow.
 
-So I keep the surface small: one conversation, one voice, short answers.
+My answer is to keep the load constant, with or without AI. If two tasks
+without AI cost me 100 units of attention (a number I just made up), then 100
+units is still my budget with AI. That might be three or four tasks done well.
+When the budget is spent, I take the gain, stop, and come back the next day
+with a clear head.
 
-## I own the work
+The alternative is to fill the same hours with more tasks. Two researchers at
+Berkeley followed 200 employees of a tech company for eight months and
+[found](https://hbr.org/2026/02/ai-doesnt-reduce-work-it-intensifies-it) that
+AI didn't reduce their work. It intensified it. In their words, "the reality
+was a continual switching of attention, frequent checking of AI outputs, and a
+growing number of open tasks." Simon Willison
+[read it](https://simonwillison.net/2026/Feb/9/ai-intensifies-work/) and added
+that with two or three projects running in parallel, "after just an hour or
+two my mental energy for the day feels almost entirely depleted."
 
-I gather the information. I design the solution. Then the agents execute,
-test and report, and I iterate on what comes back.
+I also don't trust my own sense of speed. In a
+[2025 study by METR](https://metr.substack.com/p/2025-07-10-early-2025-ai-experienced-os-dev-study),
+experienced open-source developers took 19% longer with AI and still believed
+it had made them about 20% faster. METR has
+[since said](https://metr.substack.com/p/2026-02-24-uplift-update) that
+developers are likely faster with today's tools, on evidence it calls "only
+very weak". The part I keep is that how fast I feel and how fast I am are two
+different numbers.
 
-```goat
-        me                  me                agents              agents
-  .------------.      .------------.      .------------.      .------------.
-  |   Gather   +----->|   Design   +----->|  Execute   +----->|   Report   |
-  '------------'      '------------'      '------------'      '------+-----'
-         ^                                                           |
-         |                    me: read it, decide                    |
-         '-----------------------------------------------------------'
-```
+## What I Keep for Myself
 
-I don't hand over the thinking. Part of that is taste. Part of it is a trap
-that's been known for forty years. Bainbridge described it in 1983: the more
-you automate, the more the person is left to monitor, and people are bad at
-monitoring. When the automation fails, the one who has to take over has lost
-both the practice and the picture.[^bainbridge] Later work measured it:
-people kept out of the loop are slower and worse when they have to step back
-in.[^endsley] We also trust automation too much when it's usually
-right.[^parasuraman]
+I like to think, I like to design, and I like to own what I build. Agents are
+very useful for delivery. I don't treat them as a source of wisdom, and I
+don't trust their work without supervision.
 
-So the design and the verdict stay with me. An agent can show me a diff. It
-can't approve one. Pull requests and pipelines are mine too.
+So the agents get the execution. I keep the framing of the problem, the
+design, and the final review.
 
-## One task in my head, many in the background
+I could do the opposite: delegate everything and watch the output go by. I
+get no pleasure from that. I also think it would make me worse at my job.
 
-My head is on one task at a time. The agents aren't: they work in parallel.
+Anthropic ran a
+[randomized trial](https://www.anthropic.com/research/AI-assistance-coding-skills)
+with 52 mostly junior engineers who had to learn a new Python library. The
+group with an AI assistant averaged 50% on a quiz afterwards. The group that
+coded by hand averaged 67%, and the largest gap was on debugging questions. It
+is one small study with a sidebar assistant, not agents, so I hold it loosely.
+It does match what Stanislas Dehaene says about learning in general: active
+engagement is one of his four pillars.[^dehaene] If I only watch, I don't
+learn.
 
-Switching tasks isn't free. Every switch costs time, and more when the tasks
-are complex.[^rubinstein] Part of your attention also stays on the task you
-left, above all if you left it unfinished.[^leroy] And people who get
-interrupted still finish their work, but with more stress.[^mark]
+Mitchell Hashimoto
+[describes the trade](https://mitchellh.com/writing/my-ai-adoption-journey)
+well: "not forming skills for the tasks you're delegating to the agent while
+continuing to form skills naturally in the tasks you continue to work on
+manually." I choose what to delegate with that in mind.
 
-So I try not to be the one who switches. Workers can't ask me questions. They
-decide what's reversible, write the decision down and keep going. Their
-status goes to a ticket, not to my screen. I look when I choose to.
+Watching is also something people are bad at. In 1983 Lisanne Bainbridge wrote
+[Ironies of Automation](https://gwern.net/doc/sociology/technology/1983-bainbridge.pdf)
+about the operators of automated plants: "it is impossible for even a highly
+motivated human being to maintain effective visual attention towards a source
+of information on which very little happens, for more than about half an
+hour." Reading diffs is not the same as watching a control panel. Her other
+point fits better: "physical skills deteriorate when they are not used", and
+then the operator can't take over when the automation fails. A
+[2024 paper](https://arxiv.org/abs/2402.11364) makes the same argument for
+generative AI: the user moves from producing the work to evaluating it.
 
-I also try to avoid dead time. The parent splits the work so that no agent
-waits for another one, and none of them waits for me.
+Supervising has a cost of its own. A study published in HBR in March 2026 gave
+it a name,
+["AI brain fry"](https://hbr.org/2026/03/when-using-ai-leads-to-brain-fry):
+mental fatigue from using or overseeing AI tools beyond what your head can
+take.[^bcg] That is the thing I ran into.
 
-## Errors are signals
+## One Conversation, No Pings
 
-This is the part I take most directly from psychology.
+My head stays on one task. The agents work in the background.
 
-We learn from the gap between what we expected and what happened. Rescorla
-and Wagner built a model of learning on that gap in 1972.[^rw] Later, the
-activity of dopamine neurons was shown to track it.[^schultz] No surprise, no
-learning.
+I talk to one agent, the parent. It splits the work and hands it to workers.
+Every open conversation is one more thing to keep in my head: what I asked,
+what it answered, what is still pending. So I keep one.
 
-Feedback is how the gap reaches you, and not all feedback works. In one large
-review, more than a third of feedback interventions made performance worse.
-The ones that helped kept attention on the task, not on the
-person.[^kluger]
+Workers report to a ticket, not to my screen. I look at it when I choose to.
+Mitchell says the same in
+[My AI Adoption Journey](https://mitchellh.com/writing/my-ai-adoption-journey):
+"turn off agent desktop notifications. Context switching is very expensive."
+He found that it was his job "to be in control of when I interrupt the agent,
+not the other way around."
 
-I'm not claiming that a language model learns like a brain. But the same
-rules make a good harness:
+Attention is the scarce thing here. Herbert Simon wrote in 1971 that "a wealth
+of information creates a poverty of attention".[^simon] I think of mine as a
+stock that drains fast and refills slowly.
 
-- **The signal is about the task.** A check passes or fails. It doesn't say
-  "good job".
-- **It arrives where the mistake is made.** The check runs before the agent
-  can say "done", not at review time.
-- **It's honest about the gaps.** A check that doesn't exist isn't a pass.
-  "I didn't run the end-to-end tests" is part of the report.
-- **A repeated mistake gets a new check.** And that check has to fail on the
-  old mistake.
+## What the Agent Decides Alone
 
-The last signal is for me. A report that says what was not verified corrects
-my own expectations, so I know where to look.
+Workers can't ask me questions, so they need a rule for what to decide on
+their own. I use the one Jeff Bezos described in his
+[2015 letter to shareholders](https://www.sec.gov/Archives/edgar/data/1018724/000119312516530910/d168744dex991.htm):
+some decisions are one-way doors, and most are two-way doors.
 
-## The shape
+A helper function name, a refactor inside the allowed directory, an internal
+data structure: these are two-way doors. The worker decides, writes its reason
+in the ticket, and keeps going. If it was wrong, it is cheap to undo.
 
-```goat
-                            one conversation
-     Me  <------------------------------------------------>  Parent
-                                                                |
-               .-----------------------+------------------------+
-               |                       |                        |
-               v                       v                        v
-          .--------.              .--------.               .--------.
-          | Worker |              | Worker |               | Worker |
-          '----+---'              '----+---'               '----+---'
-               |                       |                        |
-               v                       v                        v
+I step in for the one-way doors: public APIs, architectural boundaries,
+database schemas, scope changes, and the final merge.
 
-          worktree A              worktree B               worktree C
-```
+## Checks Before Review
 
-- **Me and the parent.** One conversation. This is where I gather and
-  design.
-- **Parent to worker.** A ticket and a brief for each task: the goal, the
-  files the worker may write, and a command that proves the result.
-- **Worker.** Its own terminal tab and its own worktree, so two workers never
-  edit the same files.
-- **Back up.** The worker delivers with evidence. The parent verifies it.
-  I decide.
+An agent telling me "all tests pass" tells me nothing, and I don't want to
+read terminal output to find out if it is true. Before a change reaches me, I
+want something I can check without reading: an exit code and a record of the
+run.
 
-## Where an error gets caught
+When an agent makes the same mistake twice, I try to fix its environment
+before I add words to the prompt. Mitchell calls this "harness engineering":
+"anytime you find an agent makes a mistake, you take the time to engineer a
+solution such that the agent never makes that mistake again."
 
-```goat
-  .----------.     .----------.     .-----------.     .-----------.     .--------.
-  |  Change  +---->|  Checks  +---->| Stop hook +---->| Delivery  +---->| Review |
-  '----------'     '-----+----'     '-----+-----'     '-----+-----'     '--------'
-                         |                |                 |
-                       fail           no proof        out of scope
-                         |                |                 |
-                         v                v                 v
+The idea behind it is older and comes from behavior analysis: behavior is
+shaped by its consequences much more than by instructions.[^behavior] I don't
+know if that says anything about language models. As a rule for designing my
+tools, I find it useful.
 
-                   agent fixes it   agent runs the     sent back to
-                                        checks          the worker
-```
+How this works in practice is the subject of the second post.
 
-Each gate is cheaper than the next. A mistake caught by the checks costs the
-agent a retry. The same mistake caught in review costs my attention, which is
-the thing I'm trying to protect.
+## Today
 
-## What I'm not saying
+That is where I am today. The 100 units are a made-up number, and I have no
+way to measure them. The studies I link are recent, most are small, and one of
+them has already been revised by its own authors. I expect to change parts of
+this as the tools change.
 
-I'm not saying this is the right way to work with agents. It's the way that
-keeps my head clear and my name on the work. For a different take on the same
-problem, read Mitchell Hashimoto's account of how he adopted these
-tools.[^mitchell]
+[^dehaene]: Stanislas Dehaene, *How We Learn* (Viking, 2020). The four pillars are attention, active engagement, error feedback and consolidation. He goes through them in [this talk](https://www.youtube.com/watch?v=j9EImcqgnE4) for Aprendemos Juntos.
 
-## Notes
+[^bcg]: The authors are from BCG, and I work at BCG X.
 
-[^cowan]: Cowan, N. (2001). "The magical number 4 in short-term memory: A reconsideration of mental storage capacity." *Behavioral and Brain Sciences*, 24(1).
+[^simon]: Herbert A. Simon, "Designing Organizations for an Information-Rich World", in *Computers, Communications, and the Public Interest* (Johns Hopkins Press, 1971).
 
-[^sweller]: Sweller, J. (1988). "Cognitive load during problem solving: Effects on learning." *Cognitive Science*, 12(2).
-
-[^bainbridge]: Bainbridge, L. (1983). "Ironies of automation." *Automatica*, 19(6).
-
-[^endsley]: Endsley, M. R., & Kiris, E. O. (1995). "The out-of-the-loop performance problem and level of control in automation." *Human Factors*, 37(2).
-
-[^parasuraman]: Parasuraman, R., & Manzey, D. H. (2010). "Complacency and bias in human use of automation: An attentional integration." *Human Factors*, 52(3).
-
-[^rubinstein]: Rubinstein, J. S., Meyer, D. E., & Evans, J. E. (2001). "Executive control of cognitive processes in task switching." *Journal of Experimental Psychology: Human Perception and Performance*, 27(4).
-
-[^leroy]: Leroy, S. (2009). "Why is it so hard to do my work? The challenge of attention residue when switching between work tasks." *Organizational Behavior and Human Decision Processes*, 109(2).
-
-[^mark]: Mark, G., Gudith, D., & Klocke, U. (2008). "The cost of interrupted work: More speed and stress." *Proceedings of the SIGCHI Conference on Human Factors in Computing Systems (CHI '08)*.
-
-[^rw]: Rescorla, R. A., & Wagner, A. R. (1972). "A theory of Pavlovian conditioning: Variations in the effectiveness of reinforcement and nonreinforcement." In *Classical Conditioning II: Current Research and Theory*.
-
-[^schultz]: Schultz, W., Dayan, P., & Montague, P. R. (1997). "A neural substrate of prediction and reward." *Science*, 275(5306).
-
-[^kluger]: Kluger, A. N., & DeNisi, A. (1996). "The effects of feedback interventions on performance: A historical review, a meta-analysis, and a preliminary feedback intervention theory." *Psychological Bulletin*, 119(2).
-
-[^mitchell]: Hashimoto, M. (2026). ["My AI Adoption Journey."](https://mitchellh.com/writing/my-ai-adoption-journey)
+[^behavior]: I read it in Ramón Nogueras, *Por qué pollas haces eso* (Kailas, 2024), and in *Análisis funcional de la conducta humana*, coordinated by María Xesús Froxán Parga (Pirámide, 2020). Both are in Spanish. The classic source for behavior governed by rules versus behavior shaped by consequences is B. F. Skinner, *Contingencies of Reinforcement* (1969).

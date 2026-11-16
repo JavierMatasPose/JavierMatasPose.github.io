@@ -8,7 +8,8 @@ Thumbs.db
 
 # Hugo
 .hugo_build.lock
-# resources/_gen/ # Uncomment if you want to ignore generated resources (recommended for source repos)
+/public/
+/resources/
 
 # Agent & Planning Docs
 .gemini/

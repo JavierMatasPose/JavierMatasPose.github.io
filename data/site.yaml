@@ -1,0 +1,66 @@
+# Edit text here. Keep indentation; quote colours and addresses containing #.
+name: Javier Matas Pose
+description: Javier Matas Pose is an AI engineer living in Madrid, Spain. He builds agents and takes them to production.
+# Sanzo Wada combination 214: Ivory Buff, Violet, Sudan Brown.
+colors:
+  ground: '#ebd3a2'
+  ink: '#4f4086'
+  accent: '#a36752'
+skip_label: Skip to content
+# Add/delete an entry, or move its whole label/url pair to change the order.
+# Use root-relative addresses for pages on this site.
+navigation:
+  - label: About
+    url: /
+  - label: Writing
+    url: /writing/
+  - label: Misc
+    url: /misc/
+about:
+  # Each item has Markdown text and an optional title. Blank lines separate paragraphs.
+  # Add/delete/move a whole item to add/delete/move a section. Example:
+  # - title: A heading in the margin
+  #   text: |
+  #     A paragraph with a [link](/writing/).
+  sections:
+    - text: |
+        I'm a Telecommunications engineer living in Madrid. I'm currently
+        working as forward deployed AI engineer at [BCG X](https://www.bcg.com/x).
+
+        I build systems (sometimes agentic) and the tools around them.
+
+        I've loved AI since university, especially DRL and
+        generative models. For my Master's thesis, I built a trading agent that
+        learns from its own mistakes. It traded live through brokerage APIs.
+
+        Outside work I code, paint and train BJJ (btw I'm a blue belt
+        at Lotus).
+
+        I use agents for the repetitive work. The ideas and the problem solving
+        I keep for myself.
+
+writing:
+  title: Writing
+misc:
+  title: Miscellany
+  # Move a whole label/url pair to reorder links. Copy or delete a pair to add/remove one.
+  links:
+    - label: My Talk on AI in Financial Markets
+      url: https://www.youtube.com/watch?v=5EibcbIFkjs&t=7829s
+    - label: Play Tic-Tac-Toe Against My DQN Agent
+      url: https://dqntictactoe.onrender.com/
+    - label: nvim-pose (My Neovim Plugin)
+      url: https://github.com/JavierMatasPose/nvim-pose
+    - label: DRL Trading Benchmark
+      url: https://github.com/JavierMatasPose/DRL-Trading-Benchmark
+    - label: My Resume (PDF)
+      url: /resume.pdf
+footer:
+  # The same label/url list format works here; order is the display order.
+  links:
+    - label: Email
+      url: mailto:javiermatasjr@gmail.com
+    - label: GitHub
+      url: https://github.com/JavierMatasPose
+    - label: LinkedIn
+      url: https://www.linkedin.com/in/javier-cayetano-matas-pose-18b0a520a/

@@ -1,42 +1,26 @@
-# Javier Matas Pose - AI Engineering Portfolio
+# Javier Matas Pose
 
-[![Live Site](https://img.shields.io/badge/Live-Site-ff0055?style=for-the-badge)](https://javiermataspose.github.io/)
+A small personal site built with Hugo 0.164.0, without a theme, Node or a CSS/JavaScript framework. The layout is Margen (design B), with Sanzo Wada palette 214.
 
-**Medior AI Engineer | Specialized in Generative AI & LLMs**
+## Edit the site
 
-This repository contains the source code for my personal portfolio, built with **Hugo** and designed with a custom **"Vintage Synthwave"** aesthetic.
+Edit `data/site.yaml` for the name, search description, colours, navigation, About sections, Writing and Misc titles, and footer links. Section text is Markdown; a section title is optional. Keep YAML indentation. Add, delete or move whole list items to change sections or links. Comments in the file give examples.
 
-## 🚀 Tech Stack
+## Add a post
 
-*   **Framework:** [Hugo](https://gohugo.io/) (v0.142.0+)
-*   **Theme:** [Blowfish](https://blowfish.page/) (Heavily modified)
-*   **Styling:** Custom CSS3 (Flexbox/Grid, CSS Variables, No-JS interactivity)
-*   **Deployment:** GitHub Actions -> GitHub Pages
+Create `content/writing/my-post.md`. Its filename sets `/writing/my-post/`. Use YAML front matter, then Markdown:
 
-## 📂 Project Structure
-
-*   `content/`: Markdown/HTML files for pages (`About`, `Projects`).
-*   `assets/css/custom.css`: The core design system and theme overrides.
-*   `static/`: Assets like images and the PDF Resume.
-
-## 🛠️ Local Development
-
-1.  **Clone the repo:**
-    ```bash
-    git clone --recurse-submodules https://github.com/JavierMatasPose/JavierMatasPose.github.io.git
-    ```
-2.  **Run the server:**
-    ```bash
-    hugo server -D
-    ```
-3.  **Visit:** `http://localhost:1313`
-
-## 🎨 Design System
-
-The site features a bold, high-contrast design inspired by 80s posters and magazines.
-*   **Palette:** Deep Red (`#c9303e`), Cream (`#fff59e`), Ink Black (`#1a1a1a`).
-*   **Typography:** `Bungee` (Display) & `Roboto Slab` (Body).
-*   **Features:** CSS-only accordion cards and interactive grids.
-
+```markdown
 ---
-*© 2026 Javier Matas Pose*
+title: My Post
+date: 2026-11-15
+---
+
+The post text goes here.
+```
+
+Writing lists posts newest first (equal dates use reverse title order).
+
+## Preview
+
+Install Hugo 0.164.0, then run `hugo server` from the repository root. Open the address it prints. `hugo --minify` builds `public/`; the existing GitHub Pages workflow builds and deploys on pushes to `main`.
